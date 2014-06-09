@@ -1,5 +1,5 @@
 Name:		pycharm-community
-Version:	3.1.3
+Version:	3.4
 Release:	1%{?dist}
 Summary:	PyCharm 3
 Group:      Applications/Development
@@ -62,6 +62,9 @@ desktop-file-install                          \
 
 
 %changelog
+* Mon Jun 09 2014 Petr Hracek <phracek@redhat.com> - 3.4-1
+- New upstream version
+
 * Wed May 14 2014 Petr Hracek <phracek@redhat.com> - 3.1.3-1
 - Initial package
 
