@@ -1,3 +1,4 @@
+%global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 Name:		pycharm-community
 Version:	3.4
 Release:	1%{?dist}
@@ -9,7 +10,7 @@ Source0:    http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:    pycharm.xml
 Source2:    pycharm.desktop
 Source3:    pycharm.sh
-BuildRequires: desktop-file-utils
+BuildRequires: desktop-file-utils python3-devel python2-devel
 Requires: java
 
 %description
@@ -22,7 +23,7 @@ for productive Python development on all levels
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
 mkdir -p %{buildroot}%{_javadir}/%{name}/{bin,lib,help,plugins}
-#mkdir -p %{buildroot}%{_javadir}/%{name}/helpers
+mkdir -p %{buildroot}%{_javadir}/%{name}/helpers
 mkdir -p %{buildroot}%{_datadir}/%{name}
 mkdir -p %{buildroot}%{_datadir}/pixmaps
 mkdir -p %{buildroot}%{_datadir}/mime/packages
@@ -31,7 +32,7 @@ mkdir -p %{buildroot}%{_bindir}
 
 cp -af ./lib/* %{buildroot}%{_javadir}/%{name}/lib
 cp -af ./help/* %{buildroot}%{_javadir}/%{name}/help
-#cp -af ./helpers/* %{buildroot}%{_javadir}/%{name}/helpers
+cp -af ./helpers/* %{buildroot}%{_javadir}/%{name}/helpers
 cp -af ./plugins/* %{buildroot}%{_javadir}/%{name}/plugins
 cp -af ./bin/* %{buildroot}%{_javadir}/%{name}/bin
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
@@ -55,7 +56,7 @@ desktop-file-install                          \
 %dir %{_javadir}/%{name}/lib
 %dir %{_javadir}/%{name}/help
 %dir %{_javadir}/%{name}/plugins
-#%dir %{_javadir}/%{name}/helpers
+%dir %{_javadir}/%{name}/helpers
 %{_javadir}/%{name}/*
 %{_bindir}/pycharm
 %dir %{_datadir}/%{name}
