@@ -12,7 +12,7 @@ URL:		http://www.jetbrains.com/pycharm/
 Source0:    http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:    pycharm.xml
 Source2:    pycharm.desktop
-Source3:    pycharm.sh
+#Source3:    pycharm.sh
 BuildRequires: desktop-file-utils python3-devel python2-devel
 Requires: java
 
@@ -41,7 +41,8 @@ cp -af ./bin/* %{buildroot}%{_javadir}/%{name}/bin
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 cp -af %{SOURCE1} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 cp -af %{SOURCE2} %{buildroot}%{_datadir}/pycharm.desktop
-cp -af %{SOURCE3} %{buildroot}%{_bindir}/pycharm
+#cp -af %{SOURCE3} %{buildroot}%{_bindir}/pycharm
+ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
 desktop-file-install                          \
 --add-category="Development"                       \
 --delete-original                             \
