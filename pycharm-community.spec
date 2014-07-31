@@ -1,7 +1,11 @@
 # dont strip bundled binaries because pycharm checks length (!!!) of binary fsnotif
 # and if you strip debug stuff from it, it will complain
 %define __strip /bin/true
+# dont repack jars
+%define __jar_repack %{nil}
+# there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
+
 Name:		pycharm-community
 Version:	3.4
 Release:	1%{?dist}
