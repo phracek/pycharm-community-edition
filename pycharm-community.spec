@@ -1,6 +1,13 @@
+# dont strip bundled binaries because pycharm checks length (!!!) of binary fsnotif
+# and if you strip debug stuff from it, it will complain
+%define __strip /bin/true
+# dont repack jars
+%define __jar_repack %{nil}
+# there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
+
 Name:		pycharm-community
-Version:	3.4
+Version:	3.4.1
 Release:	1%{?dist}
 Summary:	PyCharm 3
 Group:      Applications/Development
@@ -9,7 +16,7 @@ URL:		http://www.jetbrains.com/pycharm/
 Source0:    http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:    pycharm.xml
 Source2:    pycharm.desktop
-Source3:    pycharm.sh
+#Source3:    pycharm.sh
 BuildRequires: desktop-file-utils python3-devel python2-devel
 Requires: java
 
@@ -22,25 +29,22 @@ for productive Python development on all levels
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
-mkdir -p %{buildroot}%{_javadir}/%{name}/{bin,lib,help,plugins}
-mkdir -p %{buildroot}%{_javadir}/%{name}/helpers
 mkdir -p %{buildroot}%{_datadir}/%{name}
 mkdir -p %{buildroot}%{_datadir}/pixmaps
 mkdir -p %{buildroot}%{_datadir}/mime/packages
 mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_bindir}
 
-cp -af ./lib/* %{buildroot}%{_javadir}/%{name}/lib
-cp -af ./help/* %{buildroot}%{_javadir}/%{name}/help
-cp -af ./helpers/* %{buildroot}%{_javadir}/%{name}/helpers
-cp -af ./plugins/* %{buildroot}%{_javadir}/%{name}/plugins
-cp -af ./bin/* %{buildroot}%{_javadir}/%{name}/bin
+cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
+# this will be in docs
+rm -f %{buildroot}%{_javadir}/help/*.pdf
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 cp -af %{SOURCE1} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 cp -af %{SOURCE2} %{buildroot}%{_datadir}/pycharm.desktop
-cp -af %{SOURCE3} %{buildroot}%{_bindir}/pycharm
+#cp -af %{SOURCE3} %{buildroot}%{_bindir}/pycharm
+ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
 desktop-file-install                          \
---add-category="Development"                       \
+--add-category="Development"                  \
 --delete-original                             \
 --dir=%{buildroot}%{_datadir}/applications    \
 %{buildroot}%{_datadir}/pycharm.desktop
@@ -48,21 +52,21 @@ desktop-file-install                          \
 %files
 %defattr(-,root,root)
 %doc *.txt 
+%doc license/
+%doc help/*.pdf
+%dir %{_datadir}/%{name}
 %{_datadir}/applications/pycharm.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/%{name}.png
-%dir %{_javadir}/%{name}
-%dir %{_javadir}/%{name}/bin
-%dir %{_javadir}/%{name}/lib
-%dir %{_javadir}/%{name}/help
-%dir %{_javadir}/%{name}/plugins
-%dir %{_javadir}/%{name}/helpers
 %{_javadir}/%{name}/*
 %{_bindir}/pycharm
-%dir %{_datadir}/%{name}
 
 
 %changelog
+* Thu Jul 31 2014 Tomas Tomecek <ttomecek@redhat.com> - 3.4.1-2
+- new upstream version 3.4.1
+- sanitize specfile
+
 * Mon Jun 09 2014 Petr Hracek <phracek@redhat.com> - 3.4-1
 - New upstream version
 
