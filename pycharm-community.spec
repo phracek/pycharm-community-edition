@@ -1,3 +1,6 @@
+# dont strip bundled binaries because pycharm checks length (!!!) of binary fsnotif
+# and if you strip debug stuff from it, it will complain
+%define __strip /bin/true
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 Name:		pycharm-community
 Version:	3.4
