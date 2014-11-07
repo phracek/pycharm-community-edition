@@ -8,7 +8,7 @@
 
 Name:		pycharm-community
 Version:	3.4.1
-Release:	1%{?dist}
+Release:	3%{?dist}
 Summary:	PyCharm 3
 Group:      Applications/Development
 License:    Apache2
@@ -37,7 +37,7 @@ mkdir -p %{buildroot}%{_bindir}
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # this will be in docs
 rm -f %{buildroot}%{_javadir}/help/*.pdf
-cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
 cp -af %{SOURCE1} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 cp -af %{SOURCE2} %{buildroot}%{_datadir}/pycharm.desktop
 ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
@@ -55,17 +55,20 @@ desktop-file-install                          \
 %dir %{_datadir}/%{name}
 %{_datadir}/applications/pycharm.desktop
 %{_datadir}/mime/packages/%{name}.xml
-%{_datadir}/pixmaps/%{name}.png
+%{_datadir}/pixmaps/pycharm.png
 %{_javadir}/%{name}/*
 %{_bindir}/pycharm
 
 
 %changelog
+* Fri Nov 07 2014 Tomas Hozza <thozza@redhat.com> - 3.4.1-3
+- Install the icon with name used in .desktop file
+
 * Thu Jul 31 2014 Tomas Tomecek <ttomecek@redhat.com> - 3.4.1-2
 - new upstream version 3.4.1
 - sanitize specfile
 
-* Mon Jun 09 2014 Petr Hracek <phracek@redhat.com> - 3.4-1
+* Mon Jun 09 2014 Petr Hracek <phracek@redhat.com> - 3.4.1-1
 - New upstream version
 
 * Wed May 14 2014 Petr Hracek <phracek@redhat.com> - 3.1.3-1
