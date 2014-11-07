@@ -9,7 +9,7 @@
 Name:		pycharm-community
 Version:	3.4.1
 Release:	3%{?dist}
-Summary:	PyCharm 3
+Summary:	Intelligent Python IDE
 Group:      Applications/Development
 License:    Apache2
 URL:		http://www.jetbrains.com/pycharm/
