@@ -7,8 +7,8 @@
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 Name:		pycharm-community
-Version:	3.4.1
-Release:	3%{?dist}
+Version:	4.0
+Release:	1%{?dist}
 Summary:	Intelligent Python IDE
 Group:      Applications/Development
 License:    Apache2
@@ -61,6 +61,9 @@ desktop-file-install                          \
 
 
 %changelog
+* Fri Nov 21 2014 Petr Hracek <phracek@redhat.com> - 4.0-1
+- new upstream version 4.0
+
 * Fri Nov 07 2014 Tomas Hozza <thozza@redhat.com> - 3.4.1-3
 - Install the icon with name used in .desktop file
 
