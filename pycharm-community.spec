@@ -7,7 +7,7 @@
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 Name:		pycharm-community
-Version:	4.0.1
+Version:	4.0.2
 Release:	1%{?dist}
 Summary:	Intelligent Python IDE
 Group:      Applications/Development
@@ -61,6 +61,9 @@ desktop-file-install                          \
 
 
 %changelog
+* Tue Dec 16 2014 Petr Hracek <phracek@redhat.com> - 4.0.2-1
+- update to the latest version 4.0.2
+
 * Mon Dec 01 2014 Petr Hracek <phracek@redhat.com> - 4.0.1-1
 - update to the latest version 4.0.1
 
