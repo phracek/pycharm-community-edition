@@ -1,23 +1,23 @@
-# dont strip bundled binaries because pycharm checks length (!!!) of binary fsnotif
+# don't strip bundled binaries because pycharm checks length (!!!) of binary fsnotif
 # and if you strip debug stuff from it, it will complain
-%define __strip /bin/true
+%global __strip /bin/true
 # dont repack jars
-%define __jar_repack %{nil}
+%global __jar_repack %{nil}
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
-Name:		pycharm-community
-Version:	4.0.2
-Release:	1%{?dist}
-Summary:	Intelligent Python IDE
-Group:      Applications/Development
-License:    Apache2
-URL:		http://www.jetbrains.com/pycharm/
-Source0:    http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-Source1:    pycharm.xml
-Source2:    pycharm.desktop
+Name:          pycharm-community
+Version:       4.0.5
+Release:       1%{?dist}
+Summary:       Intelligent Python IDE
+Group:         Development/Tools
+License:       ASL 2.0
+URL:           http://www.jetbrains.com/pycharm/
+Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
+Source1:       pycharm.xml
+Source2:       pycharm.desktop
 BuildRequires: desktop-file-utils python3-devel python2-devel
-Requires: java
+Requires:      java
 
 %description
 The intelligent Python IDE with unique code assistance and analysis,
@@ -61,6 +61,9 @@ desktop-file-install                          \
 
 
 %changelog
+* Fri Mar 13 2015 Jiri Popelka <jpopelka@redhat.com> - 4.0.5-1
+- 4.0.5
+
 * Tue Dec 16 2014 Petr Hracek <phracek@redhat.com> - 4.0.2-1
 - update to the latest version 4.0.2
 
