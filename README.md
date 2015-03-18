@@ -1,7 +1,8 @@
 pycharm-community-edition
 =========================
 
-PyCham Community Edition IDE editor for developping not only python applications
-The GIT contains neccessary files for Fedora 20.
+PyCharm Community Edition IDE editor for developing not only python applications.
 
-You need only to download sources from www.jetbrains.com/pycharm
+This GIT repository contains files necessary for building RPMs for Fedora/RHEL.
+
+You only need to download sources from www.jetbrains.com/pycharm
