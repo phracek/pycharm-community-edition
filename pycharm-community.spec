@@ -6,9 +6,15 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
+%if 0%{?rhel} <= 7
+%bcond_with python3
+%else
+%bcond_without python3
+%endif
+
 Name:          pycharm-community
 Version:       4.0.5
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -16,7 +22,12 @@ URL:           http://www.jetbrains.com/pycharm/
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       pycharm.xml
 Source2:       pycharm.desktop
-BuildRequires: desktop-file-utils python3-devel python2-devel
+Source3:       pycharm-community.appdata.xml
+BuildRequires: desktop-file-utils
+BuildRequires: python2-devel
+%if %{with python3}
+BuildRequires: python3-devel
+%endif
 Requires:      java
 
 %description
@@ -32,6 +43,7 @@ mkdir -p %{buildroot}%{_datadir}/%{name}
 mkdir -p %{buildroot}%{_datadir}/pixmaps
 mkdir -p %{buildroot}%{_datadir}/mime/packages
 mkdir -p %{buildroot}%{_datadir}/applications
+mkdir -p %{buildroot}%{_datadir}/appdata
 mkdir -p %{buildroot}%{_bindir}
 
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
@@ -40,6 +52,7 @@ rm -f %{buildroot}%{_javadir}/help/*.pdf
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
 cp -af %{SOURCE1} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 cp -af %{SOURCE2} %{buildroot}%{_datadir}/pycharm.desktop
+cp -a %{SOURCE3} %{buildroot}%{_datadir}/appdata
 ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
 desktop-file-install                          \
 --add-category="Development"                  \
@@ -56,13 +69,26 @@ desktop-file-install                          \
 %{_datadir}/applications/pycharm.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
+%{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}/*
 %{_bindir}/pycharm
 
 
 %changelog
+* Wed Mar 25 2015 Petr Hracek <phracek@redhat.com> - 4.0.5-2
+- Add metadata for Gnome Software Center
+
 * Fri Mar 13 2015 Jiri Popelka <jpopelka@redhat.com> - 4.0.5-1
-- 4.0.5
+- update to the latest version 4.0.5
+
+* Wed Feb 25 2015 Petr Hracek <phracek@redhat.com> - 4.0.4-2
+- supports EPEL 7
+
+* Tue Jan 20 2015 Petr Hracek <phracek@redhat.com> - 4.0.4-1
+- update to the latest version 4.0.4
+
+* Wed Dec 17 2014 Petr Hracek <phracek@redhat.com> - 4.0.3-1
+- update to the latest version 4.0.3
 
 * Tue Dec 16 2014 Petr Hracek <phracek@redhat.com> - 4.0.2-1
 - update to the latest version 4.0.2
