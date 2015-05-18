@@ -13,8 +13,8 @@
 %endif
 
 Name:          pycharm-community
-Version:       4.0.5
-Release:       2%{?dist}
+Version:       4.0.6
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -75,6 +75,9 @@ desktop-file-install                          \
 
 
 %changelog
+* Thu Apr 16 2015 Petr Hracek <phracek@redhat.com> - 4.0.6-1
+- update to the latest version 4.0.6
+
 * Wed Mar 25 2015 Petr Hracek <phracek@redhat.com> - 4.0.5-2
 - Add metadata for Gnome Software Center
 
