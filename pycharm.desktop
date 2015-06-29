@@ -7,3 +7,4 @@ Icon=pycharm
 Type=Application
 Categories=Development;
 X-Desktop-File-Install-Version=0.21
+StartupWMClass=jetbrains-pycharm-ce
