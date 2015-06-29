@@ -13,7 +13,7 @@
 %endif
 
 Name:          pycharm-community
-Version:       4.5.1
+Version:       4.5.2
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
@@ -75,6 +75,9 @@ desktop-file-install                          \
 
 
 %changelog
+* Mon Jun 29 2015 Allan Lewis <allanlewis@users.noreply.github.com> - 4.5.2-1
+- update to the latest version 4.5.2
+
 * Mon May 25 2015 Petr Hracek <phracek@redhat.com> - 4.5.1-1
 - update to the latest version 4.5.1
 
