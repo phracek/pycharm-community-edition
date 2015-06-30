@@ -14,7 +14,7 @@
 
 Name:          pycharm-community
 Version:       4.5.2
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -75,6 +75,9 @@ desktop-file-install                          \
 
 
 %changelog
+* Tue Jun 30 2015 Petr Hracek <phracek@redhat.com> - 4.5.2-2
+- pycharm.desktop fix done by Allan Lewis
+
 * Mon Jun 29 2015 Allan Lewis <allanlewis@users.noreply.github.com> - 4.5.2-1
 - update to the latest version 4.5.2
 
