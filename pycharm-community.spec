@@ -14,7 +14,7 @@
 
 Name:          pycharm-community
 Version:       5.0
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -74,6 +74,9 @@ desktop-file-install                          \
 %{_bindir}/pycharm
 
 %changelog
+* Thu Nov 05 2015 Petr Hracek <phracek@redhat.com> - 5.0-2
+- Rebuild for Fedora 23
+
 * Tue Nov 03 2015 Petr Hracek <phracek@redhat.com> - 5.0-1
 - update to the latest version 5.0
 
