@@ -62,7 +62,7 @@ desktop-file-install                          \
 
 %files
 %defattr(-,root,root)
-%doc *.txt 
+%doc *.txt
 %doc license/
 %doc help/*.pdf
 %dir %{_datadir}/%{name}
@@ -140,5 +140,3 @@ desktop-file-install                          \
 
 * Wed May 14 2014 Petr Hracek <phracek@redhat.com> - 3.1.3-1
 - Initial package
-
-
