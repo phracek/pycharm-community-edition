@@ -23,6 +23,7 @@ Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       pycharm.xml
 Source2:       pycharm.desktop
 Source3:       pycharm-community.appdata.xml
+Patch1:        pycharm-community-MaxPermSize.patch
 BuildRequires: desktop-file-utils
 BuildRequires: python2-devel
 %if %{with python3}
@@ -36,6 +37,7 @@ for productive Python development on all levels
 
 %prep
 %setup -q -n %{name}-%{version}
+%patch1 -p1
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
