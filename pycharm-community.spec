@@ -49,6 +49,7 @@ mkdir -p %{buildroot}%{_datadir}/appdata
 mkdir -p %{buildroot}%{_bindir}
 
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
+rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
 rm -f %{buildroot}%{_javadir}/help/*.pdf
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
