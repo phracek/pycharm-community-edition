@@ -13,7 +13,7 @@
 %endif
 
 Name:          pycharm-community
-Version:       5.0.3
+Version:       5.0.4
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
@@ -77,6 +77,9 @@ desktop-file-install                          \
 %{_bindir}/pycharm
 
 %changelog
+* Fri Jan 29 2016 Petr Hracek <phracek@redhat.com> - 5.0.4-1
+- Update to the latest version, 5.0.4
+
 * Mon Jan 04 2016 Petr Hracek <phracek@redhat.com> - 5.0.3-1
 - update to the latest version, 5.0.3
 
