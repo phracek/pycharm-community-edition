@@ -12,6 +12,7 @@
 %bcond_without python3
 %endif
 
+%global plugins_dir plugins
 %global bash_version 1.5.5.145
 %global go_lang_version 0.10.1296
 %global markdown_version 0.9.7
@@ -19,10 +20,13 @@
 %global markdown_support 2016.1.20160405.143
 %global ansible_version 0.9.3
 %global git_lab_integration_version 1.0.6
+%global docker_integration 2.2.0
+%global idea_multimarkdown_version 1.5.0
+%global ideavim_version 0.44-297
 
 Name:          pycharm-community
 Version:       2016.1.2
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -35,6 +39,9 @@ Source4:       idea-markdown-%{markdown_version}.zip
 Source5:       markdown-%{markdown_support}.zip
 Source6:       intellij-ansible-%{ansible_version}.zip
 Source7:       gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source8:       Docker-plugin-%{docker_integration}.jar
+Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
+Source10:      ideavim-%{ideavim_version}.zip
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
@@ -71,6 +78,8 @@ Intellij Ansible, GitLab integration plugin.
 %setup -q -n %{name}-%{version} -D -T -a 5
 %setup -q -n %{name}-%{version} -D -T -a 6
 %setup -q -n %{name}-%{version} -D -T -a 7
+%setup -q -n %{name}-%{version} -D -T -a 9
+%setup -q -n %{name}-%{version} -D -T -a 10
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -83,9 +92,16 @@ mkdir -p %{buildroot}%{_bindir}
 
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
-cp -arf ./{BashSupport,CppTools} %{buildroot}%{_javadir}/%{name}/plugins/
-cp -arf ./{idea-markdown,intellij-ansible,markdown} %{buildroot}%{_javadir}/%{name}/plugins/
-cp -arf ./{gitlab-integration-plugin,Go} %{buildroot}%{_javadir}/%{name}/plugins/
+cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./CppTools %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./Go %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./idea-markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./gitlab-integration-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -af %{SOURCE8} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -117,14 +133,31 @@ desktop-file-install                          \
 
 %files plugins
 %defattr(-,root,root)
-%dir %{_javadir}/%{name}/plugins/{BashSupport,CppTools}
-%{_javadir}/%{name}/plugins/{BashSupport,CppTools}/*
-%dir %{_javadir}/%{name}/plugins/{idea-markdown,intellij-ansible,markdown}
-%{_javadir}/%{name}/plugins/{idea-markdown,intellij-ansible,markdown}/*
-%dir %{_javadir}/%{name}/plugins/{gitlab-integration-plugin,Go}
-%{_javadir}/%{name}/plugins/{gitlab-integration-plugin,Go}/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/BashSupport
+%{_javadir}/%{name}/%{plugins_dir}/BashSupport/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/CppTools
+%{_javadir}/%{name}/%{plugins_dir}/CppTools/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/idea-markdown
+%{_javadir}/%{name}/%{plugins_dir}/idea-markdown/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
+%{_javadir}/%{name}/%{plugins_dir}/intellij-ansible/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/markdown
+%{_javadir}/%{name}/%{plugins_dir}/markdown/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
+%{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/Go
+%{_javadir}/%{name}/%{plugins_dir}/Go/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
+%{_javadir}/%{name}/%{plugins_dir}/IdeaVim/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
+%{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown/*
+%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 %changelog
+* Fri May 06 2016 Petr Hracek <phracek@redhat.com> - 2016.1.2-3
+- SpecFile rewrite and add support for Docker Integration
+- plugin Multimarkdown
+
 * Thu May 05 2016 Petr Hracek <phracek@redhat.com> - 2016.1.2-2
 - Add package pycharm-community-plugins which contains
   BashSupport, CppTools, markdown, Go, gitlab-integration
