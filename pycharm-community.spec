@@ -25,8 +25,8 @@
 %global ideavim_version 0.44-297
 
 Name:          pycharm-community
-Version:       2016.1.2
-Release:       3%{?dist}
+Version:       2016.1.3
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -154,6 +154,9 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 %changelog
+* Thu May 12 2016 Petr Hracek <phracek@redhat.com> - 2016.1.3-1
+- Update to the latest version 2016.1.3
+
 * Fri May 06 2016 Petr Hracek <phracek@redhat.com> - 2016.1.2-3
 - SpecFile rewrite and add support for Docker Integration
 - plugin Multimarkdown
