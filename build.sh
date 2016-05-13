@@ -6,6 +6,15 @@ if [ -d $RESULT_DIR ]; then
 fi
 mkdir $RESULT_DIR
 
+function download_file {
+    echo "Downloading $1 from URL $2"
+    if [ ! -f $1 ]; then
+        wget --user-agent="Mozilla/5.0" $2 -O $1
+    else
+        echo "File $1 already exists."
+    fi
+
+}
 # check if the source is downloaded
 SOURCE_LINK=$(rpmspec -P pycharm-community.spec | grep Source0 | sed -E "s/Source0:[[:space:]]*(.*)/\1/g")
 SOURCE_FILE=$(echo $SOURCE_LINK | sed -E "s/.*\/(.*)/\1/g")
@@ -14,6 +23,13 @@ if [ ! -f $SOURCE_FILE ]; then
     echo
     wget --user-agent="Mozilla/5.0" $SOURCE_LINK
 fi
+
+for i in {1..10}; do
+    FILE_NAME=$(rpmspec -P pycharm-community.spec | grep Source$i: | sed -E "s/Source$i:[[:space:]]*(.*)/\1/g")
+    URL=$(grep "Source$i" pycharm-community.spec | sed -E "s/#Source$i[[:space:]]*(.*)/\1/g")
+    echo "$URL"
+    download_file $FILE_NAME $URL
+done
 
 echo "Building SRPM..."
 SRPM=$(rpmbuild -bs pycharm-community.spec --define "_sourcedir `pwd`" --define "_srcrpmdir $RESULT_DIR" | sed -E "s/Wrote: (.*)/\1/g")

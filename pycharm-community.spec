@@ -24,6 +24,8 @@
 %global idea_multimarkdown_version 1.5.0
 %global ideavim_version 0.44-297
 
+
+
 Name:          pycharm-community
 Version:       2016.1.3
 Release:       1%{?dist}
@@ -32,15 +34,25 @@ Group:         Development/Tools
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
+#Source1 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=24431
 Source1:       BashSupport-%{bash_version}.zip
+#Source2 https://plugins.jetbrains.com/plugin/download?pr=&updateId=19624
 Source2:       CppTools-%{cpp_tools_version}.zip
+#Source3 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25367
 Source3:       Go-%{go_lang_version}.zip
+#Source4 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=17320
 Source4:       idea-markdown-%{markdown_version}.zip
+#Source5 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25798
 Source5:       markdown-%{markdown_support}.zip
+#Source6 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25063
 Source6:       intellij-ansible-%{ansible_version}.zip
+#Source7 https://plugins.jetbrains.com/plugin/download?pr=&updateId=17542
 Source7:       gitlab-integration-plugin-%{git_lab_integration_version}.zip
+#Source8 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25297
 Source8:       Docker-plugin-%{docker_integration}.jar
+#Source9 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25621
 Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
+#Source10 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=22030
 Source10:      ideavim-%{ideavim_version}.zip
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
