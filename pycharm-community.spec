@@ -13,22 +13,22 @@
 %endif
 
 %global plugins_dir plugins
-%global bash_version 1.5.5.145
+%global bash_version 1.5.6.145
 %global go_lang_version 0.10.1296
 %global markdown_version 0.9.7
 %global cpp_tools_version 0.8.8
 %global markdown_support 2016.1.20160405.143
 %global ansible_version 0.9.3
 %global git_lab_integration_version 1.0.6
-%global docker_integration 2.2.0
-%global idea_multimarkdown_version 1.5.0
+%global docker_integration 2.2.1
+%global idea_multimarkdown_version 1.6.1
 %global ideavim_version 0.44-297
 
 
 
 Name:          pycharm-community
 Version:       2016.1.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -166,6 +166,9 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 %changelog
+* Fri May 20 2016 Petr Hracek <phracek@redhat.com> - 2016.1.3-2
+- Update plugins Bash, Docker, MultiMarkdown
+
 * Thu May 12 2016 Petr Hracek <phracek@redhat.com> - 2016.1.3-1
 - Update to the latest version 2016.1.3
 
