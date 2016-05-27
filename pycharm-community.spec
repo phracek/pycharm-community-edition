@@ -17,7 +17,7 @@
 %global go_lang_version 0.10.1296
 %global markdown_version 0.9.7
 %global cpp_tools_version 0.8.8
-%global markdown_support 2016.1.20160405.143
+%global markdown_support 2016.1.20160513
 %global ansible_version 0.9.3
 %global git_lab_integration_version 1.0.6
 %global docker_integration 2.2.1
@@ -27,8 +27,8 @@
 
 
 Name:          pycharm-community
-Version:       2016.1.3
-Release:       2%{?dist}
+Version:       2016.1.4
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -40,9 +40,9 @@ Source1:       BashSupport-%{bash_version}.zip
 Source2:       CppTools-%{cpp_tools_version}.zip
 #Source3 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25367
 Source3:       Go-%{go_lang_version}.zip
-#Source4 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=17320
+#Source4 https://github.com/nicoulaj/idea-markdown/archive/0.9.7.zip
 Source4:       idea-markdown-%{markdown_version}.zip
-#Source5 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25798
+#Source5 https://plugins.jetbrains.com/plugin/download?pr=phpStorm&updateId=25883
 Source5:       markdown-%{markdown_support}.zip
 #Source6 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25063
 Source6:       intellij-ansible-%{ansible_version}.zip
@@ -102,6 +102,7 @@ mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_datadir}/appdata
 mkdir -p %{buildroot}%{_bindir}
 
+mv idea-markdown-%{markdown_version} idea-markdown
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -166,6 +167,9 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 %changelog
+* Fri May 27 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-1
+- Update to the latest version 2016.1.4
+
 * Fri May 20 2016 Petr Hracek <phracek@redhat.com> - 2016.1.3-2
 - Update plugins Bash, Docker, MultiMarkdown
 
