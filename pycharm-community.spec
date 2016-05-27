@@ -28,7 +28,7 @@
 
 Name:          pycharm-community
 Version:       2016.1.4
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -141,6 +141,7 @@ desktop-file-install                          \
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}/*
+%exclude %{_javadir}/%{name}/%{plugins_dir}/*
 %{_bindir}/pycharm
 
 
@@ -167,6 +168,9 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 %changelog
+* Fri May 27 2016 Tomas Hozza <thozza@redhat.com> - 2016.1.4-2
+- Don't distribute plugins in the base package
+
 * Fri May 27 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-1
 - Update to the latest version 2016.1.4
 
