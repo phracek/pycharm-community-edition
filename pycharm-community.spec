@@ -13,11 +13,11 @@
 %endif
 
 %global plugins_dir plugins
-%global bash_version 1.5.6.145
-%global go_lang_version 0.10.1296
+%global bash_version 1.5.8.145
+%global go_lang_version 0.11.1295
 %global markdown_version 0.9.7
 %global cpp_tools_version 0.8.8
-%global markdown_support 2016.1.20160513
+%global markdown_support 2016.1.20160405
 %global ansible_version 0.9.3
 %global git_lab_integration_version 1.0.6
 %global docker_integration 2.2.1
@@ -28,21 +28,21 @@
 
 Name:          pycharm-community
 Version:       2016.1.4
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-#Source1 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=24431
+#Source1 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=26120
 Source1:       BashSupport-%{bash_version}.zip
 #Source2 https://plugins.jetbrains.com/plugin/download?pr=&updateId=19624
 Source2:       CppTools-%{cpp_tools_version}.zip
-#Source3 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25367
+#Source3 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25366
 Source3:       Go-%{go_lang_version}.zip
 #Source4 https://github.com/nicoulaj/idea-markdown/archive/0.9.7.zip
 Source4:       idea-markdown-%{markdown_version}.zip
-#Source5 https://plugins.jetbrains.com/plugin/download?pr=phpStorm&updateId=25883
+#Source5 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25156
 Source5:       markdown-%{markdown_support}.zip
 #Source6 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25063
 Source6:       intellij-ansible-%{ansible_version}.zip
@@ -168,6 +168,10 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 %changelog
+* Tue May 31 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-3
+- Update Go plugin, Markdown and BashSupport
+- CppTools plugin aren't compatible with the latest PyCharm
+
 * Fri May 27 2016 Tomas Hozza <thozza@redhat.com> - 2016.1.4-2
 - Don't distribute plugins in the base package
 
