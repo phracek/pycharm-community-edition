@@ -23,12 +23,12 @@
 %global docker_integration 2.2.1
 %global idea_multimarkdown_version 1.6.1
 %global ideavim_version 0.44-297
-
-
+%global editor_config_version 145.258.3
+%global git_integration_version 6838
 
 Name:          pycharm-community
 Version:       2016.1.4
-Release:       3%{?dist}
+Release:       4%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -54,6 +54,10 @@ Source8:       Docker-plugin-%{docker_integration}.jar
 Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
 #Source10 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=22030
 Source10:      ideavim-%{ideavim_version}.zip
+#Source11 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766
+Source11:      editorconfig-%{editor_config_version}.zip
+#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=6838
+Source12:      Git4Idea_%{git_integration_version}.jar
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
@@ -92,6 +96,7 @@ Intellij Ansible, GitLab integration plugin.
 %setup -q -n %{name}-%{version} -D -T -a 7
 %setup -q -n %{name}-%{version} -D -T -a 9
 %setup -q -n %{name}-%{version} -D -T -a 10
+%setup -q -n %{name}-%{version} -D -T -a 11
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -114,7 +119,9 @@ cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./gitlab-integration-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -af %{SOURCE8} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+cp -af %{SOURCE12} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Git4Idea.jar
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -166,8 +173,14 @@ desktop-file-install                          \
 %dir %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown/*
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+%{_javadir}/%{name}/%{plugins_dir}/Git4Idea.jar
+%dir %{_javadir}/%{name}/%{plugins_dir}/editorconfig
+%{_javadir}/%{name}/%{plugins_dir}/editorconfig/*
 
 %changelog
+* Wed Jun 01 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-4
+- Added plugins EditorConfig, Git4Idea
+
 * Tue May 31 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-3
 - Update Go plugin, Markdown and BashSupport
 - CppTools plugin aren't compatible with the latest PyCharm

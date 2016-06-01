@@ -24,7 +24,10 @@ if [ ! -f $SOURCE_FILE ]; then
     wget --user-agent="Mozilla/5.0" $SOURCE_LINK
 fi
 
-for i in {1..10}; do
+CNT=`rpmspec -P pycharm-community.spec | grep ^Source | wc -l`
+CNT=`expr $CNT - 4`
+for (( i=1; i <= $CNT ; i++ ))
+do
     FILE_NAME=$(rpmspec -P pycharm-community.spec | grep Source$i: | sed -E "s/Source$i:[[:space:]]*(.*)/\1/g")
     URL=$(grep "Source$i" pycharm-community.spec | sed -E "s/#Source$i[[:space:]]*(.*)/\1/g")
     echo "$URL"
