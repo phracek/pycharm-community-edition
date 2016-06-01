@@ -25,6 +25,7 @@
 %global ideavim_version 0.44-297
 %global editor_config_version 145.258.3
 %global git_integration_version 6838
+%global ini_version 145.258.2
 
 Name:          pycharm-community
 Version:       2016.1.4
@@ -58,6 +59,8 @@ Source10:      ideavim-%{ideavim_version}.zip
 Source11:      editorconfig-%{editor_config_version}.zip
 #Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=6838
 Source12:      Git4Idea_%{git_integration_version}.jar
+#Source13 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24756
+Source13:      ini4idea-%{ini_version}.zip
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
@@ -97,6 +100,7 @@ Intellij Ansible, GitLab integration plugin.
 %setup -q -n %{name}-%{version} -D -T -a 9
 %setup -q -n %{name}-%{version} -D -T -a 10
 %setup -q -n %{name}-%{version} -D -T -a 11
+%setup -q -n %{name}-%{version} -D -T -a 13
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -120,6 +124,7 @@ cp -arf ./gitlab-integration-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_di
 cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -af %{SOURCE8} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 cp -af %{SOURCE12} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Git4Idea.jar
 
@@ -176,10 +181,12 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/Git4Idea.jar
 %dir %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/ini4idea
+%{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
 
 %changelog
 * Wed Jun 01 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-4
-- Added plugins EditorConfig, Git4Idea
+- Added plugins EditorConfig, Git4Idea, ini4idea
 
 * Tue May 31 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-3
 - Update Go plugin, Markdown and BashSupport
