@@ -1,2 +1,4 @@
 pycharm-community-*.tar.gz
 results/
+/*.zip
+/*.jar
