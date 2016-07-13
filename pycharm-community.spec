@@ -28,7 +28,7 @@
 
 Name:          pycharm-community
 Version:       2016.1.4
-Release:       5%{?dist}
+Release:       6%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -62,6 +62,8 @@ Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
 Patch1:        pycharm-community-MaxPermSize.patch
+Patch2:        pycharm-community-pytest-init-whitespace.patch
+Patch3:        pycharm-community-pytest-parametrize.patch
 BuildRequires: desktop-file-utils
 BuildRequires: python2-devel
 %if %{with python3}
@@ -87,6 +89,8 @@ Intellij Ansible, GitLab integration plugin.
 %prep
 %setup -q -n %{name}-%{version}
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 %setup -q -n %{name}-%{version} -D -T -a 1
 %setup -q -n %{name}-%{version} -D -T -a 2
 %setup -q -n %{name}-%{version} -D -T -a 3
@@ -205,6 +209,9 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
 
 %changelog
+* Wed Jul 13 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.1.4-6
+- Patch Pytest 'parametrize' skeleton to match Pytest 2.9.2.
+
 * Wed Jul 13 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-5
 - Fix %exclude syntax
 
