@@ -206,7 +206,7 @@ desktop-file-install                          \
 
 %changelog
 * Wed Jul 13 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-5
-- Fix %exlude syntax
+- Fix %exclude syntax
 
 * Wed Jun 01 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-4
 - Added plugins EditorConfig, Git4Idea, ini4idea
