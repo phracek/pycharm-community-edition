@@ -24,12 +24,11 @@
 %global idea_multimarkdown_version 1.6.1
 %global ideavim_version 0.44-297
 %global editor_config_version 145.258.3
-%global git_integration_version 6838
 %global ini_version 145.258.2
 
 Name:          pycharm-community
 Version:       2016.1.4
-Release:       4%{?dist}
+Release:       5%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -57,8 +56,6 @@ Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
 Source10:      ideavim-%{ideavim_version}.zip
 #Source11 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766
 Source11:      editorconfig-%{editor_config_version}.zip
-#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=6838
-Source12:      Git4Idea_%{git_integration_version}.jar
 #Source13 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24756
 Source13:      ini4idea-%{ini_version}.zip
 Source101:     pycharm.xml
@@ -126,7 +123,6 @@ cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -af %{SOURCE8} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
-cp -af %{SOURCE12} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Git4Idea.jar
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -153,7 +149,32 @@ desktop-file-install                          \
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/git4idea/*
+%{_javadir}/%{name}/%{plugins_dir}/git4idea/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/github/*
+%{_javadir}/%{name}/%{plugins_dir}/github/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
+%{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
+%{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/ipnb/*
+%{_javadir}/%{name}/%{plugins_dir}/ipnb/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/python-rest/*
+%{_javadir}/%{name}/%{plugins_dir}/python-rest/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/rest/*
+%{_javadir}/%{name}/%{plugins_dir}/rest/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
+%{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
+%{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/tasks/*
+%{_javadir}/%{name}/%{plugins_dir}/tasks/*
+%dir %{_javadir}/%{name}/%{plugins_dir}/terminal/*
+%{_javadir}/%{name}/%{plugins_dir}/terminal/*
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}/*
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}/*
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}/*
+%exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 %{_bindir}/pycharm
 
 
@@ -178,13 +199,15 @@ desktop-file-install                          \
 %dir %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown/*
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
-%{_javadir}/%{name}/%{plugins_dir}/Git4Idea.jar
 %dir %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig/*
 %dir %{_javadir}/%{name}/%{plugins_dir}/ini4idea
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
 
 %changelog
+* Wed Jul 13 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-5
+- Fix %exlude syntax
+
 * Wed Jun 01 2016 Petr Hracek <phracek@redhat.com> - 2016.1.4-4
 - Added plugins EditorConfig, Git4Idea, ini4idea
 
