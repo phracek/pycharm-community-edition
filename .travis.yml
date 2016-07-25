@@ -1,0 +1,16 @@
+dist: trusty
+sudo: required
+before_install:
+  - sudo apt-get update -y
+  - sudo apt-get install -y mock pigz python-lzma
+  - sudo groupadd -f mock
+  - grep mock /etc/group
+  - sudo usermod -a -G mock $USER
+env:
+  - MOCK_CONFIG="fedora-22-x86_64"
+  - MOCK_CONFIG="fedora-23-x86_64"
+  - MOCK_CONFIG="fedora-24-x86_64"
+  - MOCK_CONFIG="fedora-rawhide-x86_64"
+script:
+  - sudo ln -sfv "/etc/mock/${MOCK_CONFIG}.cfg" /etc/mock/default.cfg
+  - sudo -E su $USER -c '$TRAVIS_BUILD_DIR/build.sh'
