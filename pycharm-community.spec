@@ -56,8 +56,8 @@ Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
 Source10:      ideavim-%{ideavim_version}.zip
 #Source11 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766
 Source11:      editorconfig-%{editor_config_version}.zip
-#Source13 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24756
-Source13:      ini4idea-%{ini_version}.zip
+#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24756
+Source12:      ini4idea-%{ini_version}.zip
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
@@ -99,7 +99,7 @@ Intellij Ansible, GitLab integration plugin.
 %setup -q -n %{name}-%{version} -D -T -a 9
 %setup -q -n %{name}-%{version} -D -T -a 10
 %setup -q -n %{name}-%{version} -D -T -a 11
-%setup -q -n %{name}-%{version} -D -T -a 13
+%setup -q -n %{name}-%{version} -D -T -a 12
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
