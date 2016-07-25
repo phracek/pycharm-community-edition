@@ -14,15 +14,15 @@
 
 %global plugins_dir plugins
 %global ansible_version 0.9.3
-%global bash_version 1.5.8.145
+%global bash_version 1.5.8.162
 %global cpp_tools_version 0.8.8
-%global docker_integration 2.2.1
+%global docker_integration 2.3.2
 %global editor_config_version 145.258.3
 %global git_lab_integration_version 1.0.6
 %global go_lang_version 0.11.1295
 %global idea_multimarkdown_version 1.6.1
 %global ideavim_version 0.44-297
-%global ini_version 145.258.2
+%global ini_version 162.1121.34
 %global markdown_support 2016.1.20160405
 %global markdown_version 0.9.7
 
@@ -34,7 +34,7 @@ Group:         Development/Tools
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-#Source1 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=26120
+#Source1 https://plugins.jetbrains.com/plugin/download?pr=&updateId=26121
 Source1:       BashSupport-%{bash_version}.zip
 #Source2 https://plugins.jetbrains.com/plugin/download?pr=&updateId=19624
 Source2:       CppTools-%{cpp_tools_version}.zip
@@ -48,7 +48,7 @@ Source5:       markdown-%{markdown_support}.zip
 Source6:       intellij-ansible-%{ansible_version}.zip
 #Source7 https://plugins.jetbrains.com/plugin/download?pr=&updateId=17542
 Source7:       gitlab-integration-plugin-%{git_lab_integration_version}.zip
-#Source8 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25297
+#Source8 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27184
 Source8:       Docker-plugin-%{docker_integration}.jar
 #Source9 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25621
 Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
@@ -56,7 +56,7 @@ Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
 Source10:      ideavim-%{ideavim_version}.zip
 #Source11 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766
 Source11:      editorconfig-%{editor_config_version}.zip
-#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24756
+#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27026
 Source12:      ini4idea-%{ini_version}.zip
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
