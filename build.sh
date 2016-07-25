@@ -5,6 +5,7 @@ if [ -d $RESULT_DIR ]; then
     rm -rf $RESULT_DIR
 fi
 mkdir $RESULT_DIR
+[ $EUID -eq 0 ] && chown -v :mock $RESULT_DIR
 
 function download_file {
     echo "Downloading $1 from URL $2"
@@ -36,6 +37,7 @@ done
 
 echo "Building SRPM..."
 SRPM=$(rpmbuild -bs pycharm-community.spec --define "_sourcedir `pwd`" --define "_srcrpmdir $RESULT_DIR" | sed -E "s/Wrote: (.*)/\1/g")
+[ $EUID -eq 0 ] && chown -v :mock $SRPM
 
 echo "Building RPMs using mock..."
 mock --rebuild $SRPM --resultdir=$RESULT_DIR
