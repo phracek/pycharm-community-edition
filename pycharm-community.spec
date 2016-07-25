@@ -27,8 +27,8 @@
 %global ini_version 145.258.2
 
 Name:          pycharm-community
-Version:       2016.1.4
-Release:       6%{?dist}
+Version:       2016.2
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
 License:       ASL 2.0
@@ -207,6 +207,9 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
 
 %changelog
+* Mon Jul 25 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2-1
+- Update to latest upstream version, 2016.2.
+
 * Wed Jul 13 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.1.4-6
 - Patch Pytest 'parametrize' skeleton to match Pytest 2.9.2.
 
