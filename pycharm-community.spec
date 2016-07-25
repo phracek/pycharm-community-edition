@@ -61,7 +61,6 @@ Source13:      ini4idea-%{ini_version}.zip
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
-Patch1:        pycharm-community-MaxPermSize.patch
 Patch2:        pycharm-community-pytest-init-whitespace.patch
 Patch3:        pycharm-community-pytest-parametrize.patch
 BuildRequires: desktop-file-utils
@@ -88,7 +87,6 @@ Intellij Ansible, GitLab integration plugin.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %setup -q -n %{name}-%{version} -D -T -a 1
