@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 RESULT_DIR="`pwd`/results"
 if [ -d $RESULT_DIR ]; then
