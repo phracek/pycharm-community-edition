@@ -13,18 +13,18 @@
 %endif
 
 %global plugins_dir plugins
-%global bash_version 1.5.8.145
-%global go_lang_version 0.11.1295
-%global markdown_version 0.9.7
-%global cpp_tools_version 0.8.8
-%global markdown_support 2016.1.20160405
 %global ansible_version 0.9.3
-%global git_lab_integration_version 1.0.6
+%global bash_version 1.5.8.145
+%global cpp_tools_version 0.8.8
 %global docker_integration 2.2.1
+%global editor_config_version 145.258.3
+%global git_lab_integration_version 1.0.6
+%global go_lang_version 0.11.1295
 %global idea_multimarkdown_version 1.6.1
 %global ideavim_version 0.44-297
-%global editor_config_version 145.258.3
 %global ini_version 145.258.2
+%global markdown_support 2016.1.20160405
+%global markdown_version 0.9.7
 
 Name:          pycharm-community
 Version:       2016.2
