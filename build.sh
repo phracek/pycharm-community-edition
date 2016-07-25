@@ -3,9 +3,9 @@ set -e
 
 RESULT_DIR="`pwd`/results"
 if [ -d $RESULT_DIR ]; then
-    rm -rf $RESULT_DIR
+    rm -rfv $RESULT_DIR
 fi
-mkdir $RESULT_DIR
+mkdir -v $RESULT_DIR
 [ $EUID -eq 0 ] && chown -v :mock $RESULT_DIR
 
 function download_file {
