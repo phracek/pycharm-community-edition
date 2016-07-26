@@ -12,5 +12,5 @@ env:
   - MOCK_CONFIG="fedora-24-x86_64"
   - MOCK_CONFIG="fedora-rawhide-x86_64"
 script:
-  - sudo ln -sfv "/etc/mock/${MOCK_CONFIG}.cfg" /etc/mock/default.cfg
+  - sudo ln -sfv /etc/mock/default.cfg "/etc/mock/${MOCK_CONFIG}.cfg"
   - sudo -E su $USER -c '$TRAVIS_BUILD_DIR/build.sh'
