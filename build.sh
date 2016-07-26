@@ -6,7 +6,7 @@ if [ -d $RESULT_DIR ]; then
     rm -rfv $RESULT_DIR
 fi
 mkdir -v $RESULT_DIR
-if [ $EUID -eq 0 ]; then
+if [ $(id -u) -eq 0 ]; then
    chown -v :mock $RESULT_DIR
 fi
 
