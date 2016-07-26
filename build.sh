@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 RESULT_DIR="`pwd`/results"
@@ -19,6 +19,7 @@ function download_file {
     fi
 
 }
+
 # check if the source is downloaded
 SOURCE_LINK=$(rpmspec -P pycharm-community.spec | grep Source0 | sed -E "s/Source0:[[:space:]]*(.*)/\1/g")
 SOURCE_FILE=$(echo $SOURCE_LINK | sed -E "s/.*\/(.*)/\1/g")
