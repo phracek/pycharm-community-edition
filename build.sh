@@ -6,7 +6,9 @@ if [ -d $RESULT_DIR ]; then
     rm -rfv $RESULT_DIR
 fi
 mkdir -v $RESULT_DIR
-[ $EUID -eq 0 ] && chown -v :mock $RESULT_DIR
+if [ $EUID -eq 0 ]; then
+   chown -v :mock $RESULT_DIR
+fi
 
 function download_file {
     echo "Downloading $1 from URL $2"
