@@ -72,7 +72,6 @@ Requires:      %{name}%{?_isa} = %{version}-%{release}
 %package doc
 Summary:       Documentation for intelligent Python IDE
 BuildArch:     noarch
-Requires:      %{name} = %{version}-%{release}
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
