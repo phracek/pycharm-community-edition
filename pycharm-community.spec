@@ -28,41 +28,32 @@
 
 Name:          pycharm-community
 Version:       2016.2
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
-Group:         Development/Tools
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
+
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-#Source1 https://plugins.jetbrains.com/plugin/download?pr=&updateId=26121
-Source1:       BashSupport-%{bash_version}.zip
-#Source2 https://plugins.jetbrains.com/plugin/download?pr=&updateId=19624
-Source2:       CppTools-%{cpp_tools_version}.zip
-#Source3 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25366
-Source3:       Go-%{go_lang_version}.zip
-#Source4 https://github.com/nicoulaj/idea-markdown/archive/0.9.7.zip
-Source4:       idea-markdown-%{markdown_version}.zip
-#Source5 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25156
-Source5:       markdown-%{markdown_support}.zip
-#Source6 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25063
-Source6:       intellij-ansible-%{ansible_version}.zip
-#Source7 https://plugins.jetbrains.com/plugin/download?pr=&updateId=17542
-Source7:       gitlab-integration-plugin-%{git_lab_integration_version}.zip
-#Source8 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27184
-Source8:       Docker-plugin-%{docker_integration}.jar
-#Source9 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25621
-Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
-#Source10 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=22030
-Source10:      ideavim-%{ideavim_version}.zip
-#Source11 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766
-Source11:      editorconfig-%{editor_config_version}.zip
-#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27026
-Source12:      ini4idea-%{ini_version}.zip
+
+Source1        https://plugins.jetbrains.com/plugin/download?pr=&updateId=26121#/BashSupport-%{bash_version}.zip
+Source2        https://plugins.jetbrains.com/plugin/download?pr=&updateId=19624#/CppTools-%{cpp_tools_version}.zip
+Source3        https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25366#/Go-%{go_lang_version}.zip
+Source4        https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
+Source5        https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25156#/markdown-%{markdown_support}.zip
+Source6        https://plugins.jetbrains.com/plugin/download?pr=&updateId=25063#/intellij-ansible-%{ansible_version}.zip
+Source7        https://plugins.jetbrains.com/plugin/download?pr=&updateId=17542#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source8        https://plugins.jetbrains.com/plugin/download?pr=&updateId=27184#/Docker-plugin-%{docker_integration}.jar
+Source9        https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25621#/idea-multimarkdown.%{idea_multimarkdown_version}.zip
+Source10       https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=22030#/ideavim-%{ideavim_version}.zip
+Source11       https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766#/editorconfig-%{editor_config_version}.zip
+Source12       https://plugins.jetbrains.com/plugin/download?pr=&updateId=27026#/ini4idea-%{ini_version}.zip
+
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
 Patch1:        pycharm-community-pytest-init-whitespace.patch
 Patch2:        pycharm-community-pytest-parametrize.patch
+
 BuildRequires: desktop-file-utils
 BuildRequires: python2-devel
 %if %{with python3}
@@ -76,14 +67,20 @@ for productive Python development on all levels
 
 %package plugins
 Summary:       Plugins for intelligent Python IDE
-Group:         System Environment/Libraties
-Requires:      %{name}
-Requires:      %{name} = %{version}
+Requires:      %{name}%{?_isa} = %{version}-%{release}
+
+%package doc
+Summary:       Documentation for intelligent Python IDE
+BuildArch:     noarch
+Requires:      %{name} = %{version}-%{release}
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
 contains plugins like BashSupport, CppTools, GoLang, Markdown, Idea Markdown
 Intellij Ansible, GitLab integration plugin.
+
+%description doc
+This package contains documentation for Intelligent Python IDE.
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -141,72 +138,57 @@ desktop-file-install                          \
 %{buildroot}%{_datadir}/pycharm.desktop
 
 %files
-%defattr(-,root,root)
-%doc *.txt
-%doc license/
-%doc help/*.pdf
-%dir %{_datadir}/%{name}
 %{_datadir}/applications/pycharm.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
-%{_javadir}/%{name}/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/git4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/git4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/github/*
-%{_javadir}/%{name}/%{plugins_dir}/github/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
-%{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/ipnb/*
-%{_javadir}/%{name}/%{plugins_dir}/ipnb/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/python-rest/*
-%{_javadir}/%{name}/%{plugins_dir}/python-rest/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/rest/*
-%{_javadir}/%{name}/%{plugins_dir}/rest/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
-%{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/tasks/*
-%{_javadir}/%{name}/%{plugins_dir}/tasks/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/terminal/*
-%{_javadir}/%{name}/%{plugins_dir}/terminal/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}/*
+%{_javadir}/%{name}
+%{_javadir}/%{name}/%{plugins_dir}/git4idea
+%{_javadir}/%{name}/%{plugins_dir}/github
+%{_javadir}/%{name}/%{plugins_dir}/hg4idea
+%{_javadir}/%{name}/%{plugins_dir}/cvsIntegration
+%{_javadir}/%{name}/%{plugins_dir}/ipnb
+%{_javadir}/%{name}/%{plugins_dir}/python-rest
+%{_javadir}/%{name}/%{plugins_dir}/rest
+%{_javadir}/%{name}/%{plugins_dir}/settings-repository
+%{_javadir}/%{name}/%{plugins_dir}/svn4idea
+%{_javadir}/%{name}/%{plugins_dir}/tasks
+%{_javadir}/%{name}/%{plugins_dir}/terminal
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 %{_bindir}/pycharm
 
+%post
+/usr/bin/update-desktop-database &> /dev/null || :
+
+%postun
+/usr/bin/update-desktop-database &> /dev/null || :
 
 %files plugins
-%defattr(-,root,root)
-%dir %{_javadir}/%{name}/%{plugins_dir}/BashSupport
-%{_javadir}/%{name}/%{plugins_dir}/BashSupport/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/CppTools
-%{_javadir}/%{name}/%{plugins_dir}/CppTools/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/idea-markdown
-%{_javadir}/%{name}/%{plugins_dir}/idea-markdown/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
-%{_javadir}/%{name}/%{plugins_dir}/intellij-ansible/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/markdown
-%{_javadir}/%{name}/%{plugins_dir}/markdown/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
-%{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/Go
-%{_javadir}/%{name}/%{plugins_dir}/Go/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
-%{_javadir}/%{name}/%{plugins_dir}/IdeaVim/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
-%{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown/*
+%{_javadir}/%{name}/%{plugins_dir}/BashSupport
+%{_javadir}/%{name}/%{plugins_dir}/CppTools
+%{_javadir}/%{name}/%{plugins_dir}/idea-markdown
+%{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
+%{_javadir}/%{name}/%{plugins_dir}/markdown
+%{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
+%{_javadir}/%{name}/%{plugins_dir}/Go
+%{_javadir}/%{name}/%{plugins_dir}/IdeaVim
+%{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
-%dir %{_javadir}/%{name}/%{plugins_dir}/editorconfig
-%{_javadir}/%{name}/%{plugins_dir}/editorconfig/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/ini4idea
-%{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
+%{_javadir}/%{name}/%{plugins_dir}/editorconfig
+%{_javadir}/%{name}/%{plugins_dir}/ini4idea
+
+%files doc
+%doc *.txt
+%doc help/*.pdf
+%license license/
 
 %changelog
+* Wed Jul 27 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2-2
+- Added -doc subpackage. Lots of fixes. Fixed exclusion of plugins.
+
 * Mon Jul 25 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2-1
 - Update to latest upstream version, 2016.2.
 
