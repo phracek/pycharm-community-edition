@@ -177,17 +177,6 @@ desktop-file-install                          \
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
-%{_javadir}/%{name}/%{plugins_dir}/git4idea
-%{_javadir}/%{name}/%{plugins_dir}/github
-%{_javadir}/%{name}/%{plugins_dir}/hg4idea
-%{_javadir}/%{name}/%{plugins_dir}/cvsIntegration
-%{_javadir}/%{name}/%{plugins_dir}/ipnb
-%{_javadir}/%{name}/%{plugins_dir}/python-rest
-%{_javadir}/%{name}/%{plugins_dir}/rest
-%{_javadir}/%{name}/%{plugins_dir}/settings-repository
-%{_javadir}/%{name}/%{plugins_dir}/svn4idea
-%{_javadir}/%{name}/%{plugins_dir}/tasks
-%{_javadir}/%{name}/%{plugins_dir}/terminal
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
