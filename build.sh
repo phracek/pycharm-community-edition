@@ -11,7 +11,7 @@ if [ $(id -u) -eq 0 ]; then
 fi
 
 echo "Downloading sources..."
-spectool --all --get-files pycharm-community.spec
+/usr/bin/perl spectool.pl --all --get-files pycharm-community.spec
 
 echo "Building SRPM..."
 SRPM=$(rpmbuild -bs pycharm-community.spec --define "_sourcedir `pwd`" --define "_srcrpmdir $RESULT_DIR" | sed -E "s/Wrote: (.*)/\1/g")
