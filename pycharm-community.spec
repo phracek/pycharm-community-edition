@@ -58,30 +58,18 @@ URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 
-Source1:        https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-#Source1 https://plugins.jetbrains.com/plugin/download?pr=&updateId=26121
-Source2:        https://plugins.jetbrains.com/files/1373/%{cpp_tools_id}/CppTools.zip#/CppTools-%{cpp_tools_version}.zip
-#Source2 https://plugins.jetbrains.com/plugin/download?pr=&updateId=19624
-Source3:        https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
-#Source3 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25366
-Source4:        https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
-#Source4 https://github.com/nicoulaj/idea-markdown/archive/0.9.7.zip
-Source5:        https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
-#Source5 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25156
-Source6:        https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
-#Source6 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25063
-Source7:        https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-#Source7 https://plugins.jetbrains.com/plugin/download?pr=&updateId=17542
-Source8:        https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.jar
-#Source8 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27184
-Source9:        https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
-#Source9 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25621
-Source10:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/ideavim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
-#Source10 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=22030
-Source11:       https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
-#Source11 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766
-Source12:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27026
+Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
+Source2:       https://plugins.jetbrains.com/files/1373/%{cpp_tools_id}/CppTools.zip#/CppTools-%{cpp_tools_version}.zip
+Source3:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
+Source4:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.jar
+Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
+Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/ideavim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
+Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
+Source12:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
