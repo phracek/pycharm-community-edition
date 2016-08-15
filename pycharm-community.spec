@@ -13,57 +13,72 @@
 %endif
 
 %global plugins_dir plugins
+
 %global ansible_version 0.9.3
+%global ansible_id 25063
+
 %global bash_version 1.5.8.162
+%global bash_id 26121
+
 %global cpp_tools_version 0.8.8
-%global docker_integration 2.3.2
+%global cpp_tools_id 19624
+
+%global docker_integration_version 2.3.2
+%global docker_integration_id 27184
+
 %global editor_config_version 145.258.3
+%global editor_config_id 24766
+
 %global git_lab_integration_version 1.0.6
+%global git_lab_integration_id 17542
+
 %global go_lang_version 0.11.1295
-%global idea_multimarkdown_version 1.6.1
+%global go_lang_id 25366
+
+%global idea_multimarkdown_version 1.5.0
+%global idea_multimarkdown_id 25621
+
 %global ideavim_version 0.44-297
+%global ideavim_id 22030
+
 %global ini_version 162.1121.34
-%global markdown_support 2016.1.20160405
+%global ini_id 27026
+
+%global markdown_support_version 2016.1.20160405
+%global markdown_support_id 25156
+
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
 Version:       2016.2.1
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
-Group:         Development/Tools
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
+
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-#Source1 https://plugins.jetbrains.com/plugin/download?pr=&updateId=26121
-Source1:       BashSupport-%{bash_version}.zip
-#Source2 https://plugins.jetbrains.com/plugin/download?pr=&updateId=19624
-Source2:       CppTools-%{cpp_tools_version}.zip
-#Source3 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25366
-Source3:       Go-%{go_lang_version}.zip
-#Source4 https://github.com/nicoulaj/idea-markdown/archive/0.9.7.zip
-Source4:       idea-markdown-%{markdown_version}.zip
-#Source5 https://plugins.jetbrains.com/plugin/download?pr=idea_ce&updateId=25156
-Source5:       markdown-%{markdown_support}.zip
-#Source6 https://plugins.jetbrains.com/plugin/download?pr=&updateId=25063
-Source6:       intellij-ansible-%{ansible_version}.zip
-#Source7 https://plugins.jetbrains.com/plugin/download?pr=&updateId=17542
-Source7:       gitlab-integration-plugin-%{git_lab_integration_version}.zip
-#Source8 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27184
-Source8:       Docker-plugin-%{docker_integration}.jar
-#Source9 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=25621
-Source9:       idea-multimarkdown.%{idea_multimarkdown_version}.zip
-#Source10 https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=22030
-Source10:      ideavim-%{ideavim_version}.zip
-#Source11 https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766
-Source11:      editorconfig-%{editor_config_version}.zip
-#Source12 https://plugins.jetbrains.com/plugin/download?pr=&updateId=27026
-Source12:      ini4idea-%{ini_version}.zip
+
+Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
+Source2:       https://plugins.jetbrains.com/files/1373/%{cpp_tools_id}/CppTools.zip#/CppTools-%{cpp_tools_version}.zip
+Source3:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
+Source4:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.jar
+Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
+Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/ideavim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
+Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
+Source12:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
+
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
 Patch1:        pycharm-community-pytest-init-whitespace.patch
 Patch2:        pycharm-community-pytest-parametrize.patch
+
 BuildRequires: desktop-file-utils
+BuildRequires: /usr/bin/appstream-util
 BuildRequires: python2-devel
 %if %{with python3}
 BuildRequires: python3-devel
@@ -76,14 +91,19 @@ for productive Python development on all levels
 
 %package plugins
 Summary:       Plugins for intelligent Python IDE
-Group:         System Environment/Libraties
-Requires:      %{name}
-Requires:      %{name} = %{version}
+Requires:      %{name}%{?_isa} = %{version}-%{release}
+
+%package doc
+Summary:       Documentation for intelligent Python IDE
+BuildArch:     noarch
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
 contains plugins like BashSupport, CppTools, GoLang, Markdown, Idea Markdown
 Intellij Ansible, GitLab integration plugin.
+
+%description doc
+This package contains documentation for Intelligent Python IDE.
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -140,75 +160,57 @@ desktop-file-install                          \
 --dir=%{buildroot}%{_datadir}/applications    \
 %{buildroot}%{_datadir}/pycharm.desktop
 
+%check
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-community.appdata.xml
+
 %files
-%defattr(-,root,root)
-%doc *.txt
-%doc license/
-%doc help/*.pdf
-%dir %{_datadir}/%{name}
 %{_datadir}/applications/pycharm.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
-%{_javadir}/%{name}/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/git4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/git4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/github/*
-%{_javadir}/%{name}/%{plugins_dir}/github/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
-%{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/ipnb/*
-%{_javadir}/%{name}/%{plugins_dir}/ipnb/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/python-rest/*
-%{_javadir}/%{name}/%{plugins_dir}/python-rest/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/rest/*
-%{_javadir}/%{name}/%{plugins_dir}/rest/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
-%{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/tasks/*
-%{_javadir}/%{name}/%{plugins_dir}/tasks/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/terminal/*
-%{_javadir}/%{name}/%{plugins_dir}/terminal/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}/*
+%{_javadir}/%{name}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 %{_bindir}/pycharm
 
+%post
+/bin/touch --no-create %{_datadir}/mime/packages &>/dev/null || :
+
+%postun
+if [ $1 -eq 0 ] ; then
+  /usr/bin/update-mime-database %{_datadir}/mime &> /dev/null || :
+fi
+
+%posttrans
+/usr/bin/update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 %files plugins
-%defattr(-,root,root)
-%dir %{_javadir}/%{name}/%{plugins_dir}/BashSupport
-%{_javadir}/%{name}/%{plugins_dir}/BashSupport/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/CppTools
-%{_javadir}/%{name}/%{plugins_dir}/CppTools/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/idea-markdown
-%{_javadir}/%{name}/%{plugins_dir}/idea-markdown/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
-%{_javadir}/%{name}/%{plugins_dir}/intellij-ansible/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/markdown
-%{_javadir}/%{name}/%{plugins_dir}/markdown/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
-%{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/Go
-%{_javadir}/%{name}/%{plugins_dir}/Go/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
-%{_javadir}/%{name}/%{plugins_dir}/IdeaVim/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
-%{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown/*
+%{_javadir}/%{name}/%{plugins_dir}/BashSupport
+%{_javadir}/%{name}/%{plugins_dir}/CppTools
+%{_javadir}/%{name}/%{plugins_dir}/idea-markdown
+%{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
+%{_javadir}/%{name}/%{plugins_dir}/markdown
+%{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
+%{_javadir}/%{name}/%{plugins_dir}/Go
+%{_javadir}/%{name}/%{plugins_dir}/IdeaVim
+%{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
-%dir %{_javadir}/%{name}/%{plugins_dir}/editorconfig
-%{_javadir}/%{name}/%{plugins_dir}/editorconfig/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/ini4idea
-%{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
+%{_javadir}/%{name}/%{plugins_dir}/editorconfig
+%{_javadir}/%{name}/%{plugins_dir}/ini4idea
+
+%files doc
+%doc *.txt
+%doc help/*.pdf
+%license license/
 
 %changelog
 * Mon Aug 15 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2.1-1
 - Update to latest upstream version, 2016.2.1.
+
+* Wed Jul 27 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2-2
+- Added -doc subpackage. Lots of fixes. Fixed exclusion of plugins.
 
 * Mon Jul 25 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2-1
 - Update to latest upstream version, 2016.2.
