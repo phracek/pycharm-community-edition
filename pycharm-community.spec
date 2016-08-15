@@ -27,7 +27,7 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2016.2
+Version:       2016.2.1
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 Group:         Development/Tools
@@ -207,6 +207,9 @@ desktop-file-install                          \
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
 
 %changelog
+* Mon Aug 15 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2.1-1
+- Update to latest upstream version, 2016.2.1.
+
 * Mon Jul 25 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2-1
 - Update to latest upstream version, 2016.2.
 
