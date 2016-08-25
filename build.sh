@@ -10,6 +10,8 @@ if [ $(id -u) -eq 0 ]; then
    chown -v :mock $RESULT_DIR
 fi
 
+MOCK_CONFIG="default"
+
 echo "Downloading sources..."
 /usr/bin/perl spectool.pl --all --get-files pycharm-community.spec
 
