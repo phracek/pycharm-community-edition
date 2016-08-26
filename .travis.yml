@@ -1,4 +1,4 @@
-dist: trusty
+dist: yakkety
 sudo: required
 before_install:
   - sudo apt-get update -y
