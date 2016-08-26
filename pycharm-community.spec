@@ -50,8 +50,8 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2016.2.1
-Release:       2%{?dist}
+Version:       2016.2.2
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -206,6 +206,9 @@ fi
 %license license/
 
 %changelog
+* Fri Aug 26 2016 Petr Hracek <phracek@redhat.com> - 2016.2.2-1
+- Update to the latest upstream version 2016.2.2
+
 * Thu Aug 25 2016 Petr Hracek <phracek@redhat.com> - 2016.2.1-2
 - Update Docker integration, YAML/Ansible support
 - Update Markdown support

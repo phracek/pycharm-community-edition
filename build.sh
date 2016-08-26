@@ -18,7 +18,8 @@ SRPM=$(rpmbuild -bs pycharm-community.spec --define "_sourcedir `pwd`" --define 
 [ $EUID -eq 0 ] && chown -v :mock $SRPM
 
 
-echo "Building RPMs using mock..."
+ls -la /etc/mock/
+echo "Building RPMs using mock...$(basename $MOCK_CONFIG)"
 /usr/bin/mock -r $(basename "$MOCK_CONFIG") --rebuild $SRPM --resultdir=$RESULT_DIR
 
 echo
