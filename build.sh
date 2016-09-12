@@ -19,6 +19,10 @@ SRPM=$(rpmbuild -bs pycharm-community.spec --define "_sourcedir `pwd`" --define 
 
 
 ls -la /etc/mock/
+[ -z $MOCK_CONFIG ] && MOCK_CONFIG="fedora-rawhide-x86_64.cfg"
+if [ ! -f "/etc/mock/$MOCK_CONFIG" ]; then
+    MOCK_CONFIG="fedora-rawhide-x86_64.cfg"
+fi
 echo "Building RPMs using mock...$(basename $MOCK_CONFIG)"
 /usr/bin/mock -r $(basename "$MOCK_CONFIG") --rebuild $SRPM --resultdir=$RESULT_DIR
 
