@@ -47,11 +47,14 @@
 %global markdown_support_version 2016.2.20160713
 %global markdown_support_id 27141
 
+%global git_tool_box_version 16.3.0
+%global git_tool_box_id 28596
+
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
 Version:       2016.2.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -70,6 +73,7 @@ Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}
 Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
 Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
 Source12:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
+Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
@@ -206,6 +210,9 @@ fi
 %license license/
 
 %changelog
+* Mon Oct 17 2016 Petr Hracek <phracek@redhat.com> - 2016.2.3-2
+- Add GitToolBox plugin
+
 * Mon Sep 12 2016 Petr Hracek <phracek@redhat.com> - 2016.2.3-1
 - Update to the latest upstream version 2016.2.3
 
