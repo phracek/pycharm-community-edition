@@ -53,8 +53,8 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2016.2.3
-Release:       2%{?dist}
+Version:       2016.3
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -78,8 +78,6 @@ Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitTo
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
-Patch1:        pycharm-community-pytest-init-whitespace.patch
-Patch2:        pycharm-community-pytest-parametrize.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: /usr/bin/appstream-util
@@ -111,8 +109,6 @@ This package contains documentation for Intelligent Python IDE.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch1 -p1
-%patch2 -p1
 %setup -q -n %{name}-%{version} -D -T -a 1
 %setup -q -n %{name}-%{version} -D -T -a 2
 %setup -q -n %{name}-%{version} -D -T -a 3
@@ -210,6 +206,9 @@ fi
 %license license/
 
 %changelog
+* Mon Nov 28 2016 Petr Hracek <phracek@redhat.com> - 2016.3-1
+- Update to the latest upstream version 2016.3
+
 * Mon Oct 17 2016 Petr Hracek <phracek@redhat.com> - 2016.2.3-2
 - Add GitToolBox plugin
 
