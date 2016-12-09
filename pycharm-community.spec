@@ -54,7 +54,7 @@
 
 Name:          pycharm-community
 Version:       2016.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -206,6 +206,9 @@ fi
 %license license/
 
 %changelog
+* Fri Dec 9 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.3-2
+- Update all plugins to the latest versions
+
 * Mon Nov 28 2016 Petr Hracek <phracek@redhat.com> - 2016.3-1
 - Update to the latest upstream version 2016.3
 
