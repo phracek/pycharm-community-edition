@@ -17,44 +17,44 @@
 %global ansible_version 0.9.4
 %global ansible_id 27616
 
-%global bash_version 1.5.8.162
-%global bash_id 26121
+%global bash_version 1.5.8.163
+%global bash_id 28046
 
 %global cpp_tools_version 0.8.8
 %global cpp_tools_id 19624
 
-%global docker_integration_version 2.3.3
-%global docker_integration_id 27617
+%global docker_integration_version 2.4.1
+%global docker_integration_id 30315
 
-%global editor_config_version 145.258.3
-%global editor_config_id 24766
+%global editor_config_version 163.5644.1
+%global editor_config_id 29415
 
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global go_lang_version 0.11.1295
-%global go_lang_id 25366
+%global go_lang_version 0.13.1914
+%global go_lang_id 30425
 
-%global idea_multimarkdown_version 2.0.0
-%global idea_multimarkdown_id 27484
+%global idea_multimarkdown_version 2.2.0
+%global idea_multimarkdown_id 30681
 
-%global ideavim_version 0.46
-%global ideavim_id 26968
+%global ideavim_version 0.47
+%global ideavim_id 29655
 
-%global ini_version 162.1121.34
-%global ini_id 27026
+%global ini_version 163.6110.10
+%global ini_id 29506
 
-%global markdown_support_version 2016.2.20160713
-%global markdown_support_id 27141
+%global markdown_support_version 2016.3.20161109
+%global markdown_support_id 30117
 
-%global git_tool_box_version 16.3.0
-%global git_tool_box_id 28596
+%global git_tool_box_version 16.3.5
+%global git_tool_box_id 30806
 
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
 Version:       2016.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -68,7 +68,7 @@ Source4:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_vers
 Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.jar#/Docker-plugin-%{docker_integration_version}.jar
+Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
 Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
 Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
@@ -206,6 +206,9 @@ fi
 %license license/
 
 %changelog
+* Fri Dec 9 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.3-2
+- Update all plugins to the latest versions
+
 * Mon Nov 28 2016 Petr Hracek <phracek@redhat.com> - 2016.3-1
 - Update to the latest upstream version 2016.3
 
