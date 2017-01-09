@@ -29,8 +29,8 @@
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global go_lang_version 0.13.1914
-%global go_lang_id 30425
+%global go_lang_version 0.13.1924
+%global go_lang_id 31145
 
 %global idea_multimarkdown_version 2.2.0
 %global idea_multimarkdown_id 30681
