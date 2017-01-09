@@ -14,6 +14,7 @@ echo "Downloading sources..."
 /usr/bin/perl spectool.pl --all --get-files pycharm-community.spec
 
 echo "Building SRPM..."
+set -o pipefail
 SRPM=$(rpmbuild -bs pycharm-community.spec --define "_sourcedir `pwd`" --define "_srcrpmdir $RESULT_DIR" | sed -E "s/Wrote: (.*)/\1/g")
 [ $EUID -eq 0 ] && chown -v :mock $SRPM
 
