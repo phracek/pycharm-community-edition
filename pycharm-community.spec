@@ -51,7 +51,7 @@
 
 Name:          pycharm-community
 Version:       2016.3.2
-Release:       3%{?dist}
+Release:       4%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -147,20 +147,20 @@ rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 rm -f %{buildroot}%{_javadir}/help/*.pdf
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
 cp -af %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
-cp -af %{SOURCE102} %{buildroot}%{_datadir}/pycharm.desktop
+cp -af %{SOURCE102} %{buildroot}%{_datadir}/pycharm-community.desktop
 cp -a %{SOURCE103} %{buildroot}%{_datadir}/appdata
 ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
 desktop-file-install                          \
 --add-category="Development"                  \
 --delete-original                             \
 --dir=%{buildroot}%{_datadir}/applications    \
-%{buildroot}%{_datadir}/pycharm.desktop
+%{buildroot}%{_datadir}/pycharm-community.desktop
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-community.appdata.xml
 
 %files
-%{_datadir}/applications/pycharm.desktop
+%{_datadir}/applications/pycharm-community.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
@@ -201,6 +201,9 @@ fi
 %license license/
 
 %changelog
+* Wed Mar 15 2017 Petr Hracek <phracek@redhat.com> - 2016.3.2-4
+- Fixing spec file in order to support correct desktop file.
+
 * Wed Mar 15 2017 Petr Hracek <phracek@redhat.com> - 2016.3.2-3
 - Fixing desktop file. Thx hugsie.
 
