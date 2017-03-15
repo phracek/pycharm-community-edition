@@ -51,7 +51,7 @@
 
 Name:          pycharm-community
 Version:       2016.3.2
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -201,6 +201,9 @@ fi
 %license license/
 
 %changelog
+* Wed Mar 15 2017 Petr Hracek <phracek@redhat.com> - 2016.3.2-3
+- Fixing desktop file. Thx hugsie.
+
 * Mon Jan 09 2017 Allan Lewis <allanlewis99@gmail.com> - 2016.3.2-2
 - Remove obsolete "CppTools" plugin and update "Go" plugin.
 
