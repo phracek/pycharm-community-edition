@@ -72,7 +72,7 @@ Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini
 Source12:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 
 Source101:     pycharm.xml
-Source102:     pycharm.desktop
+Source102:     pycharm-community.desktop
 Source103:     pycharm-community.appdata.xml
 
 BuildRequires: desktop-file-utils
