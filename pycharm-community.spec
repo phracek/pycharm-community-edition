@@ -17,8 +17,8 @@
 %global ansible_version 0.9.4
 %global ansible_id 27616
 
-%global bash_version 1.5.8.163
-%global bash_id 28046
+%global bash_version 1.6.5.163
+%global bash_id 31609
 
 %global docker_integration_version 2.4.1
 %global docker_integration_id 30315
@@ -32,20 +32,20 @@
 %global go_lang_version 0.13.1924
 %global go_lang_id 31145
 
-%global idea_multimarkdown_version 2.2.0
-%global idea_multimarkdown_id 30681
+%global idea_multimarkdown_version 2.3.4
+%global idea_multimarkdown_id 32994
 
-%global ideavim_version 0.47
-%global ideavim_id 29655
+%global ideavim_version 0.48
+%global ideavim_id 31805
 
 %global ini_version 163.6110.10
 %global ini_id 29506
 
-%global markdown_support_version 2016.3.20161109
-%global markdown_support_id 30117
+%global markdown_support_version 2016.3.20170209
+%global markdown_support_id 32455
 
-%global git_tool_box_version 16.3.5
-%global git_tool_box_id 30806
+%global git_tool_box_version 163.3
+%global git_tool_box_id 33490
 
 %global markdown_version 0.9.7
 
