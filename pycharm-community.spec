@@ -201,6 +201,9 @@ fi
 %license license/
 
 %changelog
+* Fri Mar 17 2017 Allan Lewis <allanlewis99@gmail.com> - 2016.3.3-1
+- Update to latest upstream version, 2016.3.3, and update plugins.
+
 * Wed Mar 15 2017 Petr Hracek <phracek@redhat.com> - 2016.3.2-4
 - Fixing spec file in order to support correct desktop file.
 
