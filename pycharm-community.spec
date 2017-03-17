@@ -20,8 +20,8 @@
 %global bash_version 1.6.5.171
 %global bash_id 31610
 
-%global docker_integration_version 3.0.0
-%global docker_integration_id 36829
+%global docker_integration_version 3.0.1
+%global docker_integration_id 37263
 
 %global editor_config_version 171.2613.14
 %global editor_config_id 32079
