@@ -50,8 +50,8 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2016.3.2
-Release:       4%{?dist}
+Version:       2016.3.3
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
