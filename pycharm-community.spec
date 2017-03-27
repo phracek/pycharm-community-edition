@@ -201,6 +201,9 @@ fi
 %license license/
 
 %changelog
+* Mon Mar 27 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1-1
+- Update to latest upstream version, 2017.1, and update plugins.
+
 * Fri Mar 17 2017 Allan Lewis <allanlewis99@gmail.com> - 2016.3.3-1
 - Update to latest upstream version, 2016.3.3, and update plugins.
 
