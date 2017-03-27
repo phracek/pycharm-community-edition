@@ -32,8 +32,8 @@
 %global go_lang_version 0.13.1924
 %global go_lang_id 31145
 
-%global idea_multimarkdown_version 2.3.4
-%global idea_multimarkdown_id 32994
+%global idea_markdown_navigator_version 2.3.4
+%global idea_markdown_navigator_id 32994
 
 %global ideavim_version 0.48
 %global ideavim_id 31805
@@ -65,7 +65,7 @@ Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/m
 Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
 Source9:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
 Source10:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
 Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
