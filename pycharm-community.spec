@@ -20,8 +20,8 @@
 %global bash_version 1.6.5.171
 %global bash_id 31610
 
-%global docker_integration_version 2.5.3
-%global docker_integration_id 33621
+%global docker_integration_version 3.0.0
+%global docker_integration_id 36829
 
 %global editor_config_version 171.2613.14
 %global editor_config_id 32079
@@ -50,7 +50,7 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2017.1.5
+Version:       2017.2
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -201,6 +201,9 @@ fi
 %license license/
 
 %changelog
+* Wed Jul 26 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2-1
+- Update to latest upstream version, 2017.2.
+
 * Thu Jul 13 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1.5-1
 - Update to latest upstream version, 2017.1.5.
 
