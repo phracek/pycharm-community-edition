@@ -50,7 +50,7 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2017.2
+Version:       2017.2.1
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -103,7 +103,8 @@ Intellij Ansible, GitLab integration plugin.
 %description doc
 This package contains documentation for Intelligent Python IDE.
 
-%global builddir %{name}-%{version}
+# This should be '%{name}-%{version}' but it's wrong in v2017.2.1
+%global builddir %{name}-2017.2
 
 %prep
 %setup -q -n %{builddir}
@@ -203,6 +204,9 @@ fi
 %license license/
 
 %changelog
+* Wed Aug 09 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-1
+- Update to latest upstream version, 2017.2.1.
+
 * Wed Jul 26 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2-1
 - Update to latest upstream version, 2017.2.
 
