@@ -103,23 +103,20 @@ Intellij Ansible, GitLab integration plugin.
 %description doc
 This package contains documentation for Intelligent Python IDE.
 
-# This should be '%{name}-%{version}' but it's wrong in v2017.2.1
-%global builddir %{name}-2017.2
-
 %prep
-%setup -q -n %{builddir}
-%setup -q -n %{builddir} -D -T -a 1
-%setup -q -n %{builddir} -D -T -a 2
-%setup -q -n %{builddir} -D -T -a 3
-%setup -q -n %{builddir} -D -T -a 4
-%setup -q -n %{builddir} -D -T -a 5
-%setup -q -n %{builddir} -D -T -a 6
-%setup -q -n %{builddir} -D -T -a 7
-%setup -q -n %{builddir} -D -T -a 8
-%setup -q -n %{builddir} -D -T -a 9
-%setup -q -n %{builddir} -D -T -a 10
-%setup -q -n %{builddir} -D -T -a 11
-%setup -q -n %{builddir} -D -T -a 12
+%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version} -D -T -a 1
+%setup -q -n %{name}-%{version} -D -T -a 2
+%setup -q -n %{name}-%{version} -D -T -a 3
+%setup -q -n %{name}-%{version} -D -T -a 4
+%setup -q -n %{name}-%{version} -D -T -a 5
+%setup -q -n %{name}-%{version} -D -T -a 6
+%setup -q -n %{name}-%{version} -D -T -a 7
+%setup -q -n %{name}-%{version} -D -T -a 8
+%setup -q -n %{name}-%{version} -D -T -a 9
+%setup -q -n %{name}-%{version} -D -T -a 10
+%setup -q -n %{name}-%{version} -D -T -a 11
+%setup -q -n %{name}-%{version} -D -T -a 12
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
