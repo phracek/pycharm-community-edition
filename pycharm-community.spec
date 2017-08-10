@@ -20,8 +20,8 @@
 %global bash_version 1.6.5.171
 %global bash_id 31610
 
-%global docker_integration_version 3.0.0
-%global docker_integration_id 36829
+%global docker_integration_version 3.0.1
+%global docker_integration_id 37263
 
 %global editor_config_version 171.2613.14
 %global editor_config_id 32079
@@ -50,7 +50,7 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2017.2
+Version:       2017.2.1
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -103,20 +103,23 @@ Intellij Ansible, GitLab integration plugin.
 %description doc
 This package contains documentation for Intelligent Python IDE.
 
+# This should be '%{name}-%{version}' but it's wrong in v2017.2.1
+%global builddir %{name}-2017.2
+
 %prep
-%setup -q -n %{name}-%{version}
-%setup -q -n %{name}-%{version} -D -T -a 1
-%setup -q -n %{name}-%{version} -D -T -a 2
-%setup -q -n %{name}-%{version} -D -T -a 3
-%setup -q -n %{name}-%{version} -D -T -a 4
-%setup -q -n %{name}-%{version} -D -T -a 5
-%setup -q -n %{name}-%{version} -D -T -a 6
-%setup -q -n %{name}-%{version} -D -T -a 7
-%setup -q -n %{name}-%{version} -D -T -a 8
-%setup -q -n %{name}-%{version} -D -T -a 9
-%setup -q -n %{name}-%{version} -D -T -a 10
-%setup -q -n %{name}-%{version} -D -T -a 11
-%setup -q -n %{name}-%{version} -D -T -a 12
+%setup -q -n %{builddir}
+%setup -q -n %{builddir} -D -T -a 1
+%setup -q -n %{builddir} -D -T -a 2
+%setup -q -n %{builddir} -D -T -a 3
+%setup -q -n %{builddir} -D -T -a 4
+%setup -q -n %{builddir} -D -T -a 5
+%setup -q -n %{builddir} -D -T -a 6
+%setup -q -n %{builddir} -D -T -a 7
+%setup -q -n %{builddir} -D -T -a 8
+%setup -q -n %{builddir} -D -T -a 9
+%setup -q -n %{builddir} -D -T -a 10
+%setup -q -n %{builddir} -D -T -a 11
+%setup -q -n %{builddir} -D -T -a 12
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -201,6 +204,9 @@ fi
 %license license/
 
 %changelog
+* Wed Aug 09 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-1
+- Update to latest upstream version, 2017.2.1.
+
 * Wed Jul 26 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2-1
 - Update to latest upstream version, 2017.2.
 
