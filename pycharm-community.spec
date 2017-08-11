@@ -29,9 +29,6 @@
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global go_lang_version 0.171.1931
-%global go_lang_id 31254
-
 %global idea_markdown_navigator_version 2.3.4
 %global idea_markdown_navigator_id 32994
 
@@ -59,17 +56,16 @@ URL:           http://www.jetbrains.com/pycharm/
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
-Source3:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
-Source9:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
-Source10:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
-Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-Source12:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source2:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
+Source3:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
+Source8:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
+Source9:       https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
+Source10:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
+Source11:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm-community.desktop
@@ -97,7 +93,7 @@ BuildArch:     noarch
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
-contains plugins like BashSupport, GoLang, Markdown, Idea Markdown
+contains plugins like BashSupport, Markdown, Idea Markdown
 Intellij Ansible, GitLab integration plugin.
 
 %description doc
@@ -116,7 +112,6 @@ This package contains documentation for Intelligent Python IDE.
 %setup -q -n %{name}-%{version} -D -T -a 9
 %setup -q -n %{name}-%{version} -D -T -a 10
 %setup -q -n %{name}-%{version} -D -T -a 11
-%setup -q -n %{name}-%{version} -D -T -a 12
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -131,7 +126,6 @@ mv idea-markdown-%{markdown_version} idea-markdown
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./Go %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./idea-markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -167,7 +161,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,idea-markdown}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 %{_bindir}/pycharm
 
@@ -188,7 +182,6 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
 %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
-%{_javadir}/%{name}/%{plugins_dir}/Go
 %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
