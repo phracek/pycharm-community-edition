@@ -14,8 +14,8 @@
 
 %global plugins_dir plugins
 
-%global ansible_version 0.9.4
-%global ansible_id 27616
+%global ansible_version 0.9.5
+%global ansible_id 35585
 
 %global bash_version 1.6.11.172
 %global bash_id 37247
@@ -29,8 +29,8 @@
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global idea_markdown_navigator_version 2.3.4
-%global idea_markdown_navigator_id 32994
+%global idea_markdown_navigator_version 2.3.8
+%global idea_markdown_navigator_id 36922
 
 %global ideavim_version 0.48
 %global ideavim_id 31805
@@ -41,8 +41,8 @@
 %global markdown_support_version 2017.2.20170419
 %global markdown_support_id 34393
 
-%global git_tool_box_version 171.1.2
-%global git_tool_box_id 33639
+%global git_tool_box_version 171.1.4
+%global git_tool_box_id 37035
 
 %global markdown_version 0.9.7
 
@@ -58,7 +58,7 @@ Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
 Source2:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
 Source3:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
