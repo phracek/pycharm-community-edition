@@ -48,7 +48,7 @@
 
 Name:          pycharm-community
 Version:       2017.2.1
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -194,6 +194,9 @@ fi
 %license license/
 
 %changelog
+* Fri Aug 11 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-3
+- Update plugins.
+
 * Thu Aug 10 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-2
 - Revert top-level archive directory change as upstream archive has been fixed.
 
