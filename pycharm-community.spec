@@ -14,44 +14,41 @@
 
 %global plugins_dir plugins
 
-%global ansible_version 0.9.4
-%global ansible_id 27616
+%global ansible_version 0.9.5
+%global ansible_id 35585
 
-%global bash_version 1.6.5.171
-%global bash_id 31610
+%global bash_version 1.6.11.172
+%global bash_id 37247
 
 %global docker_integration_version 3.0.1
 %global docker_integration_id 37263
 
-%global editor_config_version 171.2613.14
-%global editor_config_id 32079
+%global editor_config_version 172.2465.2
+%global editor_config_id 35419
 
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global go_lang_version 0.171.1931
-%global go_lang_id 31254
-
-%global idea_markdown_navigator_version 2.3.4
-%global idea_markdown_navigator_id 32994
+%global idea_markdown_navigator_version 2.3.8
+%global idea_markdown_navigator_id 36922
 
 %global ideavim_version 0.48
 %global ideavim_id 31805
 
-%global ini_version 171.3780.104
-%global ini_id 33680
+%global ini_version 172.3317.57
+%global ini_id 36822
 
-%global markdown_support_version 2017.1.20170302
-%global markdown_support_id 33092
+%global markdown_support_version 2017.2.20170419
+%global markdown_support_id 34393
 
-%global git_tool_box_version 171.1.2
-%global git_tool_box_id 33639
+%global git_tool_box_version 171.1.4
+%global git_tool_box_id 37035
 
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
 Version:       2017.2.1
-Release:       1%{?dist}
+Release:       3%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -59,17 +56,16 @@ URL:           http://www.jetbrains.com/pycharm/
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
-Source3:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
-Source9:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
-Source10:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
-Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-Source12:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source2:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
+Source3:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
+Source8:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
+Source9:       https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
+Source10:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
+Source11:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm-community.desktop
@@ -97,29 +93,25 @@ BuildArch:     noarch
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
-contains plugins like BashSupport, GoLang, Markdown, Idea Markdown
+contains plugins like BashSupport, Markdown, Idea Markdown
 Intellij Ansible, GitLab integration plugin.
 
 %description doc
 This package contains documentation for Intelligent Python IDE.
 
-# This should be '%{name}-%{version}' but it's wrong in v2017.2.1
-%global builddir %{name}-2017.2
-
 %prep
-%setup -q -n %{builddir}
-%setup -q -n %{builddir} -D -T -a 1
-%setup -q -n %{builddir} -D -T -a 2
-%setup -q -n %{builddir} -D -T -a 3
-%setup -q -n %{builddir} -D -T -a 4
-%setup -q -n %{builddir} -D -T -a 5
-%setup -q -n %{builddir} -D -T -a 6
-%setup -q -n %{builddir} -D -T -a 7
-%setup -q -n %{builddir} -D -T -a 8
-%setup -q -n %{builddir} -D -T -a 9
-%setup -q -n %{builddir} -D -T -a 10
-%setup -q -n %{builddir} -D -T -a 11
-%setup -q -n %{builddir} -D -T -a 12
+%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version} -D -T -a 1
+%setup -q -n %{name}-%{version} -D -T -a 2
+%setup -q -n %{name}-%{version} -D -T -a 3
+%setup -q -n %{name}-%{version} -D -T -a 4
+%setup -q -n %{name}-%{version} -D -T -a 5
+%setup -q -n %{name}-%{version} -D -T -a 6
+%setup -q -n %{name}-%{version} -D -T -a 7
+%setup -q -n %{name}-%{version} -D -T -a 8
+%setup -q -n %{name}-%{version} -D -T -a 9
+%setup -q -n %{name}-%{version} -D -T -a 10
+%setup -q -n %{name}-%{version} -D -T -a 11
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -134,7 +126,6 @@ mv idea-markdown-%{markdown_version} idea-markdown
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./Go %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./idea-markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -170,7 +161,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,idea-markdown}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 %{_bindir}/pycharm
 
@@ -191,7 +182,6 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
 %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
-%{_javadir}/%{name}/%{plugins_dir}/Go
 %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
@@ -204,6 +194,12 @@ fi
 %license license/
 
 %changelog
+* Fri Aug 11 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-3
+- Update plugins.
+
+* Thu Aug 10 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-2
+- Revert top-level archive directory change as upstream archive has been fixed.
+
 * Wed Aug 09 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-1
 - Update to latest upstream version, 2017.2.1.
 
