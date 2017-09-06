@@ -20,8 +20,8 @@
 %global bash_version 1.6.11.172
 %global bash_id 37247
 
-%global docker_integration_version 3.0.1
-%global docker_integration_id 37263
+%global docker_integration_version 172.3968.28
+%global docker_integration_id 38244
 
 %global editor_config_version 172.2465.2
 %global editor_config_id 35419
@@ -60,7 +60,7 @@ Source2:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_vers
 Source3:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
 Source8:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
