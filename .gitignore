@@ -2,3 +2,7 @@ pycharm-community-*.tar.gz
 results/
 /*.zip
 /*.jar
+.flatpak-builder
+flatpakbuildir/
+builddir
+repo
