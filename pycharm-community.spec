@@ -47,7 +47,7 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2017.3.1
+Version:       2017.3.2
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -194,6 +194,9 @@ fi
 %license license/
 
 %changelog
+* Tue Jan 09 2018 Petr Hracek <phracek@redhat.com> - 2017.3.2-1
+- Update to latest upstream version, 2017.3.2.
+
 * Thu Dec 14 2017 Petr Hracek <phracek@redhat.com> - 2017.3.1-1
 - Update to latest upstream version, 2017.3.1.
 
