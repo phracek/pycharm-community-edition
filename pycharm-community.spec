@@ -55,12 +55,12 @@
 %global dbnavigator_version 3.0.8222.0
 %global dbnavigator_id 46638
 
-%global rust_version 0.2.0.2101-182
-%global rust_id 48070
+%global rust_version 0.2.0.2103-182
+%global rust_id 48624
 
 Name:          pycharm-community
-Version:       2018.2
-Release:       2%{?dist}
+Version:       2018.2.1
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -239,6 +239,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Wed Aug 08 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.1-1
+- Updated to version 2018.2.1.
+
 * Fri Aug 03 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2-2
 - Added -jre subpackage with JRE by JetBrains with fixed fonts.
 - Removed obsolete entries from SPEC.
