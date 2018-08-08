@@ -1,3 +1,5 @@
+# disable debuginfo subpackage
+%global debug_package %{nil}
 # don't strip bundled binaries because pycharm checks length (!!!) of binary fsnotif
 # and if you strip debug stuff from it, it will complain
 %global __strip /bin/true
@@ -17,55 +19,68 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.6.11.172
-%global bash_id 37247
+%global bash_version 1.6.13.182
+%global bash_id 46357
 
-%global docker_integration_version 172.3968.28
-%global docker_integration_id 38244
+%global repmapper_version 2.3.1
+%global repmapper_id 44337
 
-%global editor_config_version 172.2465.2
-%global editor_config_id 35419
+%global docker_integration_version 182.3684.90
+%global docker_integration_id 48047
+
+%global editor_config_version 182.2949.6
+%global editor_config_id 46642
 
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global idea_markdown_navigator_version 2.3.8
-%global idea_markdown_navigator_id 36922
+%global idea_multimarkdown_version 2.5.4
+%global idea_multimarkdown_id 46921
 
-%global ideavim_version 0.48
-%global ideavim_id 31805
+%global ideavim_version 0.49
+%global ideavim_id 41383
 
-%global ini_version 172.3317.57
-%global ini_id 36822
+%global ini_version 182.3911.19
+%global ini_id 48384
 
-%global markdown_support_version 2017.2.20170419
-%global markdown_support_id 34393
+%global markdown_support_version 182.2371
+%global markdown_support_id 45898
 
-%global git_tool_box_version 172.0.0
-%global git_tool_box_id 38634
+%global git_tool_box_version 182.1.1
+%global git_tool_box_id 47855
 
-%global markdown_version 0.9.7
+%global ignore_plugin_version 3.0.0.182
+%global ignore_plugin_id 48021
+
+%global dbnavigator_version 3.0.8222.0
+%global dbnavigator_id 46638
+
+%global rust_version 0.2.0.2101-182
+%global rust_id 48070
 
 Name:          pycharm-community
-Version:       2018.1.3
-Release:       1%{?dist}
+Version:       2018.2
+Release:       2%{?dist}
+
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
-Source3:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7896/%{idea_markdown_navigator_id}/idea-multimarkdown.%{idea_markdown_navigator_version}.zip#/idea-multimarkdown-%{idea_markdown_navigator_version}.zip
-Source8:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
-Source9:       https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
-Source10:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-Source11:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
+Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-18.0.zip#/DBN-%{dbnavigator_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
+Source9:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
+Source10:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
+Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
+Source12:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source13:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
+Source14:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm-community.desktop
@@ -78,6 +93,13 @@ BuildRequires: python2-devel
 BuildRequires: python3-devel
 %endif
 Requires:      java
+%ifarch x86_64
+%if 0%{?fedora}
+Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
+%else
+Requires:      %{name}-jre%{?_isa} = %{version}-%{release}
+%endif
+%endif
 
 %description
 The intelligent Python IDE with unique code assistance and analysis,
@@ -90,14 +112,27 @@ Requires:      %{name}%{?_isa} = %{version}-%{release}
 %package doc
 Summary:       Documentation for intelligent Python IDE
 BuildArch:     noarch
+Requires:      %{name} = %{version}-%{release}
+
+%ifarch x86_64
+%package jre
+Summary:       Patched OpenJDK for intelligent Python IDE by JetBrains
+Requires:      %{name}%{?_isa} = %{version}-%{release}
+%endif
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
-contains plugins like BashSupport, Markdown, Idea Markdown
-Intellij Ansible, GitLab integration plugin.
+contains plugins like BashSupport, RemoteRepositoryMapper, GoLang, Markdown,
+Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 
 %description doc
 This package contains documentation for Intelligent Python IDE.
+
+%ifarch x86_64
+%description jre
+This package contains patched OpenJDK designed specially for Intelligent
+Python IDE by JetBrains, Inc.
+%endif
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -112,6 +147,9 @@ This package contains documentation for Intelligent Python IDE.
 %setup -q -n %{name}-%{version} -D -T -a 9
 %setup -q -n %{name}-%{version} -D -T -a 10
 %setup -q -n %{name}-%{version} -D -T -a 11
+%setup -q -n %{name}-%{version} -D -T -a 12
+%setup -q -n %{name}-%{version} -D -T -a 13
+%setup -q -n %{name}-%{version} -D -T -a 14
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -119,14 +157,17 @@ mkdir -p %{buildroot}%{_datadir}/%{name}
 mkdir -p %{buildroot}%{_datadir}/pixmaps
 mkdir -p %{buildroot}%{_datadir}/mime/packages
 mkdir -p %{buildroot}%{_datadir}/applications
-mkdir -p %{buildroot}%{_datadir}/appdata
+mkdir -p %{buildroot}%{_datadir}/metainfo
 mkdir -p %{buildroot}%{_bindir}
 
-mv idea-markdown-%{markdown_version} idea-markdown
 cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
+%ifarch x86_64
+cp -arf ./jre64 %{buildroot}%{_javadir}/%{name}/
+%endif
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./idea-markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./GitLink %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./DBNavigator %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./gitlab-integration-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -134,7 +175,10 @@ cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -af %{SOURCE8} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./Docker %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./idea-gitignore %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -142,7 +186,7 @@ rm -f %{buildroot}%{_javadir}/help/*.pdf
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
 cp -af %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 cp -af %{SOURCE102} %{buildroot}%{_datadir}/pycharm-community.desktop
-cp -a %{SOURCE103} %{buildroot}%{_datadir}/appdata
+cp -a %{SOURCE103} %{buildroot}%{_datadir}/metainfo
 ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
 desktop-file-install                          \
 --add-category="Development"                  \
@@ -151,49 +195,59 @@ desktop-file-install                          \
 %{buildroot}%{_datadir}/pycharm-community.desktop
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-community.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-community.appdata.xml
 
 %files
 %{_datadir}/applications/pycharm-community.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
-%{_datadir}/appdata/pycharm-community.appdata.xml
+%{_datadir}/metainfo/pycharm-community.appdata.xml
 %{_javadir}/%{name}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,idea-markdown}
+%ifarch x86_64
+%exclude %{_javadir}/%{name}/jre64
+%endif
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,GitLink,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker,idea-gitignore,intellij-rust}
 %{_bindir}/pycharm
-
-%post
-/bin/touch --no-create %{_datadir}/mime/packages &>/dev/null || :
-
-%postun
-if [ $1 -eq 0 ] ; then
-  /usr/bin/update-mime-database %{_datadir}/mime &> /dev/null || :
-fi
-
-%posttrans
-/usr/bin/update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
-%{_javadir}/%{name}/%{plugins_dir}/idea-markdown
+%{_javadir}/%{name}/%{plugins_dir}/GitLink
+%{_javadir}/%{name}/%{plugins_dir}/DBNavigator
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
 %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
 %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
-%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+%{_javadir}/%{name}/%{plugins_dir}/Docker
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea
+%{_javadir}/%{name}/%{plugins_dir}/GitToolBox
+%{_javadir}/%{name}/%{plugins_dir}/idea-gitignore
+%{_javadir}/%{name}/%{plugins_dir}/intellij-rust
 
 %files doc
 %doc *.txt
 %doc help/*.pdf
 %license license/
 
+%ifarch x86_64
+%files jre
+%{_javadir}/%{name}/jre64
+%endif
+
 %changelog
+* Fri Aug 03 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2-2
+- Added -jre subpackage with JRE by JetBrains with fixed fonts.
+- Removed obsolete entries from SPEC.
+- All plugins updated to latest versions.
+- Removed all outdated plugins and added new instead.
+
+* Mon Jul 30 2018 Petr Hracek <phracek@redhat.com> - 2018.2-1
+- Update to the latest upstream version 2018.2
+
 * Thu May 17 2018 Petr Hracek <phracek@redhat.com> - 2018.1.3-1
 - Update to the latest upstream version, 2018.1.3
 
