@@ -43,8 +43,8 @@
 %global ini_version 182.3911.19
 %global ini_id 48384
 
-%global markdown_support_version 182.2371
-%global markdown_support_id 45898
+%global markdown_support_version 182.4129.4
+%global markdown_support_id 48843
 
 %global git_tool_box_version 182.1.1
 %global git_tool_box_id 47855
@@ -59,7 +59,7 @@
 %global rust_id 48624
 
 Name:          pycharm-community
-Version:       2018.2.1
+Version:       2018.2.2
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -239,6 +239,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Thu Aug 23 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.2-1
+- Updated to version 2018.2.2.
+
 * Wed Aug 08 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.1-1
 - Updated to version 2018.2.1.
 
