@@ -25,8 +25,8 @@
 %global repmapper_version 2.3.1
 %global repmapper_id 44337
 
-%global docker_integration_version 182.3684.90
-%global docker_integration_id 48047
+%global docker_integration_version 182.4323.18
+%global docker_integration_id 49638
 
 %global editor_config_version 182.2949.6
 %global editor_config_id 46642
@@ -46,8 +46,8 @@
 %global markdown_support_version 182.4129.4
 %global markdown_support_id 48843
 
-%global git_tool_box_version 182.1.1
-%global git_tool_box_id 47855
+%global git_tool_box_version 182.3.0
+%global git_tool_box_id 49624
 
 %global ignore_plugin_version 3.0.0.182
 %global ignore_plugin_id 48021
@@ -55,11 +55,11 @@
 %global dbnavigator_version 3.0.8222.0
 %global dbnavigator_id 46638
 
-%global rust_version 0.2.0.2103-182
-%global rust_id 48624
+%global rust_version 0.2.0.2104-182
+%global rust_id 49248
 
 Name:          pycharm-community
-Version:       2018.2.2
+Version:       2018.2.3
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -118,6 +118,8 @@ Requires:      %{name} = %{version}-%{release}
 %package jre
 Summary:       Patched OpenJDK for intelligent Python IDE by JetBrains
 Requires:      %{name}%{?_isa} = %{version}-%{release}
+AutoReq:       no
+AutoReqProv:   no
 %endif
 
 %description plugins
@@ -239,6 +241,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Sat Sep 08 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.3-1
+- Updated to version 2018.2.3.
+
 * Thu Aug 23 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.2-1
 - Updated to version 2018.2.2.
 
