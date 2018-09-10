@@ -6,5 +6,5 @@ Terminal=false
 Icon=pycharm
 Type=Application
 Categories=Development;
-X-Desktop-File-Install-Version=0.21
 StartupWMClass=jetbrains-pycharm-ce
+MimeType=text/plain;application/x-python-code;text/x-python;application/xml;text/markdown;
