@@ -34,8 +34,8 @@
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global idea_multimarkdown_version 2.5.4
-%global idea_multimarkdown_id 46921
+%global idea_multimarkdown_version 2.6.0
+%global idea_multimarkdown_id 50011
 
 %global ideavim_version 0.49
 %global ideavim_id 41383
@@ -55,11 +55,11 @@
 %global dbnavigator_version 3.0.8222.0
 %global dbnavigator_id 46638
 
-%global rust_version 0.2.0.2104-182
-%global rust_id 49248
+%global rust_version 0.2.0.2105-182
+%global rust_id 49875
 
 Name:          pycharm-community
-Version:       2018.2.3
+Version:       2018.2.4
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -241,6 +241,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Mon Sep 24 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.4-1
+- Updated to version 2018.2.4.
+
 * Sat Sep 08 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.3-1
 - Updated to version 2018.2.3.
 
