@@ -19,11 +19,11 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.6.13.182
-%global bash_id 46357
+%global bash_version 1.7.3
+%global bash_id 51822
 
-%global repmapper_version 2.3.1
-%global repmapper_id 44337
+%global repmapper_version 2.4.0
+%global repmapper_id 51498
 
 %global docker_integration_version 182.4323.18
 %global docker_integration_id 49638
@@ -31,23 +31,23 @@
 %global editor_config_version 182.2949.6
 %global editor_config_id 46642
 
-%global git_lab_integration_version 1.0.6
-%global git_lab_integration_id 17542
+%global git_lab_integration_version 1.1.0
+%global git_lab_integration_id 51994
 
-%global idea_multimarkdown_version 2.6.0
-%global idea_multimarkdown_id 50011
+%global idea_multimarkdown_version 2.7.0
+%global idea_multimarkdown_id 52106
 
-%global ideavim_version 0.49
-%global ideavim_id 41383
+%global ideavim_version 0.50
+%global ideavim_id 51219
 
 %global ini_version 182.3911.19
 %global ini_id 48384
 
-%global markdown_support_version 182.4129.4
-%global markdown_support_id 48843
+%global markdown_support_version 182.4892.20
+%global markdown_support_id 51190
 
-%global git_tool_box_version 182.3.0
-%global git_tool_box_id 49624
+%global git_tool_box_version 182.7.0
+%global git_tool_box_id 52026
 
 %global ignore_plugin_version 3.0.0.182
 %global ignore_plugin_id 48021
@@ -55,24 +55,24 @@
 %global dbnavigator_version 3.0.8222.0
 %global dbnavigator_id 46638
 
-%global rust_version 0.2.0.2105-182
-%global rust_id 49875
+%global rust_version 0.2.0.2110-182
+%global rust_id 51832
 
 Name:          pycharm-community
-Version:       2018.2.4
+Version:       2018.2.5
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
-Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
+Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
 Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
 Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-18.0.zip#/DBN-%{dbnavigator_version}.zip
 Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin-%{git_lab_integration_version}.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source8:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
 Source9:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
@@ -241,6 +241,13 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Sat Nov 17 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.5-1
+- Updated to version 2018.2.5.
+- Updated plugins.
+
+* Thu Oct 25 2018 Petr Hracek <phracek@redhat.com> - 2018.2.4-2
+- Build for Fedora 29 and rawhide
+
 * Mon Sep 24 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.4-1
 - Updated to version 2018.2.4.
 
