@@ -8,7 +8,7 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
-%if 0%{?rhel} <= 7
+%if 0%{?rhel} && 0%{?rhel} <= 7
 %bcond_with python3
 %else
 %bcond_without python3
@@ -88,9 +88,10 @@ Source103:     pycharm-community.appdata.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: /usr/bin/appstream-util
-BuildRequires: python2-devel
 %if %{with python3}
 BuildRequires: python3-devel
+%else
+BuildRequires: python2-devel
 %endif
 Requires:      java
 %ifarch x86_64
@@ -152,6 +153,10 @@ Python IDE by JetBrains, Inc.
 %setup -q -n %{name}-%{version} -D -T -a 12
 %setup -q -n %{name}-%{version} -D -T -a 13
 %setup -q -n %{name}-%{version} -D -T -a 14
+
+%if %{with python3}
+find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -e 's@python2@python3@g' -i "{}" \;
+%endif
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
