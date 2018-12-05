@@ -28,8 +28,8 @@
 %global docker_integration_version 183.4588.19
 %global docker_integration_id 52580
 
-%global editor_config_version 183.4284.122
-%global editor_config_id 52113
+%global editor_config_version 183.4588.29
+%global editor_config_id 52681
 
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
@@ -59,7 +59,7 @@
 %global rust_id 52498
 
 Name:          pycharm-community
-Version:       2018.3
+Version:       2018.3.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -246,6 +246,10 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Wed Dec 05 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.3.1-1
+- Updated to version 2018.3.1.
+- Updated plugins.
+
 * Fri Nov 23 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.3-1
 - Updated to version 2018.3.
 - Updated plugins.
