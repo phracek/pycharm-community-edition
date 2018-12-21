@@ -25,8 +25,8 @@
 %global repmapper_version 2.4.0
 %global repmapper_id 51498
 
-%global docker_integration_version 183.5153.1
-%global docker_integration_id 53386
+%global docker_integration_version 183.4886.3
+%global docker_integration_id 52939
 
 %global editor_config_version 183.4588.29
 %global editor_config_id 52681
@@ -43,8 +43,8 @@
 %global ini_version 183.4886.46
 %global ini_id 53366
 
-%global markdown_support_version 183.5153.1
-%global markdown_support_id 53384
+%global markdown_support_version 183.4588.3
+%global markdown_support_id 52409
 
 %global git_tool_box_version 183.1.0
 %global git_tool_box_id 53141
