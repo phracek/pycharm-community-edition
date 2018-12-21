@@ -19,14 +19,14 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.7.3
-%global bash_id 51822
+%global bash_version 1.7.4
+%global bash_id 53225
 
 %global repmapper_version 2.4.0
 %global repmapper_id 51498
 
-%global docker_integration_version 183.4588.19
-%global docker_integration_id 52580
+%global docker_integration_version 183.5153.1
+%global docker_integration_id 53386
 
 %global editor_config_version 183.4588.29
 %global editor_config_id 52681
@@ -40,23 +40,23 @@
 %global ideavim_version 0.50
 %global ideavim_id 51219
 
-%global ini_version 183.3795.24
-%global ini_id 51147
+%global ini_version 183.4886.46
+%global ini_id 53366
 
-%global markdown_support_version 183.4588.3
-%global markdown_support_id 52409
+%global markdown_support_version 183.5153.1
+%global markdown_support_id 53384
 
-%global git_tool_box_version 183.0.5
-%global git_tool_box_id 52392
+%global git_tool_box_version 183.1.0
+%global git_tool_box_id 53141
 
 %global ignore_plugin_version 3.0.0.182
 %global ignore_plugin_id 48021
 
-%global dbnavigator_version 3.0.8222.0
-%global dbnavigator_id 46638
+%global dbnavigator_version 3.1.0147.0
+%global dbnavigator_id 53132
 
-%global rust_version 0.2.0.2111-183
-%global rust_id 52498
+%global rust_version 0.2.0.2112-183
+%global rust_id 53031
 
 Name:          pycharm-community
 Version:       2018.3.2
@@ -248,6 +248,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %changelog
 * Fri Dec 21 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.3.2-1
 - Updated to version 2018.3.2.
+- Updated plugins.
 
 * Wed Dec 05 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.3.1-1
 - Updated to version 2018.3.1.
