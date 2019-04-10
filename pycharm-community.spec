@@ -19,44 +19,44 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.7.4
-%global bash_id 53225
+%global bash_version 1.7.7
+%global bash_id 60154
 
-%global repmapper_version 3.1.1
-%global repmapper_id 58224
+%global repmapper_version 3.1.2
+%global repmapper_id 59778
 
-%global docker_integration_version 183.5153.1
-%global docker_integration_id 53386
+%global docker_integration_version 191.6183.53
+%global docker_integration_id 59713
 
-%global editor_config_version 183.5429.2
-%global editor_config_id 54046
+%global editor_config_version 191.6183.33
+%global editor_config_id 59568
 
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
 
-%global idea_multimarkdown_version 2.8.2
-%global idea_multimarkdown_id 57734
+%global idea_multimarkdown_version 2.8.4
+%global idea_multimarkdown_id 60247
 
 %global ideavim_version 0.51
 %global ideavim_id 58115
 
-%global ini_version 183.4886.46
-%global ini_id 53366
+%global ini_version 191.5849.22
+%global ini_id 58824
 
-%global markdown_support_version 183.5153.1
-%global markdown_support_id 53384
+%global markdown_support_version 191.5849.16
+%global markdown_support_id 58813
 
-%global git_tool_box_version 183.4.0
-%global git_tool_box_id 58539
+%global git_tool_box_version 191.0.10
+%global git_tool_box_id 60041
 
 %global ignore_plugin_version 3.0.0.182
 %global ignore_plugin_id 48021
 
-%global dbnavigator_version 3.1.0901.0
-%global dbnavigator_id 58763
+%global dbnavigator_version 3.1.1362.0
+%global dbnavigator_id 60537
 
-%global rust_version 0.2.92.2116-183
-%global rust_id 58269
+%global rust_version 0.2.95.2120-191
+%global rust_id 59965
 
 Name:          pycharm-community
 Version:       2019.1.1
@@ -67,7 +67,7 @@ License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
+Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/bashsupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
 Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
 Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-18.0.zip#/DBN-%{dbnavigator_version}.zip
 Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
@@ -248,6 +248,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %changelog
 * Wed Apr 10 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.1.1-1
 - Updated to version 2019.1.1.
+- Updated plugins.
 
 * Thu Feb 28 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.3.5-1
 - Updated to version 2018.3.5.
