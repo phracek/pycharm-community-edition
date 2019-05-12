@@ -167,7 +167,7 @@ mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_datadir}/metainfo
 mkdir -p %{buildroot}%{_bindir}
 
-cp -arf ./{lib,bin,help,helpers,plugins,build.txt} %{buildroot}%{_javadir}/%{name}/
+cp -arf ./{lib,bin,help,helpers,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 %ifarch x86_64
 cp -arf ./jre64 %{buildroot}%{_javadir}/%{name}/
 %endif
