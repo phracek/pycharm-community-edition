@@ -43,20 +43,20 @@
 %global ini_version 191.5849.22
 %global ini_id 58824
 
-%global markdown_support_version 191.7141.32
-%global markdown_support_id 61631
+%global markdown_support_version 191.7479.1
+%global markdown_support_id 62319
 
-%global git_tool_box_version 191.1.2
-%global git_tool_box_id 60864
+%global git_tool_box_version 191.2.2
+%global git_tool_box_id 63093
 
-%global ignore_plugin_version 3.0.0.182
-%global ignore_plugin_id 48021
+%global ignore_plugin_version 3.1.2.191
+%global ignore_plugin_id 62301
 
-%global dbnavigator_version 3.1.1432.0
-%global dbnavigator_id 61126
+%global dbnavigator_version 3.2.0041.0
+%global dbnavigator_id 63346
 
-%global rust_version 0.2.97.2123-191
-%global rust_id 61359
+%global rust_version 0.2.98.2125-191
+%global rust_id 63267
 
 Name:          pycharm-community
 Version:       2019.1.3
@@ -248,6 +248,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %changelog
 * Sat Jun 01 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.1.3-1
 - Updated to version 2019.1.3.
+- Updated plugins.
 
 * Sun May 12 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.1.2-2
 - Resolved issue with plugins. Thanks to ForNeVeR.
