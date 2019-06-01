@@ -59,8 +59,8 @@
 %global rust_id 61359
 
 Name:          pycharm-community
-Version:       2019.1.2
-Release:       2%{?dist}
+Version:       2019.1.3
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -246,6 +246,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Sat Jun 01 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.1.3-1
+- Updated to version 2019.1.3.
+
 * Sun May 12 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.1.2-2
 - Resolved issue with plugins. Thanks to ForNeVeR.
 
