@@ -11,7 +11,7 @@ if [ $(id -u) -eq 0 ]; then
 fi
 
 echo "Downloading sources..."
-/usr/bin/perl spectool.pl --all --get-files pycharm-community.spec
+bash download_source.sh
 
 echo "Building SRPM..."
 set -o pipefail
