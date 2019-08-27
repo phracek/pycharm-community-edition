@@ -169,7 +169,7 @@ mkdir -p %{buildroot}%{_bindir}
 
 cp -arf ./{lib,bin,help,helpers,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 %ifarch x86_64
-cp -arf ./jre64 %{buildroot}%{_javadir}/%{name}/
+cp -arf ./jbr %{buildroot}%{_javadir}/%{name}/
 %endif
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -211,7 +211,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %{_datadir}/metainfo/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %ifarch x86_64
-%exclude %{_javadir}/%{name}/jre64
+%exclude %{_javadir}/%{name}/jbr
 %endif
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,GitLink,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
@@ -242,7 +242,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 
 %ifarch x86_64
 %files jre
-%{_javadir}/%{name}/jre64
+%{_javadir}/%{name}/jbr
 %endif
 
 %changelog
