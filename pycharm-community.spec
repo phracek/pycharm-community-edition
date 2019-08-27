@@ -19,44 +19,44 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.7.7
-%global bash_id 60154
+%global bash_version 1.7.12.192
+%global bash_id 65772
 
-%global repmapper_version 3.1.2
-%global repmapper_id 59778
+%global repmapper_version 3.3.1
+%global repmapper_id 67403
 
-%global docker_integration_version 191.7141.44
-%global docker_integration_id 62059
+%global docker_integration_version 192.6262.9
+%global docker_integration_id 66972
 
-%global editor_config_version 191.6183.33
-%global editor_config_id 59568
+%global editor_config_version 192.6262.44
+%global editor_config_id 67369
 
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
 
-%global idea_multimarkdown_version 2.8.4
-%global idea_multimarkdown_id 60247
+%global idea_multimarkdown_version 2.9.7
+%global idea_multimarkdown_id 66598
 
-%global ideavim_version 0.51
-%global ideavim_id 58115
+%global ideavim_version 0.53
+%global ideavim_id 66784
 
-%global ini_version 191.5849.22
-%global ini_id 58824
+%global ini_version 192.6262.16
+%global ini_id 66888
 
-%global markdown_support_version 191.7479.1
-%global markdown_support_id 62319
+%global markdown_support_version 192.5728.98
+%global markdown_support_id 66080
 
-%global git_tool_box_version 191.2.2
-%global git_tool_box_id 63093
+%global git_tool_box_version 192.1.1
+%global git_tool_box_id 66331
 
-%global ignore_plugin_version 3.1.2.191
-%global ignore_plugin_id 62301
+%global ignore_plugin_version 3.2.1.192
+%global ignore_plugin_id 66736
 
-%global dbnavigator_version 3.2.0041.0
-%global dbnavigator_id 63346
+%global dbnavigator_version 3.2.0163.0
+%global dbnavigator_id 65419
 
-%global rust_version 0.2.98.2125-191
-%global rust_id 63267
+%global rust_version 0.2.104.2132-192
+%global rust_id 67804
 
 Name:          pycharm-community
 Version:       2019.2.1
@@ -67,15 +67,15 @@ License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/bashsupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
+Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
 Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
 Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-18.0.zip#/DBN-%{dbnavigator_version}.zip
 Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin-%{git_lab_integration_version}.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source8:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
-Source9:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
+Source9:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVIM-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
 Source10:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
 Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
 Source12:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
@@ -248,6 +248,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %changelog
 * Tue Aug 27 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.1-1
 - Updated to version 2019.2.1.
+- Updated plugins.
 
 * Sat Jun 01 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.1.3-1
 - Updated to version 2019.1.3.
