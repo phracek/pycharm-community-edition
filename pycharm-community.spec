@@ -19,14 +19,14 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.7.12.192
-%global bash_id 65772
+%global bash_version 1.7.13.192
+%global bash_id 68715
 
 %global repmapper_version 3.3.1
 %global repmapper_id 67403
 
-%global docker_integration_version 192.6603.8
-%global docker_integration_id 68006
+%global docker_integration_version 192.6817.4
+%global docker_integration_id 68498
 
 %global editor_config_version 192.6262.44
 %global editor_config_id 67369
@@ -46,17 +46,17 @@
 %global markdown_support_version 192.5728.98
 %global markdown_support_id 66080
 
-%global git_tool_box_version 192.2.2
-%global git_tool_box_id 68242
+%global git_tool_box_version 192.3.0
+%global git_tool_box_id 68610
 
 %global ignore_plugin_version 3.2.2.192
 %global ignore_plugin_id 68118
 
-%global dbnavigator_version 3.2.0217.0
-%global dbnavigator_id 68136
+%global dbnavigator_version 3.2.0279.0
+%global dbnavigator_id 68734
 
-%global rust_version 0.2.105.2133-192
-%global rust_id 68436
+%global rust_version 0.2.106.2135-192
+%global rust_id 69227
 
 Name:          pycharm-community
 Version:       2019.2.3
@@ -67,7 +67,7 @@ License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
+Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/bashsupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
 Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
 Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-18.0.zip#/DBN-%{dbnavigator_version}.zip
 Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
@@ -248,6 +248,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %changelog
 * Thu Sep 26 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.3-1
 - Updated to version 2019.2.3.
+- Updated plugins.
 
 * Wed Sep 11 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.2-1
 - Updated to version 2019.2.2.
