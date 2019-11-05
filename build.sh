@@ -11,7 +11,7 @@ if [ $(id -u) -eq 0 ]; then
 fi
 
 echo "Downloading sources..."
-bash download_source.sh
+bash download_sources.sh
 
 echo "Building SRPM..."
 set -o pipefail
