@@ -46,21 +46,21 @@
 %global markdown_support_version 192.5728.98
 %global markdown_support_id 66080
 
-%global git_tool_box_version 192.3.0
-%global git_tool_box_id 68610
+%global git_tool_box_version 192.5.0
+%global git_tool_box_id 71938
 
 %global ignore_plugin_version 3.2.2.192
 %global ignore_plugin_id 68118
 
-%global dbnavigator_version 3.2.0279.0
-%global dbnavigator_id 68734
+%global dbnavigator_version 3.2.0564.0
+%global dbnavigator_id 72060
 
-%global rust_version 0.2.106.2135-192
-%global rust_id 69227
+%global rust_version 0.2.109.2149-192
+%global rust_id 71671
 
 Name:          pycharm-community
 Version:       2019.2.4
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -246,7 +246,11 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
-* Tue Oct 05 2019 Petr Hracek <phracek@redhat.com> - 2019.2.4-1
+* Thu Nov 14 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.4-2
+- Updated plugins.
+- Fixed bogus date in changelog.
+
+* Tue Nov 05 2019 Petr Hracek <phracek@redhat.com> - 2019.2.4-1
 - Update to version 2019.2.4
 
 * Thu Sep 26 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.3-1
