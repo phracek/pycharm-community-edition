@@ -19,8 +19,8 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.7.13.192
-%global bash_id 68715
+%global bash_version 1.7.15.192
+%global bash_id 72819
 
 %global repmapper_version 3.3.1
 %global repmapper_id 67403
@@ -37,8 +37,8 @@
 %global idea_multimarkdown_version 2.9.7
 %global idea_multimarkdown_id 66598
 
-%global ideavim_version 0.53
-%global ideavim_id 66784
+%global ideavim_version 0.54
+%global ideavim_id 72655
 
 %global ini_version 192.6262.16
 %global ini_id 66888
@@ -46,8 +46,8 @@
 %global markdown_support_version 192.5728.98
 %global markdown_support_id 66080
 
-%global git_tool_box_version 192.5.0
-%global git_tool_box_id 71938
+%global git_tool_box_version 192.6.3
+%global git_tool_box_id 73169
 
 %global ignore_plugin_version 3.2.2.192
 %global ignore_plugin_id 68118
@@ -55,8 +55,8 @@
 %global dbnavigator_version 3.2.0564.0
 %global dbnavigator_id 72060
 
-%global rust_version 0.2.109.2149-192
-%global rust_id 71671
+%global rust_version 0.2.110.2150-192
+%global rust_id 72541
 
 Name:          pycharm-community
 Version:       2019.2.5
@@ -248,6 +248,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %changelog
 * Wed Nov 27 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.5-1
 - Updated to version 2019.2.5.
+- Updated plugins.
 
 * Thu Nov 14 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.4-2
 - Updated plugins.
