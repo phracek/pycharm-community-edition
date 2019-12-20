@@ -59,7 +59,7 @@
 %global rust_id 72541
 
 Name:          pycharm-community
-Version:       2019.2.5
+Version:       2019.3.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -246,6 +246,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Fri Dec 20 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.3.1-1
+- Updated to version 2019.3.1.
+
 * Wed Nov 27 2019 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.2.5-1
 - Updated to version 2019.2.5.
 - Updated plugins.
