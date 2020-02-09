@@ -25,8 +25,8 @@
 %global repmapper_version 3.3.2
 %global repmapper_id 74305
 
-%global docker_integration_version 193.6015.39
-%global docker_integration_id 76262
+%global docker_integration_version 193.6494.1
+%global docker_integration_id 76689
 
 %global editor_config_version 193.5662.56
 %global editor_config_id 74618
@@ -34,20 +34,20 @@
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
 
-%global idea_multimarkdown_version 2.9.11
-%global idea_multimarkdown_id 75191
+%global idea_multimarkdown_version 3.0.197.64
+%global idea_multimarkdown_id 77526
 
 %global ideavim_version 0.55
 %global ideavim_id 76187
 
-%global ini_version 193.5662.65
-%global ini_id 74955
+%global ini_version 193.6015.53
+%global ini_id 76810
 
 %global markdown_support_version 193.6015.44
 %global markdown_support_id 76343
 
-%global git_tool_box_version 193.3.3
-%global git_tool_box_id 75362
+%global git_tool_box_version 193.4.4
+%global git_tool_box_id 76754
 
 %global ignore_plugin_version 3.2.3.193
 %global ignore_plugin_id 73294
@@ -55,8 +55,8 @@
 %global dbnavigator_version 3.2.0589.0
 %global dbnavigator_id 74887
 
-%global rust_version 0.2.114.2151-193
-%global rust_id 76278
+%global rust_version 0.2.115.2157-193
+%global rust_id 77297
 
 Name:          pycharm-community
 Version:       2019.3.3
@@ -248,6 +248,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %changelog
 * Sun Feb 09 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.3.3-1
 - Updated to version 2019.3.3.
+- Updated plugins.
 
 * Wed Jan 22 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2019.3.2-1
 - Updated to version 2019.3.2.
