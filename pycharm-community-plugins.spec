@@ -48,18 +48,18 @@ Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
-Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
-Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-18.0.zip#/DBN-%{dbnavigator_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin-%{git_lab_integration_version}.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
-Source8:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVIM-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
-Source9:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea.zip#/ini4idea-%{ini_version}.zip
-Source10:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
-Source11:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
-Source12:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
+Source0:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
+Source1:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
+Source2:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-18.0.zip#/DBN-%{dbnavigator_version}.zip
+Source3:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin-%{git_lab_integration_version}.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
+Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVIM-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
+Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea.zip#/ini4idea-%{ini_version}.zip
+Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
+Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
 Requires:      %{appname} = %{version}
 BuildArch:     noarch
@@ -71,6 +71,7 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 
 %prep
 %setup -q -c -n %{appname}-%{version} -T
+%setup -q -n %{appname}-%{version} -D -T -a 0
 %setup -q -n %{appname}-%{version} -D -T -a 1
 %setup -q -n %{appname}-%{version} -D -T -a 2
 %setup -q -n %{appname}-%{version} -D -T -a 3
@@ -82,7 +83,6 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 %setup -q -n %{appname}-%{version} -D -T -a 9
 %setup -q -n %{appname}-%{version} -D -T -a 10
 %setup -q -n %{appname}-%{version} -D -T -a 11
-%setup -q -n %{appname}-%{version} -D -T -a 12
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
