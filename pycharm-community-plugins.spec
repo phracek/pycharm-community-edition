@@ -7,14 +7,14 @@
 %global ansible_version 0.9.5
 %global ansible_id 35585
 
-%global bash_version 1.7.16.192
-%global bash_id 79198
+%global bash_version 1.7.18.201
+%global bash_id 85527
 
 %global repmapper_version 3.3.3
 %global repmapper_id 79011
 
-%global docker_integration_version 201.6668.113
-%global docker_integration_id 82952
+%global docker_integration_version 201.7223.58
+%global docker_integration_id 84907
 
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
@@ -22,26 +22,26 @@
 %global idea_multimarkdown_version 3.0.197.72
 %global idea_multimarkdown_id 78997
 
-%global ideavim_version 0.56
-%global ideavim_id 83105
+%global ideavim_version 0.57
+%global ideavim_id 85009
 
 %global ini_version 201.6668.60
 %global ini_id 82401
 
-%global git_tool_box_version 201.2.1
-%global git_tool_box_id 80921
+%global git_tool_box_version 201.3.0
+%global git_tool_box_id 85453
 
 %global ignore_plugin_version 3.2.3.201
 %global ignore_plugin_id 83042
 
-%global dbnavigator_version 3.2.0589.0
-%global dbnavigator_id 74887
+%global dbnavigator_version 3.2.0627.0
+%global dbnavigator_id 84035
 
-%global rust_version 0.2.119.2201-201
-%global rust_id 83207
+%global rust_version 0.2.121.3059-201
+%global rust_id 84948
 
 Name:          %{appname}-plugins
-Version:       2020.1
+Version:       2020.1.1
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -59,7 +59,7 @@ Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{i
 Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea.zip#/ini4idea-%{ini_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
-Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
+Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}-stable.zip#/intellij-rust-%{rust_version}.zip
 
 Requires:      %{appname} = %{version}
 BuildArch:     noarch
@@ -105,6 +105,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Sun May 10 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1.1-1
+- Updated plugins to latest supported releases.
+
 * Mon Apr 13 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1-1
 - Updated plugins to latest supported releases.
 
