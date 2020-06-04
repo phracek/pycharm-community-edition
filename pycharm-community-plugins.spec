@@ -13,8 +13,8 @@
 %global repmapper_version 3.3.3
 %global repmapper_id 79011
 
-%global docker_integration_version 201.7223.58
-%global docker_integration_id 84907
+%global docker_integration_version 201.7846.6
+%global docker_integration_id 86237
 
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
@@ -28,8 +28,8 @@
 %global ini_version 201.6668.60
 %global ini_id 82401
 
-%global git_tool_box_version 201.3.0
-%global git_tool_box_id 85453
+%global git_tool_box_version 201.3.1
+%global git_tool_box_id 87151
 
 %global ignore_plugin_version 3.2.3.201
 %global ignore_plugin_id 83042
@@ -37,8 +37,8 @@
 %global dbnavigator_version 3.2.0627.0
 %global dbnavigator_id 84035
 
-%global rust_version 0.2.121.3059-201
-%global rust_id 84948
+%global rust_version 0.2.123.3132-201
+%global rust_id 87728
 
 Name:          %{appname}-plugins
 Version:       2020.1.1
