@@ -41,7 +41,7 @@
 %global rust_id 87728
 
 Name:          %{appname}-plugins
-Version:       2020.1.1
+Version:       2020.1.2
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -105,6 +105,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Thu Jun 04 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1.2-1
+- Updated plugins to latest supported releases.
+
 * Sun May 10 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1.1-1
 - Updated plugins to latest supported releases.
 
