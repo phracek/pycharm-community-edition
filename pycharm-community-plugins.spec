@@ -59,7 +59,7 @@ Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{i
 Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea.zip#/ini4idea-%{ini_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
-Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}-stable.zip#/intellij-rust-%{rust_version}.zip
+Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
 Requires:      %{appname} = %{version}
 BuildArch:     noarch
