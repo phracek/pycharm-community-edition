@@ -13,8 +13,8 @@
 %global repmapper_version 3.3.3
 %global repmapper_id 79011
 
-%global docker_integration_version 201.7846.6
-%global docker_integration_id 86237
+%global docker_integration_version 201.8538.6
+%global docker_integration_id 89873
 
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
@@ -22,14 +22,14 @@
 %global idea_multimarkdown_version 3.0.197.72
 %global idea_multimarkdown_id 78997
 
-%global ideavim_version 0.57
-%global ideavim_id 85009
+%global ideavim_version 0.58
+%global ideavim_id 91146
 
 %global ini_version 201.6668.60
 %global ini_id 82401
 
-%global git_tool_box_version 201.3.1
-%global git_tool_box_id 87151
+%global git_tool_box_version 201.4.2
+%global git_tool_box_id 90039
 
 %global ignore_plugin_version 3.2.3.201
 %global ignore_plugin_id 83042
@@ -37,11 +37,11 @@
 %global dbnavigator_version 3.2.0627.0
 %global dbnavigator_id 84035
 
-%global rust_version 0.2.123.3132-201
-%global rust_id 87728
+%global rust_version 0.2.125.3191-201
+%global rust_id 90409
 
 Name:          %{appname}-plugins
-Version:       2020.1.2
+Version:       2020.1.3
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -105,6 +105,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Thu Jul 09 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1.3-1
+- Updated plugins to latest supported releases.
+
 * Thu Jun 04 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1.2-1
 - Updated plugins to latest supported releases.
 
