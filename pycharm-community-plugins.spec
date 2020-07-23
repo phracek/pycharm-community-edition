@@ -4,8 +4,8 @@
 %global appname pycharm-community
 %global plugins_dir plugins
 
-%global ansible_version 0.9.5
-%global ansible_id 35585
+%global ansible_version 0.10.0
+%global ansible_id 92285
 
 %global bash_version 1.7.18.201
 %global bash_id 85527
@@ -37,11 +37,11 @@
 %global dbnavigator_version 3.2.0627.0
 %global dbnavigator_id 84035
 
-%global rust_version 0.2.125.3191-201
-%global rust_id 90409
+%global rust_version 0.3.126.3220-201
+%global rust_id 91731
 
 Name:          %{appname}-plugins
-Version:       2020.1.3
+Version:       2020.1.4
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -105,6 +105,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Thu Jul 23 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1.4-1
+- Updated plugins to latest supported releases.
+
 * Thu Jul 09 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.1.3-1
 - Updated plugins to latest supported releases.
 
