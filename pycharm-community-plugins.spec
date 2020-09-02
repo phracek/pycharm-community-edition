@@ -54,7 +54,7 @@
 
 Name:          %{appname}-plugins
 Version:       2020.2.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -117,6 +117,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Wed Sep 02 2020 Petr Hracek <phracek@redhat.com> - 2020.2.1-2
+- Fix typo in pycharm-community.app.xml file
+
 * Thu Aug 27 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.2.1-1
 - Updated plugins to latest supported releases.
 
