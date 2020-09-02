@@ -132,7 +132,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
-* Tue Sep 02 2020 Petr Hracek <phracek@redhat.com> - 2020.2.1-2
+* Wed Sep 02 2020 Petr Hracek <phracek@redhat.com> - 2020.2.1-2
 - Fix typo in pycharm-community.app.xml
 
 * Thu Aug 27 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.2.1-1
