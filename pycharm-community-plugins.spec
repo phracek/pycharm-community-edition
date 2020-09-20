@@ -25,12 +25,12 @@
 %global git_lab_integration_id 52232
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 202.6948.5
-%global docker_integration_id 94391
+%global docker_integration_version 202.7319.5
+%global docker_integration_id 95909
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
-%global idea_multimarkdown_version 3.0.197.72
-%global idea_multimarkdown_id 78997
+%global idea_multimarkdown_version 3.0.202.108
+%global idea_multimarkdown_id 96937
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
 %global ideavim_version 0.59
@@ -41,20 +41,20 @@
 %global ini_id 92075
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 202.0.10
-%global git_tool_box_id 95017
+%global git_tool_box_version 202.1.0
+%global git_tool_box_id 95758
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
 %global ignore_plugin_version 3.2.3.202
 %global ignore_plugin_id 93459
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.129.3308-202
-%global rust_id 95273
+%global rust_version 0.3.130.3337-202
+%global rust_id 96363
 
 Name:          %{appname}-plugins
-Version:       2020.2.1
-Release:       2%{?dist}
+Version:       2020.2.2
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -117,6 +117,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Sun Sep 20 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.2.2-1
+- Updated plugins to latest supported releases.
+
 * Wed Sep 02 2020 Petr Hracek <phracek@redhat.com> - 2020.2.1-2
 - Fix typo in pycharm-community.app.xml file
 
