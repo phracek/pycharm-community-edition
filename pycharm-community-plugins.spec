@@ -13,28 +13,28 @@
 %global repmapper_id 79011
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.0711.0
-%global dbnavigator_id 95080
+%global dbnavigator_version 3.2.0845.0
+%global dbnavigator_id 99798
 
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
-%global ansible_version 0.10.0
-%global ansible_id 92285
+%global ansible_version 0.11.0
+%global ansible_id 99905
 
 # https://plugins.jetbrains.com/plugin/7447-gitlab-integration-plugin/versions
 %global git_lab_integration_version 1.1.2
 %global git_lab_integration_id 52232
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 202.7319.5
-%global docker_integration_id 95909
+%global docker_integration_version 202.7660.3
+%global docker_integration_id 97643
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
-%global idea_multimarkdown_version 3.0.202.108
-%global idea_multimarkdown_id 96937
+%global idea_multimarkdown_version 3.0.202.112
+%global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.59
-%global ideavim_id 95437
+%global ideavim_version 0.60
+%global ideavim_id 99177
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 202.6397.21
@@ -49,11 +49,11 @@
 %global ignore_plugin_id 93459
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.130.3337-202
-%global rust_id 96363
+%global rust_version 0.3.132.3395-202
+%global rust_id 98731
 
 Name:          %{appname}-plugins
-Version:       2020.2.2
+Version:       2020.2.3
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -117,6 +117,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Mon Oct 19 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.2.3-1
+- Updated plugins to latest supported releases.
+
 * Sun Sep 20 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.2.2-1
 - Updated plugins to latest supported releases.
 
