@@ -66,7 +66,7 @@ Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}
 Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
 Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
-Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
+Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/.ignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
 Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
 Requires:      %{appname} = %{version}
@@ -104,11 +104,21 @@ cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./Docker %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./idea-gitignore %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./.ignore %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 
 %files
-%{_javadir}/%{appname}/%{plugins_dir}/*
+%{_javadir}/%{appname}/%{plugins_dir}/GitLink
+%{_javadir}/%{appname}/%{plugins_dir}/DBNavigator
+%{_javadir}/%{appname}/%{plugins_dir}/intellij-ansible
+%{_javadir}/%{appname}/%{plugins_dir}/gitlab-integration-plugin
+%{_javadir}/%{appname}/%{plugins_dir}/idea-multimarkdown
+%{_javadir}/%{appname}/%{plugins_dir}/IdeaVim
+%{_javadir}/%{appname}/%{plugins_dir}/ini4idea
+%{_javadir}/%{appname}/%{plugins_dir}/GitToolBox
+%{_javadir}/%{appname}/%{plugins_dir}/Docker
+%{_javadir}/%{appname}/%{plugins_dir}/.ignore
+%{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
 * Tue Dec 22 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.1-1
