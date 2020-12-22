@@ -25,35 +25,35 @@
 %global git_lab_integration_id 52232
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 202.8194.17
-%global docker_integration_id 103362
+%global docker_integration_version 203.6682.78
+%global docker_integration_id 105813
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
 %global idea_multimarkdown_version 3.0.202.112
 %global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.61
-%global ideavim_id 102098
+%global ideavim_version 0.63
+%global ideavim_id 105594
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 202.6397.21
-%global ini_id 92075
+%global ini_version 203.5981.152
+%global ini_id 104166
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 202.2.4
-%global git_tool_box_id 102520
+%global git_tool_box_version 203.3.2
+%global git_tool_box_id 105612
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 3.2.3.202
-%global ignore_plugin_id 93459
+%global ignore_plugin_version 4.0.2
+%global ignore_plugin_id 106136
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.135.3484-202
-%global rust_id 102397
+%global rust_version 0.3.137.3543-203
+%global rust_id 105410
 
 Name:          %{appname}-plugins
-Version:       2020.2.4
+Version:       2020.3.1
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -118,6 +118,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/*
 
 %changelog
+* Tue Dec 22 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.1-1
+- Updated plugins to latest supported releases.
+
 * Fri Nov 27 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.2.4-1
 - Updated plugins to latest supported releases.
 
