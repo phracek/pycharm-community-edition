@@ -4,10 +4,6 @@
 %global appname pycharm-community
 %global plugins_dir plugins
 
-# https://plugins.jetbrains.com/plugin/4230-bashsupport/versions
-%global bash_version 1.8.0.202
-%global bash_id 92719
-
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
 %global repmapper_version 3.3.3
 %global repmapper_id 79011
@@ -61,25 +57,24 @@ License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://github.com/phracek/pycharm-community-edition/raw/master/copr-workaround.tar.xz
-Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
-Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-20.0.zip#/DBN-%{dbnavigator_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin-%{git_lab_integration_version}.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
-Source8:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
-Source9:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-Source10:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
-Source11:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
-Source12:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
+Source1:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
+Source2:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-20.0.zip#/DBN-%{dbnavigator_version}.zip
+Source3:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin-%{git_lab_integration_version}.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
+Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
+Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
+Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
+Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
 Requires:      %{appname} = %{version}
 BuildArch:     noarch
 
 %description
 Intelligent Python IDE contains several plugins. This package
-contains plugins like BashSupport, RemoteRepositoryMapper, GoLang, Markdown,
+contains plugins like RemoteRepositoryMapper, GoLang, Markdown,
 Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 
 %prep
@@ -95,13 +90,11 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 %setup -q -n %{appname}-%{version} -D -T -a 9
 %setup -q -n %{appname}-%{version} -D -T -a 10
 %setup -q -n %{appname}-%{version} -D -T -a 11
-%setup -q -n %{appname}-%{version} -D -T -a 12
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
-cp -arf ./BashSupport %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./GitLink %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./DBNavigator %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
