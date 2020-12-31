@@ -29,8 +29,8 @@
 %global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.63
-%global ideavim_id 105594
+%global ideavim_version 0.64
+%global ideavim_id 106200
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 203.5981.152
@@ -45,8 +45,8 @@
 %global ignore_plugin_id 106136
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.137.3543-203
-%global rust_id 105410
+%global rust_version 0.3.138.3572-203
+%global rust_id 106545
 
 Name:          %{appname}-plugins
 Version:       2020.3.1
@@ -121,6 +121,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Thu Dec 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.1-1
+- Updated plugins to latest supported releases.
+
 * Tue Dec 22 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.1-1
 - Updated plugins to latest supported releases.
 
