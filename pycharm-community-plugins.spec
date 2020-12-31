@@ -49,8 +49,8 @@
 %global rust_id 106545
 
 Name:          %{appname}-plugins
-Version:       2020.3.1
-Release:       1%{?dist}
+Version:       2020.3.2
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -121,7 +121,10 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
-* Thu Dec 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.1-1
+* Thu Dec 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.2-2
+- Fixed issue with the plugins subpackage.
+
+* Thu Dec 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.2-1
 - Updated plugins to latest supported releases.
 
 * Tue Dec 22 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.1-1
