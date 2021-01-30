@@ -19,8 +19,8 @@
 %global plugins_dir plugins
 
 Name:          pycharm-community
-Version:       2020.3.2
-Release:       2%{?dist}
+Version:       2020.3.3
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -134,6 +134,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Sat Jan 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.3-1
+- Updated to version 2020.3.3.
+
 * Thu Dec 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.2-2
 - Fixed issue with the plugins subpackage.
 
