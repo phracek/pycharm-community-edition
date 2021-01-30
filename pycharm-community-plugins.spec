@@ -9,8 +9,8 @@
 %global repmapper_id 79011
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.1242.0
-%global dbnavigator_id 103550
+%global dbnavigator_version 3.2.2143.0
+%global dbnavigator_id 109224
 
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
 %global ansible_version 0.11.2
@@ -21,8 +21,8 @@
 %global git_lab_integration_id 52232
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 203.6682.78
-%global docker_integration_id 105813
+%global docker_integration_version 203.7148.15
+%global docker_integration_id 107759
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
 %global idea_multimarkdown_version 3.0.202.112
@@ -37,20 +37,20 @@
 %global ini_id 104166
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 203.3.2
-%global git_tool_box_id 105612
+%global git_tool_box_version 203.4.3
+%global git_tool_box_id 109053
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 4.0.2
-%global ignore_plugin_id 106136
+%global ignore_plugin_version 4.0.3
+%global ignore_plugin_id 107565
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.138.3572-203
-%global rust_id 106545
+%global rust_version 0.3.139.3615-203
+%global rust_id 108083
 
 Name:          %{appname}-plugins
-Version:       2020.3.2
-Release:       2%{?dist}
+Version:       2020.3.3
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -121,6 +121,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Sat Jan 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.3-1
+- Updated plugins to latest supported releases.
+
 * Thu Dec 31 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.2-2
 - Fixed issue with the plugins subpackage.
 
