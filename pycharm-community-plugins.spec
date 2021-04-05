@@ -5,12 +5,12 @@
 %global plugins_dir plugins
 
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
-%global repmapper_version 3.3.3
-%global repmapper_id 79011
+%global repmapper_version 3.3.4
+%global repmapper_id 115043
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.2143.0
-%global dbnavigator_id 109224
+%global dbnavigator_version 3.2.3024.0
+%global dbnavigator_id 112122
 
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
 %global ansible_version 0.11.2
@@ -21,35 +21,35 @@
 %global git_lab_integration_id 52232
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 203.7148.15
-%global docker_integration_id 107759
+%global docker_integration_version 203.7717.81
+%global docker_integration_id 114994
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
 %global idea_multimarkdown_version 3.0.202.112
 %global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.64
-%global ideavim_id 106200
+%global ideavim_version 0.65
+%global ideavim_id 111075
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 203.5981.152
 %global ini_id 104166
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 203.4.3
-%global git_tool_box_id 109053
+%global git_tool_box_version 203.4.8
+%global git_tool_box_id 110690
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
 %global ignore_plugin_version 4.0.3
 %global ignore_plugin_id 107565
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.139.3615-203
-%global rust_id 108083
+%global rust_version 0.3.144.3766-203
+%global rust_id 115165
 
 Name:          %{appname}-plugins
-Version:       2020.3.3
+Version:       2020.3.5
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -121,6 +121,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Mon Apr 05 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.5-1
+- Updated plugins to latest supported releases.
+
 * Sat Jan 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.3-1
 - Updated plugins to latest supported releases.
 
