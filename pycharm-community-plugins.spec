@@ -1,5 +1,11 @@
+# Disable build-id symlinks to avoid conflicts
+%global _build_id_links none
+# don't strip bundled binaries
+%global __strip /bin/true
 # dont repack jars
 %global __jar_repack %{nil}
+# do not bytecompile python scripts
+%global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 %global appname pycharm-community
 %global plugins_dir plugins
@@ -50,7 +56,7 @@
 
 Name:          %{appname}-plugins
 Version:       2020.3.5
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -69,8 +75,7 @@ Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitTo
 Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/.ignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
 Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
-Requires:      %{appname} = %{version}
-BuildArch:     noarch
+Requires:      %{appname}%{?_isa} = %{version}
 
 %description
 Intelligent Python IDE contains several plugins. This package
@@ -121,6 +126,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Mon Apr 05 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.5-2
+- Marked plugins subpackage as arch-dependent.
+
 * Mon Apr 05 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.5-1
 - Updated plugins to latest supported releases.
 
