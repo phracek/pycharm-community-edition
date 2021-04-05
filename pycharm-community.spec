@@ -19,7 +19,7 @@
 %global plugins_dir plugins
 
 Name:          pycharm-community
-Version:       2020.3.3
+Version:       2020.3.5
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -134,6 +134,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %endif
 
 %changelog
+* Mon Apr 05 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.5-1
+- Updated to version 2020.3.5.
+
 * Sat Jan 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.3-1
 - Updated to version 2020.3.3.
 
