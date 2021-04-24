@@ -1,58 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2015 Petr Hracek <phracek@redhat.com> -->
-<application>
-    <id type="desktop">pycharm-community.desktop</id>
-    <licence>CC-BY-SA</licence>
+<component type="desktop-application">
+    <id>com.jetbrains.PyCharm-Community</id>
     <name>PyCharm-Community</name>
-    <summary>PyCharm - The most intelligent Python IDE</summary>
+    <summary>The most intelligent Python IDE</summary>
     <description>
-        <p>
-          PyCharm’s smart code editor provides first-class support for Python, JavaScript, CoffeeScript, TypeScript, CSS, popular template languages and more. Take advantage of language-aware code completion, error detection, and on-the-fly code fixes!
-        </p>
+        <p>PyCharm is designed by programmers, for programmers, to provide all the tools you need for productive Python development.</p>
+        <p>PyCharm provides smart code completion, code inspections, on-the-fly error highlighting and quick-fixes, along with automated code refactorings and rich navigation capabilities.</p>
+        <p>PyCharm offers great framework-specific support for modern web development frameworks such as Django, Flask, Google App Engine, Pyramid, and web2py.</p>
+        <p>PyCharm integrates with IPython Notebook, has an interactive Python console, and supports Anaconda as well as multiple scientific packages including matplotlib and NumPy.</p>
+        <p>In addition to Python, PyCharm supports JavaScript, CoffeeScript, TypeScript, Cython, SQL, HTML/CSS, template languages, AngularJS, Node.js, and more.</p>
+        <p>Run, debug, test, and deploy applications on remote hosts or virtual machines, with remote interpreters, an integrated ssh terminal, and Docker and Vagrant integration.</p>
+        <p>A huge collection of tools out of the box: an integrated debugger and test runner; Python profiler; a built-in terminal; and integration with major VCS and built-in Database Tools.</p>
     </description>
+    <metadata_license>CC-BY-SA</metadata_license>
+    <project_license>Apache-2.0</project_license>
+    <developer_name>JetBrains s.r.o.</developer_name>
     <screenshots>
-        <screenshot type="default" width="1968" height="814">
-           http://www.jetbrains.com/pycharm/img/40/autocomplete@2x.png
+        <screenshot type="default">
+           https://www.jetbrains.com/pycharm/img/screenshots/complexLook@2x.jpg
         </screenshot>
-        <screenshot width="642" height="690">
-           http://www.jetbrains.com/pycharm/img/40/scr_why_smartassist.png
+        <screenshot>
+           https://www.jetbrains.com/pycharm/img/screenshots/simpleLook@2x.jpg
         </screenshot>
     </screenshots>
-    <url type="homepage">http://www.jetbrains.com/pycharm/</url>
-
-    <updatecontact>phracek@redhat.com</updatecontact>
-    <releases>
-        <release version="2017.2.4" date="2017-11-29">
-            <description>
-                <p>Indexing Performance</p>
-                <p>Debugger Performance</p>
-                <p>New Interpreter Settings Screen</p>
-                <p>Run Python Modules</p>
-                <p>Code Highlighting: Function Calls and Type Hints</p>
-            </description>
-        </release>
-    </releases>
-    <content_rating type="oars-1.0">
-        <content_attribute id="violence-cartoon">none</content_attribute>
-        <content_attribute id="violence-fantasy">none</content_attribute>
-        <content_attribute id="violence-realistic">none</content_attribute>
-        <content_attribute id="violence-bloodshed">none</content_attribute>
-        <content_attribute id="violence-sexual">none</content_attribute>
-        <content_attribute id="drugs-alcohol">none</content_attribute>
-        <content_attribute id="drugs-narcotics">none</content_attribute>
-        <content_attribute id="drugs-tobacco">none</content_attribute>
-        <content_attribute id="sex-nudity">none</content_attribute>
-        <content_attribute id="sex-themes">none</content_attribute>
-        <content_attribute id="language-profanity">none</content_attribute>
-        <content_attribute id="language-humor">none</content_attribute>
-        <content_attribute id="language-discrimination">none</content_attribute>
-        <content_attribute id="social-chat">none</content_attribute>
-        <content_attribute id="social-info">none</content_attribute>
-        <content_attribute id="social-audio">none</content_attribute>
-        <content_attribute id="social-location">none</content_attribute>
-        <content_attribute id="social-contacts">none</content_attribute>
-        <content_attribute id="money-purchasing">none</content_attribute>
-        <content_attribute id="money-gambling">none</content_attribute>
-    </content_rating>
-
-</application>
+    <url type="homepage">https://www.jetbrains.com/pycharm/</url>
+    <url type="bugtracker">https://youtrack.jetbrains.com/</url>
+    <url type="help">https://www.jetbrains.com/help/pycharm/</url>
+    <launchable type="desktop-id">pycharm-community.desktop</launchable>
+    <updatecontact>https://github.com/phracek/pycharm-community-edition/issues</updatecontact>
+    <content_rating type="oars-1.1"/>
+</component>

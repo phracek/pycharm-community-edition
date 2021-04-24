@@ -23,7 +23,7 @@
 
 Name:          %{appname}-community
 Version:       2021.1.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -66,7 +66,7 @@ BuildArch:     noarch
 Requires:      %{name} = %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description doc
-This package contains documentation for Intelligent Python IDE.
+This package contains documentation for the Intelligent Python IDE.
 
 %prep
 %autosetup
@@ -87,9 +87,9 @@ cp -arf ./{bin,jbr,lib,plugins,brokenPlugins.db,build.txt,classpath.txt,icons.db
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
-install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{appname}.png
+install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{appname}.svg
+install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
@@ -97,7 +97,7 @@ install -m 0644 -p %{SOURCE103} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{appname}
+ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 mkdir -p %{buildroot}%{_datadir}/applications
@@ -114,11 +114,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %files
 %license license/
 %{_javadir}/%{name}
-%{_bindir}/%{appname}
+%{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/%{appname}.png
+%{_datadir}/pixmaps/%{name}.png
 %{_datadir}/mime/packages/%{name}.xml
-%{_datadir}/icons/hicolor/scalable/apps/%{appname}.svg
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
@@ -126,6 +126,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-2
+- Allow simultaneous installation of Community and Professional editions.
+
 * Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-1
 - Updated to version 2021.1.1.
 - Performed major SPEC cleanup.
