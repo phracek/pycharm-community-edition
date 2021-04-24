@@ -40,13 +40,10 @@ BuildRequires: python3-devel
 BuildRequires: python2-devel
 %endif
 Requires:      java
-%ifarch x86_64
-%if 0%{?fedora}
-Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
-%else
-Requires:      %{name}-jre%{?_isa} = %{version}-%{release}
-%endif
-%endif
+
+ExclusiveArch: x86_64
+
+Obsoletes:     %{name}-jre
 
 %description
 The intelligent Python IDE with unique code assistance and analysis,
@@ -57,22 +54,8 @@ Summary:       Documentation for intelligent Python IDE
 BuildArch:     noarch
 Requires:      %{name} = %{version}-%{release}
 
-%ifarch x86_64
-%package jre
-Summary:       Patched OpenJDK for intelligent Python IDE by JetBrains
-Requires:      %{name}%{?_isa} = %{version}-%{release}
-AutoReq:       no
-AutoReqProv:   no
-%endif
-
 %description doc
 This package contains documentation for Intelligent Python IDE.
-
-%ifarch x86_64
-%description jre
-This package contains patched OpenJDK designed specially for Intelligent
-Python IDE by JetBrains, Inc.
-%endif
 
 %prep
 %autosetup
@@ -90,10 +73,7 @@ mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_datadir}/metainfo
 mkdir -p %{buildroot}%{_bindir}
 
-cp -arf ./{lib,bin,help,index,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
-%ifarch x86_64
-cp -arf ./jbr %{buildroot}%{_javadir}/%{name}/
-%endif
+cp -arf ./{lib,bin,jbr,help,index,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -118,20 +98,12 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/metainfo/pycharm-community.appdata.xml
 %{_javadir}/%{name}
-%ifarch x86_64
-%exclude %{_javadir}/%{name}/jbr
-%endif
 %{_bindir}/pycharm
 
 %files doc
 %doc *.txt
 %doc help/*.pdf
 %license license/
-
-%ifarch x86_64
-%files jre
-%{_javadir}/%{name}/jbr
-%endif
 
 %changelog
 * Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-1
