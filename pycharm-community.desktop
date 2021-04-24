@@ -5,6 +5,6 @@ Exec=pycharm
 Terminal=false
 Icon=pycharm
 Type=Application
-Categories=Development;
+Categories=Development;IDE;
 StartupWMClass=jetbrains-pycharm-ce
 MimeType=text/plain;application/x-python-code;text/x-python;application/xml;text/markdown;

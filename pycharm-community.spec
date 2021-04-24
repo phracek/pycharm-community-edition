@@ -9,6 +9,11 @@
 %global __jar_repack %{nil}
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
+# do not automatically detect and export provides and dependencies on bundled libraries and executables
+%global __provides_exclude_from ^%{_javadir}/%{name}/jbr/.*$
+%global __requires_exclude_from ^%{_javadir}/%{name}/jbr/.*$
+# specified an internal project name
+%global appname pycharm
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
 %bcond_with python3
@@ -16,34 +21,35 @@
 %bcond_without python3
 %endif
 
-%global plugins_dir plugins
-
 Name:          pycharm-community
 Version:       2021.1.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
-URL:           http://www.jetbrains.com/pycharm/
+URL:           https://www.jetbrains.com/pycharm/
 
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 
-Source101:     pycharm.xml
-Source102:     pycharm-community.desktop
-Source103:     pycharm-community.appdata.xml
+Source101:     %{name}.xml
+Source102:     %{name}.desktop
+Source103:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
-BuildRequires: /usr/bin/appstream-util
+BuildRequires: libappstream-glib
+
 %if %{with python3}
 BuildRequires: python3-devel
 %else
 BuildRequires: python2-devel
 %endif
-Requires:      java
+
+Requires:      hicolor-icon-theme
+Requires:      javapackages-filesystem
 
 ExclusiveArch: x86_64
 
-Obsoletes:     %{name}-jre
+Obsoletes:     %{name}-jre < %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description
 The intelligent Python IDE with unique code assistance and analysis,
@@ -52,7 +58,7 @@ for productive Python development on all levels
 %package doc
 Summary:       Documentation for intelligent Python IDE
 BuildArch:     noarch
-Requires:      %{name} = %{version}-%{release}
+Requires:      %{name} = %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description doc
 This package contains documentation for Intelligent Python IDE.
@@ -60,54 +66,64 @@ This package contains documentation for Intelligent Python IDE.
 %prep
 %autosetup
 
+# Removing some useless files...
+rm -f bin/fsnotifier{,-arm}
+rm -f bin/%{name}.vmoptions
+
+# Patching shebangs...
 %if %{with python3}
 find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -e 's@python2@python3@g' -i "{}" \;
 %endif
 
 %install
-mkdir -p %{buildroot}%{_javadir}/%{name}
-mkdir -p %{buildroot}%{_datadir}/%{name}
-mkdir -p %{buildroot}%{_datadir}/pixmaps
-mkdir -p %{buildroot}%{_datadir}/mime/packages
+# Installing application...
+install -d %{buildroot}%{_javadir}/%{name}
+cp -arf ./{bin,jbr,lib,plugins,brokenPlugins.db,build.txt,classpath.txt,icons.db,product-info.json} %{buildroot}%{_javadir}/%{name}/
+
+# Installing icons...
+install -d %{buildroot}%{_datadir}/pixmaps
+install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{appname}.png
+install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{appname}.svg
+
+# Installing metainfo...
+install -d %{buildroot}%{_metainfodir}
+install -m 0644 -p %{SOURCE103} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+
+# Installing launcher...
+install -d %{buildroot}%{_bindir}
+ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{appname}
+
+# Installing desktop file...
 mkdir -p %{buildroot}%{_datadir}/applications
-mkdir -p %{buildroot}%{_datadir}/metainfo
-mkdir -p %{buildroot}%{_bindir}
+install -m 0644 -p %{SOURCE102} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
-cp -arf ./{lib,bin,jbr,help,index,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
-
-rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
-# this will be in docs
-rm -f %{buildroot}%{_javadir}/help/*.pdf
-cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
-cp -af %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
-cp -af %{SOURCE102} %{buildroot}%{_datadir}/pycharm-community.desktop
-cp -a %{SOURCE103} %{buildroot}%{_datadir}/metainfo
-ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
-desktop-file-install                          \
---add-category="Development"                  \
---delete-original                             \
---dir=%{buildroot}%{_datadir}/applications    \
-%{buildroot}%{_datadir}/pycharm-community.desktop
+# Installing mime package...
+mkdir -p %{buildroot}%{_datadir}/mime/packages
+install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-community.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%{_datadir}/applications/pycharm-community.desktop
-%{_datadir}/mime/packages/%{name}.xml
-%{_datadir}/pixmaps/pycharm.png
-%{_datadir}/metainfo/pycharm-community.appdata.xml
+%license license/
 %{_javadir}/%{name}
-%{_bindir}/pycharm
+%{_bindir}/%{appname}
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/pixmaps/%{appname}.png
+%{_datadir}/metainfo/%{name}.metainfo.xml
+%{_datadir}/mime/packages/%{name}.xml
+%{_datadir}/icons/hicolor/scalable/apps/%{appname}.svg
 
 %files doc
-%doc *.txt
-%doc help/*.pdf
-%license license/
+%doc help/
+%doc Install-Linux-tar.txt
 
 %changelog
 * Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-1
 - Updated to version 2021.1.1.
+- Performed major SPEC cleanup.
 
 * Mon Apr 05 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.5-2
 - Marked plugins subpackage as arch-dependent.
