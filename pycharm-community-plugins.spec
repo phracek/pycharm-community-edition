@@ -15,8 +15,8 @@
 %global repmapper_id 115043
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.3024.0
-%global dbnavigator_id 112122
+%global dbnavigator_version 3.2.3225.0
+%global dbnavigator_id 117158
 
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
 %global ansible_version 0.11.2
@@ -27,36 +27,36 @@
 %global git_lab_integration_id 52232
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 203.7717.81
-%global docker_integration_id 114994
+%global docker_integration_version 211.7142.13
+%global docker_integration_id 117745
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
 %global idea_multimarkdown_version 3.0.202.112
 %global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.65
-%global ideavim_id 111075
+%global ideavim_version 0.66
+%global ideavim_id 116376
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 203.5981.152
-%global ini_id 104166
+%global ini_version 211.6693.44
+%global ini_id 115238
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 203.4.8
-%global git_tool_box_id 110690
+%global git_tool_box_version 203.5.8
+%global git_tool_box_id 117592
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 4.0.3
-%global ignore_plugin_id 107565
+%global ignore_plugin_version 4.1.0
+%global ignore_plugin_id 116929
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.144.3766-203
-%global rust_id 115165
+%global rust_version 0.3.145.3797-211
+%global rust_id 116769
 
 Name:          %{appname}-plugins
-Version:       2020.3.5
-Release:       2%{?dist}
+Version:       2021.1.1
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -75,7 +75,9 @@ Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitTo
 Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/.ignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
 Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
-Requires:      %{appname}%{?_isa} = %{version}
+Requires:      %{appname}%{?_isa} = %{?epoch:%{epoch}:}%{version}
+
+ExclusiveArch: x86_64
 
 %description
 Intelligent Python IDE contains several plugins. This package
@@ -126,6 +128,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-1
+- Updated plugins to latest supported releases.
+
 * Mon Apr 05 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2020.3.5-2
 - Marked plugins subpackage as arch-dependent.
 
