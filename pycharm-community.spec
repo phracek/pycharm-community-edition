@@ -23,7 +23,7 @@
 
 Name:          %{appname}-community
 Version:       2021.1.1
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -74,6 +74,9 @@ This package contains documentation for the Intelligent Python IDE.
 # Removing some useless files...
 rm -f bin/fsnotifier{,-arm}
 rm -f bin/%{name}.vmoptions
+
+# Removing trialware plugins...
+rm -rf plugins/cwm-plugin
 
 # Patching shebangs...
 %if %{with python3}
@@ -126,6 +129,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-3
+- Removed trialware plugin CodeWithMe.
+
 * Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-2
 - Allow simultaneous installation of Community and Professional editions.
 
