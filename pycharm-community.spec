@@ -117,9 +117,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_bindir}/%{appname}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{appname}.png
-%{_datadir}/metainfo/%{name}.metainfo.xml
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/icons/hicolor/scalable/apps/%{appname}.svg
+%{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
 %doc help/
