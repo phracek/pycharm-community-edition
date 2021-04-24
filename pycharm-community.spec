@@ -45,7 +45,12 @@ BuildRequires: python2-devel
 %endif
 
 Requires:      hicolor-icon-theme
+
+%if 0%{?rhel} && 0%{?rhel} <= 7
+Requires:      java
+%else
 Requires:      javapackages-filesystem
+%endif
 
 ExclusiveArch: x86_64
 
