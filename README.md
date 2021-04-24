@@ -1,8 +1,7 @@
 pycharm-community-edition
 =========================
 
-[![Travis CI build status](https://travis-ci.org/phracek/pycharm-community-edition.svg?branch=master)](https://travis-ci.org/phracek/pycharm-community-edition)
-
+[![PyCharm build status](https://copr.fedorainfracloud.org/coprs/phracek/PyCharm/package/pycharm-community/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/phracek/PyCharm/package/pycharm-community/)
 
 PyCharm Community Edition IDE editor for developing not only python applications.
 
