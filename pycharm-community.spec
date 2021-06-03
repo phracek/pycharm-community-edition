@@ -24,8 +24,8 @@
 %endif
 
 Name:          %{appname}-community
-Version:       2021.1.1
-Release:       3%{?dist}
+Version:       2021.1.2
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -131,6 +131,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-1
+- Updated to version 2021.1.2.
+
 * Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-3
 - Removed trialware plugin CodeWithMe.
 
