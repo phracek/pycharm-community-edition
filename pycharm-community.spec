@@ -25,7 +25,7 @@
 
 Name:          %{appname}-community
 Version:       2021.1.2
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -49,8 +49,10 @@ BuildRequires: python2-devel
 Requires:      hicolor-icon-theme
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
-Requires:      java
+BuildRequires: javapackages-tools
+Requires:      javapackages-tools
 %else
+BuildRequires: javapackages-filesystem
 Requires:      javapackages-filesystem
 %endif
 
@@ -131,6 +133,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-2
+- Fixed Rawhide build.
+
 * Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-1
 - Updated to version 2021.1.2.
 

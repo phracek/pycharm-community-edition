@@ -58,7 +58,7 @@
 
 Name:          %{appname}-plugins
 Version:       2021.1.2
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -76,6 +76,12 @@ Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini
 Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/.ignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
 Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
+
+%if 0%{?rhel} && 0%{?rhel} <= 7
+BuildRequires: javapackages-tools
+%else
+BuildRequires: javapackages-filesystem
+%endif
 
 Requires:      %{appname}%{?_isa} = %{?epoch:%{epoch}:}%{version}
 
@@ -130,6 +136,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-2
+- Fixed Rawhide build.
+
 * Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-1
 - Updated plugins to latest supported releases.
 
