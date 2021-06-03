@@ -4,6 +4,8 @@
 %global __strip /bin/true
 # dont repack jars
 %global __jar_repack %{nil}
+# disable rpath checks
+%define __brp_check_rpaths %{nil}
 # do not bytecompile python scripts
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
@@ -15,8 +17,8 @@
 %global repmapper_id 115043
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.3225.0
-%global dbnavigator_id 117158
+%global dbnavigator_version 3.2.3411.0
+%global dbnavigator_id 119686
 
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
 %global ansible_version 0.11.2
@@ -27,36 +29,36 @@
 %global git_lab_integration_id 52232
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 211.7142.13
-%global docker_integration_id 117745
+%global docker_integration_version 211.7442.9
+%global docker_integration_id 120087
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
 %global idea_multimarkdown_version 3.0.202.112
 %global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.66
-%global ideavim_id 116376
+%global ideavim_version 0.67
+%global ideavim_id 120141
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 211.6693.44
 %global ini_id 115238
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 203.5.8
-%global git_tool_box_id 117592
+%global git_tool_box_version 203.5.10
+%global git_tool_box_id 120279
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
 %global ignore_plugin_version 4.1.0
 %global ignore_plugin_id 116929
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.3.145.3797-211
-%global rust_id 116769
+%global rust_version 0.4.147.3871-211
+%global rust_id 119956
 
 Name:          %{appname}-plugins
-Version:       2021.1.1
-Release:       3%{?dist}
+Version:       2021.1.2
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -128,6 +130,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-1
+- Updated plugins to latest supported releases.
+
 * Sat Apr 24 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.1-3
 - Removed trialware plugin CodeWithMe.
 
