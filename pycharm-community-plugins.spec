@@ -17,8 +17,8 @@
 %global repmapper_id 115043
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.3411.0
-%global dbnavigator_id 119686
+%global dbnavigator_version 3.2.4397.0
+%global dbnavigator_id 121758
 
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
 %global ansible_version 0.11.2
@@ -37,8 +37,8 @@
 %global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.67
-%global ideavim_id 120141
+%global ideavim_version 0.68
+%global ideavim_id 123588
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 211.6693.44
@@ -53,12 +53,12 @@
 %global ignore_plugin_id 116929
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.147.3871-211
-%global rust_id 119956
+%global rust_version 0.4.149.3939-211
+%global rust_id 123342
 
 Name:          %{appname}-plugins
-Version:       2021.1.2
-Release:       2%{?dist}
+Version:       2021.1.3
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -136,6 +136,9 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Tue Jun 22 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.3-1
+- Updated plugins to latest supported releases.
+
 * Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-2
 - Fixed Rawhide build.
 
