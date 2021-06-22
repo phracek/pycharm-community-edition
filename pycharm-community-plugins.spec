@@ -24,9 +24,9 @@
 %global ansible_version 0.11.2
 %global ansible_id 100135
 
-# https://plugins.jetbrains.com/plugin/7447-gitlab-integration-plugin/versions
-%global git_lab_integration_version 1.1.2
-%global git_lab_integration_id 52232
+# https://plugins.jetbrains.com/plugin/12552-rpm-spec-file/versions
+%global rpm_spec_file_version 1.2.0
+%global rpm_spec_file_id 109731
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
 %global docker_integration_version 211.7442.9
@@ -68,7 +68,7 @@ Source0:       https://github.com/phracek/pycharm-community-edition/raw/master/c
 Source1:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
 Source2:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-20.0.zip#/DBN-%{dbnavigator_version}.zip
 Source3:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin-%{git_lab_integration_version}.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source4:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/intellij-rpmspec-%{rpm_spec_file_version}.zip#/intellij-rpmspec-%{rpm_spec_file_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
 Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
@@ -113,7 +113,7 @@ mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 cp -arf ./GitLink %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./DBNavigator %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./gitlab-integration-plugin %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./intellij-rpmspec %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
@@ -126,7 +126,7 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/GitLink
 %{_javadir}/%{appname}/%{plugins_dir}/DBNavigator
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-ansible
-%{_javadir}/%{appname}/%{plugins_dir}/gitlab-integration-plugin
+%{_javadir}/%{appname}/%{plugins_dir}/intellij-rpmspec
 %{_javadir}/%{appname}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{appname}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{appname}/%{plugins_dir}/ini4idea
@@ -138,6 +138,8 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %changelog
 * Tue Jun 22 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.3-1
 - Updated plugins to latest supported releases.
+- Removed obsolete GitLab integration plugin.
+- Added RPM SPEC File plugin.
 
 * Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-2
 - Fixed Rawhide build.
