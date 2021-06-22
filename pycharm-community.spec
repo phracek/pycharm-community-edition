@@ -24,8 +24,8 @@
 %endif
 
 Name:          %{appname}-community
-Version:       2021.1.2
-Release:       2%{?dist}
+Version:       2021.1.3
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -133,6 +133,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Tue Jun 22 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.3-1
+- Updated to version 2021.1.3.
+
 * Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-2
 - Fixed Rawhide build.
 
