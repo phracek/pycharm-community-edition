@@ -133,7 +133,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
-* Tue Jun 22 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.3-1
+* Wed Jun 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.3-1
 - Updated to version 2021.1.3.
 
 * Thu Jun 03 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.2-2
