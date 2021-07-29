@@ -12,14 +12,14 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global __provides_exclude_from ^%{_javadir}/%{name}/jbr/.*$
-%global __requires_exclude_from ^%{_javadir}/%{name}/jbr/.*$
+%global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*
+%global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*
 # specified an internal project name
 %global appname pycharm
 
 Name:          %{appname}-community
 Version:       2021.2
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -120,6 +120,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Thu Jul 29 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-2
+- Fixed issue with dependencies.
+
 * Thu Jul 29 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-1
 - Updated to version 2021.2.
 
