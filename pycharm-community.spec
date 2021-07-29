@@ -24,7 +24,7 @@
 %endif
 
 Name:          %{appname}-community
-Version:       2021.1.3
+Version:       2021.2
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -90,7 +90,7 @@ find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g
 %install
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
-cp -arf ./{bin,jbr,lib,plugins,brokenPlugins.db,build.txt,classpath.txt,icons.db,product-info.json} %{buildroot}%{_javadir}/%{name}/
+cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
@@ -133,6 +133,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Thu Jul 29 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-1
+- Updated to version 2021.2.
+
 * Wed Jun 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.3-1
 - Updated to version 2021.1.3.
 
