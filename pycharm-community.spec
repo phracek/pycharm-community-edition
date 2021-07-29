@@ -17,12 +17,6 @@
 # specified an internal project name
 %global appname pycharm
 
-%if 0%{?rhel} && 0%{?rhel} <= 7
-%bcond_with python3
-%else
-%bcond_without python3
-%endif
-
 Name:          %{appname}-community
 Version:       2021.2
 Release:       1%{?dist}
@@ -39,12 +33,7 @@ Source103:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
-
-%if %{with python3}
 BuildRequires: python3-devel
-%else
-BuildRequires: python2-devel
-%endif
 
 Requires:      hicolor-icon-theme
 
@@ -83,9 +72,7 @@ rm -f bin/%{name}.vmoptions
 rm -rf plugins/cwm-plugin
 
 # Patching shebangs...
-%if %{with python3}
-find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -e 's@python2@python3@g' -i "{}" \;
-%endif
+find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -i "{}" \;
 
 %install
 # Installing application...
