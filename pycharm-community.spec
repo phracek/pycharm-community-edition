@@ -1,3 +1,6 @@
+# setting some global constants
+%global appname pycharm
+
 # disable debuginfo subpackage
 %global debug_package %{nil}
 # Disable build-id symlinks to avoid conflicts
@@ -14,8 +17,6 @@
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
 %global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*
-# specified an internal project name
-%global appname pycharm
 
 Name:          %{appname}-community
 Version:       2021.2

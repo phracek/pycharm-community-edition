@@ -1,3 +1,7 @@
+# setting some global constants
+%global appname pycharm-community
+%global plugins_dir plugins
+
 # Disable build-id symlinks to avoid conflicts
 %global _build_id_links none
 # don't strip bundled binaries
@@ -8,53 +12,75 @@
 %define __brp_check_rpaths %{nil}
 # do not bytecompile python scripts
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
-
-%global appname pycharm-community
-%global plugins_dir plugins
+# do not automatically detect and export provides and dependencies on bundled libraries and executables
+%global __provides_exclude_from %{_javadir}/%{appname}/%{plugins_dir}/.*
+%global __requires_exclude_from %{_javadir}/%{appname}/%{plugins_dir}/.*
 
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
 %global repmapper_version 3.3.4
 %global repmapper_id 115043
+%global repmapper_name GitLink
+%global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
 %global dbnavigator_version 3.2.4397.0
 %global dbnavigator_id 121758
+%global dbnavigator_name DBNavigator
+%global dbnavigator_archive DBN-20.0
 
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
 %global ansible_version 0.11.2
 %global ansible_id 100135
+%global ansible_name intellij-ansible
+%global ansible_archive %{ansible_name}-%{ansible_version}
 
 # https://plugins.jetbrains.com/plugin/12552-rpm-spec-file/versions
 %global rpm_spec_file_version 1.2.0
 %global rpm_spec_file_id 109731
+%global rpm_spec_file_name intellij-rpmspec
+%global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
 %global docker_integration_version 212.4746.92
 %global docker_integration_id 129653
+%global docker_integration_name Docker
+%global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
 %global idea_multimarkdown_version 3.0.202.112
 %global idea_multimarkdown_id 97563
+%global idea_multimarkdown_name idea-multimarkdown
+%global idea_multimarkdown_archive %{idea_multimarkdown_name}.%{idea_multimarkdown_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
 %global ideavim_version 0.69
 %global ideavim_id 128628
+%global ideavim_name IdeaVim
+%global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 212.4746.57
 %global ini_id 128741
+%global ini_name ini4idea
+%global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
 %global git_tool_box_version 212.6.6
 %global git_tool_box_id 124359
+%global git_tool_box_name gittoolbox
+%global git_tool_box_archive %{git_tool_box_name}-%{git_tool_box_version}
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
 %global ignore_plugin_version 4.2.0
 %global ignore_plugin_id 129922
+%global ignore_plugin_name .ignore
+%global ignore_plugin_archive %{ignore_plugin_name}-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
 %global rust_version 0.4.151.3997-212
 %global rust_id 128437
+%global rust_name intellij-rust
+%global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
 Version:       2021.2
@@ -65,17 +91,17 @@ License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://github.com/phracek/pycharm-community-edition/raw/master/copr-workaround.tar.xz
-Source1:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
-Source2:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-20.0.zip#/DBN-%{dbnavigator_version}.zip
-Source3:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
-Source4:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/intellij-rpmspec-%{rpm_spec_file_version}.zip#/intellij-rpmspec-%{rpm_spec_file_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-%{docker_integration_version}.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
-Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
-Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/gittoolbox-%{git_tool_box_version}.zip#/gittoolbox-%{git_tool_box_version}.zip
-Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/.ignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
-Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
+Source1:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/%{repmapper_archive}.zip#/%{repmapper_name}-%{repmapper_version}.zip
+Source2:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/%{dbnavigator_archive}.zip#/%{dbnavigator_name}-%{dbnavigator_version}.zip
+Source3:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/%{ansible_archive}.zip#/%{ansible_name}-%{ansible_version}.zip
+Source4:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/%{rpm_spec_file_archive}.zip#/%{rpm_spec_file_name}-%{rpm_spec_file_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/%{docker_integration_archive}.zip#/%{docker_integration_name}-%{docker_integration_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/%{idea_multimarkdown_archive}.zip#/%{idea_multimarkdown_name}-%{idea_multimarkdown_version}.zip
+Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
+Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
+Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/%{git_tool_box_archive}.zip#/%{git_tool_box_name}-%{git_tool_box_version}.zip
+Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
+Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/%{rust_archive}.zip#/%{rust_name}-%{rust_version}.zip
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
 BuildRequires: javapackages-tools
@@ -110,30 +136,30 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
-cp -arf ./GitLink %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./DBNavigator %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./intellij-rpmspec %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./ini4idea %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./gittoolbox %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./Docker %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./.ignore %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{repmapper_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{dbnavigator_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{ansible_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{rpm_spec_file_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{docker_integration_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{idea_multimarkdown_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{ideavim_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{ini_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{git_tool_box_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 
 %files
-%{_javadir}/%{appname}/%{plugins_dir}/GitLink
-%{_javadir}/%{appname}/%{plugins_dir}/DBNavigator
-%{_javadir}/%{appname}/%{plugins_dir}/intellij-ansible
-%{_javadir}/%{appname}/%{plugins_dir}/intellij-rpmspec
-%{_javadir}/%{appname}/%{plugins_dir}/idea-multimarkdown
-%{_javadir}/%{appname}/%{plugins_dir}/IdeaVim
-%{_javadir}/%{appname}/%{plugins_dir}/ini4idea
-%{_javadir}/%{appname}/%{plugins_dir}/gittoolbox
-%{_javadir}/%{appname}/%{plugins_dir}/Docker
-%{_javadir}/%{appname}/%{plugins_dir}/.ignore
-%{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
+%{_javadir}/%{appname}/%{plugins_dir}/%{repmapper_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{dbnavigator_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{ansible_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{rpm_spec_file_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{docker_integration_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{idea_multimarkdown_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{ideavim_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{ini_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{git_tool_box_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{ignore_plugin_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
 * Thu Jul 29 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-2
