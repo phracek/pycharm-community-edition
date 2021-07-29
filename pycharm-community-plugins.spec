@@ -29,35 +29,35 @@
 %global rpm_spec_file_id 109731
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 211.7442.9
-%global docker_integration_id 120087
+%global docker_integration_version 212.4746.92
+%global docker_integration_id 129653
 
 # https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
 %global idea_multimarkdown_version 3.0.202.112
 %global idea_multimarkdown_id 97563
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 0.68
-%global ideavim_id 123588
+%global ideavim_version 0.69
+%global ideavim_id 128628
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 211.6693.44
-%global ini_id 115238
+%global ini_version 212.4746.57
+%global ini_id 128741
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 203.5.10
-%global git_tool_box_id 120279
+%global git_tool_box_version 212.6.6
+%global git_tool_box_id 124359
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 4.1.0
-%global ignore_plugin_id 116929
+%global ignore_plugin_version 4.2.0
+%global ignore_plugin_id 129922
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.149.3939-211
-%global rust_id 123342
+%global rust_version 0.4.151.3997-212
+%global rust_id 128437
 
 Name:          %{appname}-plugins
-Version:       2021.1.3
+Version:       2021.2
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -73,7 +73,7 @@ Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}
 Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
 Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
 Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/gittoolbox-%{git_tool_box_version}.zip#/gittoolbox-%{git_tool_box_version}.zip
 Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/.ignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
 Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
@@ -117,7 +117,7 @@ cp -arf ./intellij-rpmspec %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./gittoolbox %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./Docker %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./.ignore %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
@@ -130,12 +130,15 @@ cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{appname}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{appname}/%{plugins_dir}/ini4idea
-%{_javadir}/%{appname}/%{plugins_dir}/GitToolBox
+%{_javadir}/%{appname}/%{plugins_dir}/gittoolbox
 %{_javadir}/%{appname}/%{plugins_dir}/Docker
 %{_javadir}/%{appname}/%{plugins_dir}/.ignore
 %{_javadir}/%{appname}/%{plugins_dir}/intellij-rust
 
 %changelog
+* Thu Jul 29 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-1
+- Updated plugins to latest supported releases.
+
 * Wed Jun 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.1.3-1
 - Updated plugins to latest supported releases.
 - Removed obsolete GitLab integration plugin.
