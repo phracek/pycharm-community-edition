@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2021.2
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -65,12 +65,8 @@ This package contains documentation for the Intelligent Python IDE.
 %prep
 %autosetup
 
-# Removing some useless files...
-rm -f bin/fsnotifier{,-arm}
-rm -f bin/%{name}.vmoptions
-
 # Removing trialware plugins...
-rm -rf plugins/cwm-plugin
+rm -rf plugins/{cwm-plugin,marketplace,space}
 
 # Patching shebangs...
 find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -i "{}" \;
@@ -121,6 +117,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Fri Jul 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-3
+- Fixed issues with native indexer.
+- Removed more bundled trialware plugins.
+
 * Thu Jul 29 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-2
 - Fixed issue with dependencies.
 
