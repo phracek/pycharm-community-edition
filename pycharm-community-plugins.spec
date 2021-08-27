@@ -23,8 +23,8 @@
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.4397.0
-%global dbnavigator_id 121758
+%global dbnavigator_version 3.2.4501.0
+%global dbnavigator_id 130231
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -41,8 +41,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 212.4746.92
-%global docker_integration_id 129653
+%global docker_integration_version 212.5080.8
+%global docker_integration_id 132174
 %global docker_integration_name Docker
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -65,8 +65,8 @@
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 212.6.6
-%global git_tool_box_id 124359
+%global git_tool_box_version 212.7.6
+%global git_tool_box_id 131683
 %global git_tool_box_name gittoolbox
 %global git_tool_box_archive %{git_tool_box_name}-%{git_tool_box_version}
 
@@ -77,14 +77,14 @@
 %global ignore_plugin_archive %{ignore_plugin_name}-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.151.3997-212
-%global rust_id 128437
+%global rust_version 0.4.153.4056-212
+%global rust_id 132908
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2021.2
-Release:       3%{?dist}
+Version:       2021.2.1
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -162,6 +162,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Fri Aug 27 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2.1-1
+- Updated plugins to latest supported releases.
+
 * Fri Jul 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-3
 - Fixed issues with native indexer.
 - Removed more bundled trialware plugins.
