@@ -19,8 +19,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*
 
 Name:          %{appname}-community
-Version:       2021.2
-Release:       3%{?dist}
+Version:       2021.2.1
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -117,6 +117,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Fri Aug 27 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2.1-1
+- Updated to version 2021.2.1.
+
 * Fri Jul 30 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2-3
 - Fixed issues with native indexer.
 - Removed more bundled trialware plugins.
