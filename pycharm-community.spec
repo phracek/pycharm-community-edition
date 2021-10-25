@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*
 
 Name:          %{appname}-community
-Version:       2021.2.2
+Version:       2021.2.3
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -117,6 +117,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Mon Oct 25 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2.3-1
+- Updated to version 2021.2.3.
+
 * Wed Sep 15 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2.2-1
 - Updated to version 2021.2.2.
 
