@@ -17,14 +17,14 @@
 %global __requires_exclude_from %{_javadir}/%{appname}/%{plugins_dir}/.*
 
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
-%global repmapper_version 3.3.5
-%global repmapper_id 135961
+%global repmapper_version 3.3.6
+%global repmapper_id 146766
 %global repmapper_name GitLink
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.5713.0
-%global dbnavigator_id 142748
+%global dbnavigator_version 3.2.6411.0
+%global dbnavigator_id 147105
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -41,8 +41,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 212.5457.62
-%global docker_integration_id 142330
+%global docker_integration_version 213.6461.58
+%global docker_integration_id 152132
 %global docker_integration_name Docker
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -53,20 +53,20 @@
 %global idea_multimarkdown_archive %{idea_multimarkdown_name}.%{idea_multimarkdown_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 1.7.2
-%global ideavim_id 139093
+%global ideavim_version 1.9.3
+%global ideavim_id 151325
 %global ideavim_name IdeaVim
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 212.5457.62
-%global ini_id 142334
+%global ini_version 213.5744.190
+%global ini_id 147080
 %global ini_name ini4idea
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 212.7.15
-%global git_tool_box_id 139338
+%global git_tool_box_version 212.8.4
+%global git_tool_box_id 149901
 %global git_tool_box_name gittoolbox
 %global git_tool_box_archive %{git_tool_box_name}-%{git_tool_box_version}
 
@@ -77,14 +77,14 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.157.4174-212
-%global rust_id 140694
+%global rust_version 0.4.162.4321-213
+%global rust_id 151174
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2021.2.3
-Release:       2%{?dist}
+Version:       2021.3.1
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -162,6 +162,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Tue Jan 04 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.1-1
+- Updated plugins to latest supported releases.
+
 * Sat Nov 13 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2.3-2
 - Fixed issue with multilib on Fedora 35+.
 
