@@ -19,8 +19,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2021.2.3
-Release:       2%{?dist}
+Version:       2021.3.1
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -66,7 +66,7 @@ This package contains documentation for the Intelligent Python IDE.
 %autosetup
 
 # Removing trialware plugins...
-rm -rf plugins/{cwm-plugin,marketplace,space}
+rm -rf plugins/{cwm-plugin,cwm-plugin-projector,marketplace,space}
 
 # Patching shebangs...
 find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -i "{}" \;
@@ -117,6 +117,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Tue Jan 04 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.1-1
+- Updated to version 2021.3.1.
+
 * Sat Nov 13 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.2.3-2
 - Fixed issue with multilib on Fedora 35+.
 
