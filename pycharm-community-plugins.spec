@@ -23,8 +23,8 @@
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.6411.0
-%global dbnavigator_id 147105
+%global dbnavigator_version 3.2.9222.0
+%global dbnavigator_id 155517
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -35,14 +35,14 @@
 %global ansible_archive %{ansible_name}-%{ansible_version}
 
 # https://plugins.jetbrains.com/plugin/12552-rpm-spec-file/versions
-%global rpm_spec_file_version 1.2.0
-%global rpm_spec_file_id 109731
+%global rpm_spec_file_version 2.0.0
+%global rpm_spec_file_id 153070
 %global rpm_spec_file_name intellij-rpmspec
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 213.6461.58
-%global docker_integration_id 152132
+%global docker_integration_version 213.6777.42
+%global docker_integration_id 154697
 %global docker_integration_name Docker
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -77,13 +77,13 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.162.4321-213
-%global rust_id 151174
+%global rust_version 0.4.164.4409-213
+%global rust_id 155606
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2021.3.1
+Version:       2021.3.2
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -162,6 +162,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Mon Jan 31 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.2-1
+- Updated plugins to latest supported releases.
+
 * Tue Jan 04 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.1-1
 - Updated plugins to latest supported releases.
 
