@@ -23,8 +23,8 @@
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.2.9222.0
-%global dbnavigator_id 155517
+%global dbnavigator_version 3.3.1555.0
+%global dbnavigator_id 159245
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -41,8 +41,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 213.6777.42
-%global docker_integration_id 154697
+%global docker_integration_version 213.7172.6
+%global docker_integration_id 160440
 %global docker_integration_name Docker
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -53,8 +53,8 @@
 %global idea_multimarkdown_archive %{idea_multimarkdown_name}.%{idea_multimarkdown_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 1.9.3
-%global ideavim_id 151325
+%global ideavim_version 1.10.0
+%global ideavim_id 158788
 %global ideavim_name IdeaVim
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
@@ -65,8 +65,8 @@
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 212.8.4
-%global git_tool_box_id 149901
+%global git_tool_box_version 212.8.8
+%global git_tool_box_id 160954
 %global git_tool_box_name gittoolbox
 %global git_tool_box_archive %{git_tool_box_name}-%{git_tool_box_version}
 
@@ -77,14 +77,14 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.164.4409-213
-%global rust_id 155606
+%global rust_version 0.4.166.4486-213
+%global rust_id 161597
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
 Version:       2021.3.2
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -162,6 +162,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Fri Mar 18 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.2-2
+- Updated plugins to latest supported releases.
+
 * Mon Jan 31 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.2-1
 - Updated plugins to latest supported releases.
 
