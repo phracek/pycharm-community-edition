@@ -83,8 +83,8 @@
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2021.3.2
-Release:       2%{?dist}
+Version:       2021.3.3
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -162,7 +162,7 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
-* Fri Mar 18 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.2-2
+* Fri Mar 18 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.3-1
 - Updated plugins to latest supported releases.
 
 * Mon Jan 31 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.2-1
