@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2021.3.3
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -127,6 +127,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Wed Mar 23 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.3-3
+- Rebuilt.
+
 * Wed Mar 23 2022 Petr Hracek <phracek@redhat.com> - 2021.3.3-2
 - Added png icons to resolve https://pagure.io/copr/copr/issue/2039.
 

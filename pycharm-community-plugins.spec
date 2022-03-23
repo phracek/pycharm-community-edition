@@ -84,7 +84,7 @@
 
 Name:          %{appname}-plugins
 Version:       2021.3.3
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       ASL 2.0
@@ -162,6 +162,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Wed Mar 23 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.3-3
+- Rebuilt.
+
 * Wed Mar 23 2022 Petr Hracek <phracek@redhat.com> - 2021.3.3-2
 - Added png icons to resolve https://pagure.io/copr/copr/issue/2039.
 
