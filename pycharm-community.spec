@@ -80,6 +80,7 @@ cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javad
 install -d %{buildroot}%{_datadir}/pixmaps
 install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.png
 install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
 # Installing metainfo...
