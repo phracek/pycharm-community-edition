@@ -34,6 +34,7 @@ Source103:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
+BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 
 Requires:      hicolor-icon-theme
@@ -80,8 +81,16 @@ cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javad
 install -d %{buildroot}%{_datadir}/pixmaps
 install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.png
 install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+
+# Creating additional PNG icons on the fly...
+for size in 16 22 24 32 48 64 128 256; do
+    dest=%{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps
+    mkdir -p ${dest}
+    rsvg-convert -w ${size} -h ${size} bin/%{appname}.svg -o ${dest}/%{name}.png
+    chmod 0644 ${dest}/%{name}.png
+    touch -r bin/%{appname}.svg ${dest}/%{name}.png
+done
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
@@ -110,8 +119,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/mime/packages/%{name}.xml
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.png
+%{_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
@@ -119,8 +127,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
-* Wed Mar 23 2022 Petr Hracek <phracek@redhat.com - 2021.3.3-2
-- Add icon png to /usr/share/data/icons/hicolor/scalable/apps/
+* Wed Mar 23 2022 Petr Hracek <phracek@redhat.com> - 2021.3.3-2
+- Added png icons to resolve https://pagure.io/copr/copr/issue/2039.
 
 * Fri Mar 18 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.3-1
 - Updated to version 2021.3.3.
