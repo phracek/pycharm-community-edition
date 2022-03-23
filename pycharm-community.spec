@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2021.3.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -111,6 +111,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.png
 %{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
@@ -118,6 +119,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Wed Mar 23 2022 Petr Hracek <phracek@redhat.com - 2021.3.3-2
+- Add icon png to /usr/share/data/icons/hicolor/scalable/apps/
+
 * Fri Mar 18 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2021.3.3-1
 - Updated to version 2021.3.3.
 
