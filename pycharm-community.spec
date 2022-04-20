@@ -70,7 +70,11 @@ This package contains documentation for the Intelligent Python IDE.
 rm -rf plugins/{cwm-plugin,cwm-plugin-projector,marketplace,space}
 
 # Patching shebangs...
+%if 0%{?fedora}
+%py3_shebang_fix bin
+%else
 find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -i "{}" \;
+%endif
 
 %install
 # Installing application...
@@ -86,7 +90,7 @@ install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scal
 # Creating additional PNG icons on the fly...
 for size in 16 22 24 32 48 64 128 256; do
     dest=%{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps
-    mkdir -p ${dest}
+    install -d ${dest}
     rsvg-convert -w ${size} -h ${size} bin/%{appname}.svg -o ${dest}/%{name}.png
     chmod 0644 ${dest}/%{name}.png
     touch -r bin/%{appname}.svg ${dest}/%{name}.png
@@ -101,11 +105,11 @@ install -d %{buildroot}%{_bindir}
 ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
-mkdir -p %{buildroot}%{_datadir}/applications
+install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE102} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 # Installing mime package...
-mkdir -p %{buildroot}%{_datadir}/mime/packages
+install -d %{buildroot}%{_datadir}/mime/packages
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 
 %check
