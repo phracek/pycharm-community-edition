@@ -46,12 +46,6 @@
 %global docker_integration_name Docker
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
-# https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced/versions
-%global idea_multimarkdown_version 3.0.202.112
-%global idea_multimarkdown_id 97563
-%global idea_multimarkdown_name idea-multimarkdown
-%global idea_multimarkdown_archive %{idea_multimarkdown_name}.%{idea_multimarkdown_version}
-
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
 %global ideavim_version 1.10.2
 %global ideavim_id 169987
@@ -96,12 +90,11 @@ Source2:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/%{dbna
 Source3:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/%{ansible_archive}.zip#/%{ansible_name}-%{ansible_version}.zip
 Source4:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/%{rpm_spec_file_archive}.zip#/%{rpm_spec_file_name}-%{rpm_spec_file_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/%{docker_integration_archive}.zip#/%{docker_integration_name}-%{docker_integration_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/%{idea_multimarkdown_archive}.zip#/%{idea_multimarkdown_name}-%{idea_multimarkdown_version}.zip
-Source7:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
-Source8:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
-Source9:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/%{git_tool_box_archive}.zip#/%{git_tool_box_name}-%{git_tool_box_version}.zip
-Source10:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
-Source11:      https://plugins.jetbrains.com/files/8182/%{rust_id}/%{rust_archive}.zip#/%{rust_name}-%{rust_version}.zip
+Source6:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
+Source7:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/%{git_tool_box_archive}.zip#/%{git_tool_box_name}-%{git_tool_box_version}.zip
+Source9:       https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
+Source10:      https://plugins.jetbrains.com/files/8182/%{rust_id}/%{rust_archive}.zip#/%{rust_name}-%{rust_version}.zip
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
 BuildRequires: javapackages-tools
@@ -115,7 +108,7 @@ ExclusiveArch: x86_64
 
 %description
 Intelligent Python IDE contains several plugins. This package
-contains plugins like RemoteRepositoryMapper, GoLang, Markdown,
+contains plugins like RemoteRepositoryMapper, GoLang, SPEC,
 Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 
 %prep
@@ -130,7 +123,6 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 %setup -q -n %{appname}-%{version} -D -T -a 8
 %setup -q -n %{appname}-%{version} -D -T -a 9
 %setup -q -n %{appname}-%{version} -D -T -a 10
-%setup -q -n %{appname}-%{version} -D -T -a 11
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
@@ -141,7 +133,6 @@ cp -arf ./%{dbnavigator_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ansible_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{rpm_spec_file_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{docker_integration_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./%{idea_multimarkdown_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ideavim_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ini_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{git_tool_box_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
@@ -154,7 +145,6 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{ansible_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{rpm_spec_file_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{docker_integration_name}
-%{_javadir}/%{appname}/%{plugins_dir}/%{idea_multimarkdown_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ideavim_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ini_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{git_tool_box_name}
@@ -164,6 +154,7 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %changelog
 * Thu May 12 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.1.1-1
 - Updated plugins to latest supported releases.
+- Removed no longer supported by upstream plugins.
 
 * Wed Apr 20 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.1-1
 - Updated plugins to latest supported releases.
