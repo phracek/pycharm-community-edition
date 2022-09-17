@@ -23,8 +23,8 @@
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.3.2100.0
-%global dbnavigator_id 205232
+%global dbnavigator_version 3.3.2160.0
+%global dbnavigator_id 221349
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -41,8 +41,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 222.3739.64
-%global docker_integration_id 211572
+%global docker_integration_version 222.4167.35
+%global docker_integration_id 223772
 %global docker_integration_name Docker
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -53,14 +53,14 @@
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 222.3739.64
-%global ini_id 211573
+%global ini_version 222.4167.35
+%global ini_id 223754
 %global ini_name ini4idea
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 212.9.8
-%global git_tool_box_id 209299
+%global git_tool_box_version 212.9.9
+%global git_tool_box_id 213357
 %global git_tool_box_name gittoolbox
 %global git_tool_box_archive %{git_tool_box_name}-%{git_tool_box_version}
 
@@ -71,13 +71,13 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.176.4815-222
-%global rust_id 209120
+%global rust_version 0.4.178.4873-222
+%global rust_id 222064
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2022.2.1
+Version:       2022.2.2
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Sat Sep 17 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.2.2-1
+- Updated plugins to latest supported releases.
+
 * Tue Aug 23 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.2.1-1
 - Updated plugins to latest supported releases.
 
