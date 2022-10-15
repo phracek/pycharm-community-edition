@@ -17,8 +17,8 @@
 %global __requires_exclude_from %{_javadir}/%{appname}/%{plugins_dir}/.*
 
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
-%global repmapper_version 4.1.8
-%global repmapper_id 199456
+%global repmapper_version 4.2.2
+%global repmapper_id 232388
 %global repmapper_name GitLink
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
@@ -41,8 +41,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 222.4167.35
-%global docker_integration_id 223772
+%global docker_integration_version 222.4345.23
+%global docker_integration_id 236767
 %global docker_integration_name Docker
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -53,8 +53,8 @@
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 222.4167.35
-%global ini_id 223754
+%global ini_version 222.4345.21
+%global ini_id 236648
 %global ini_name ini4idea
 %global ini_archive %{ini_name}-%{ini_version}
 
@@ -71,13 +71,13 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.178.4873-222
-%global rust_id 222064
+%global rust_version 0.4.180.4932-222
+%global rust_id 236202
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2022.2.2
+Version:       2022.2.3
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Sat Oct 15 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.2.3-1
+- Updated plugins to latest supported releases.
+
 * Sat Sep 17 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.2.2-1
 - Updated plugins to latest supported releases.
 
