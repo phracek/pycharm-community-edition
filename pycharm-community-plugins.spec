@@ -17,14 +17,14 @@
 %global __requires_exclude_from %{_javadir}/%{appname}/%{plugins_dir}/.*
 
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
-%global repmapper_version 4.2.2
-%global repmapper_id 232388
+%global repmapper_version 4.2.5
+%global repmapper_id 259566
 %global repmapper_name GitLink
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.3.2160.0
-%global dbnavigator_id 221349
+%global dbnavigator_version 3.3.3100.0
+%global dbnavigator_id 257188
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -41,43 +41,43 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 222.4345.23
-%global docker_integration_id 236767
-%global docker_integration_name Docker
+%global docker_integration_version 223.7571.175
+%global docker_integration_id 258930
+%global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 1.11.1
-%global ideavim_id 208284
+%global ideavim_version 2.0.0
+%global ideavim_id 245831
 %global ideavim_name IdeaVim
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 222.4345.21
-%global ini_id 236648
-%global ini_name ini4idea
+%global ini_version 223.7571.203
+%global ini_id 259996
+%global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 212.9.9
-%global git_tool_box_id 213357
+%global git_tool_box_version 213.10.2
+%global git_tool_box_id 259022
 %global git_tool_box_name gittoolbox
 %global git_tool_box_archive %{git_tool_box_name}-%{git_tool_box_version}
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 4.4.2
-%global ignore_plugin_id 192188
+%global ignore_plugin_version 4.4.4
+%global ignore_plugin_id 251048
 %global ignore_plugin_name .ignore
-%global ignore_plugin_archive ignore-%{ignore_plugin_version}
+%global ignore_plugin_archive ignore-%{ignore_plugin_version}-signed
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.180.4932-222
-%global rust_id 236202
+%global rust_version 0.4.183.5026-223
+%global rust_id 254893
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2022.2.3
+Version:       2022.3
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Fri Dec 02 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.3-1
+- Updated plugins to latest supported releases.
+
 * Sat Oct 15 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.2.3-1
 - Updated plugins to latest supported releases.
 
