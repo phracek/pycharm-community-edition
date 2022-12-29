@@ -117,7 +117,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metain
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%license license/
+%license license/*
 %{_javadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
