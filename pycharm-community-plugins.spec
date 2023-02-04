@@ -41,20 +41,20 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 223.8214.64
-%global docker_integration_id 271029
+%global docker_integration_version 223.8617.59
+%global docker_integration_id 285149
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 2.0.0
-%global ideavim_id 245831
+%global ideavim_version 2.1.0
+%global ideavim_id 275091
 %global ideavim_name IdeaVim
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 223.8214.64
-%global ini_id 271028
+%global ini_version 223.8617.59
+%global ini_id 285150
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
@@ -71,13 +71,13 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}-signed
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.185.5086-223
-%global rust_id 268272
+%global rust_version 0.4.187.5175-223
+%global rust_id 284748
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2022.3.1
+Version:       2022.3.2
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Sat Feb 04 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.3.2-1
+- Updated plugins to latest supported releases.
+
 * Thu Dec 29 2022 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.3.1-1
 - Updated plugins to latest supported releases.
 
