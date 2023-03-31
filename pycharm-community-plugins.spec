@@ -23,8 +23,8 @@
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.3.6771.0
-%global dbnavigator_id 305645
+%global dbnavigator_version 3.3.7221.0
+%global dbnavigator_id 308412
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -41,8 +41,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 223.8836.46
-%global docker_integration_id 306555
+%global docker_integration_version 231.8109.150
+%global docker_integration_id 311969
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -53,31 +53,31 @@
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 223.8836.46
-%global ini_id 306558
+%global ini_version 231.8109.150
+%global ini_id 311967
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
-# https://plugins.jetbrains.com/plugin/7499-gittoolbox/versions
-%global git_tool_box_version 213.10.5
-%global git_tool_box_id 269416
-%global git_tool_box_name gittoolbox
-%global git_tool_box_archive %{git_tool_box_name}-%{git_tool_box_version}
+# https://plugins.jetbrains.com/plugin/7566-settings-repository/versions
+%global settings_repository_version 231.8109.91
+%global settings_repository_id 307857
+%global settings_repository_name settingsRepository
+%global settings_repository_archive %{settings_repository_name}-%{settings_repository_version}
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 4.4.4
-%global ignore_plugin_id 251048
+%global ignore_plugin_version 4.5.0
+%global ignore_plugin_id 306464
 %global ignore_plugin_name .ignore
-%global ignore_plugin_archive ignore-%{ignore_plugin_version}-signed
+%global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.190.5263-223
-%global rust_id 306430
+%global rust_version 0.4.191.5293-231
+%global rust_id 311867
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2022.3.3
+Version:       2023.1
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -92,7 +92,7 @@ Source4:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/%{r
 Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/%{docker_integration_archive}.zip#/%{docker_integration_name}-%{docker_integration_version}.zip
 Source6:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
 Source7:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/%{git_tool_box_archive}.zip#/%{git_tool_box_name}-%{git_tool_box_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7566/%{settings_repository_id}/%{settings_repository_archive}.zip#/%{settings_repository_name}-%{settings_repository_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
 Source10:      https://plugins.jetbrains.com/files/8182/%{rust_id}/%{rust_archive}.zip#/%{rust_name}-%{rust_version}.zip
 
@@ -135,7 +135,7 @@ cp -arf ./%{rpm_spec_file_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir
 cp -arf ./%{docker_integration_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ideavim_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ini_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./%{git_tool_box_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{settings_repository_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 
@@ -147,11 +147,16 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{docker_integration_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ideavim_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ini_name}
-%{_javadir}/%{appname}/%{plugins_dir}/%{git_tool_box_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{settings_repository_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ignore_plugin_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Fri Mar 31 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1-1
+- Updated plugins to latest supported releases.
+- Removed GitToolBox plugin (requires a paid subscription now).
+- Added Settings Repository plugin.
+
 * Tue Mar 14 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2022.3.3-1
 - Updated plugins to latest supported releases.
 
