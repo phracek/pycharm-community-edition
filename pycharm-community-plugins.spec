@@ -81,7 +81,7 @@ Version:       2022.3.3
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
-License:       ASL 2.0
+License:       Apache-2.0
 URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://github.com/phracek/pycharm-community-edition/raw/master/copr-workaround.tar.xz

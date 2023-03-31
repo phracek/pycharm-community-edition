@@ -23,7 +23,7 @@ Version:       2023.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
-License:       ASL 2.0
+License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
