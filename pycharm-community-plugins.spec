@@ -78,7 +78,7 @@
 
 Name:          %{appname}-plugins
 Version:       2023.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Tue Apr 04 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1-2
+- Fixed dependency issue on EPEL.
+
 * Fri Mar 31 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1-1
 - Updated plugins to latest supported releases.
 - Removed GitToolBox plugin (requires a paid subscription now).

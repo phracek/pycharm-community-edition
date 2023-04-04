@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2023.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -73,7 +73,7 @@ rm -rf plugins/{cwm-plugin,cwm-plugin-projector,marketplace,space}
 %if 0%{?fedora}
 %py3_shebang_fix bin
 %else
-find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python@%{__python3}@g' -i "{}" \;
+find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
 %install
@@ -131,6 +131,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Tue Apr 04 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1-2
+- Fixed dependency issue on EPEL.
+
 * Fri Mar 31 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1-1
 - Updated to version 2023.1.
 
