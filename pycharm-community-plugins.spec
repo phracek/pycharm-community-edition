@@ -50,7 +50,7 @@
 %global ideavim_version 2.2.0
 %global ideavim_id 324992
 %global ideavim_name IdeaVim
-%global ideavim_archive %{ideavim_name}-%{ideavim_version}
+%global ideavim_archive %{ideavim_name}-%{ideavim_version}-signed
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 231.9011.41
