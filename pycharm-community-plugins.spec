@@ -23,8 +23,8 @@
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
 # https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.3.7221.0
-%global dbnavigator_id 308412
+%global dbnavigator_version 3.3.8411.0
+%global dbnavigator_id 337643
 %global dbnavigator_name DBNavigator
 %global dbnavigator_archive DBN-20.0
 
@@ -41,20 +41,20 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 231.8109.150
-%global docker_integration_id 311969
+%global docker_integration_version 231.9011.41
+%global docker_integration_id 336612
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 2.1.0
-%global ideavim_id 275091
+%global ideavim_version 2.2.0
+%global ideavim_id 324992
 %global ideavim_name IdeaVim
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 231.8109.150
-%global ini_id 311967
+%global ini_version 231.9011.41
+%global ini_id 336613
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
@@ -71,14 +71,14 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 0.4.191.5293-231
-%global rust_id 311867
+%global rust_version 0.4.194.5382-231
+%global rust_id 329559
 %global rust_name intellij-rust
 %global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2023.1
-Release:       2%{?dist}
+Version:       2023.1.2
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Tue May 23 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1.2-1
+- Updated plugins to latest supported releases.
+
 * Tue Apr 04 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1-2
 - Fixed dependency issue on EPEL.
 
