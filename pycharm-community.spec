@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2023.1.3
+Version:       2023.1.4
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -131,6 +131,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Thu Jul 13 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1.4-1
+- Updated to version 2023.1.4.
+
 * Thu Jun 22 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1.3-1
 - Updated to version 2023.1.3.
 
