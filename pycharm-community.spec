@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2023.1.4
+Version:       2023.3.2
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -115,6 +115,13 @@ install -m 0644 -p %{SOURCE102} %{buildroot}%{_datadir}/applications/%{name}.des
 # Installing mime package...
 install -d %{buildroot}%{_datadir}/mime/packages
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
+
+# Patch Python shebangs
+tail -n +2 %{buildroot}%{_datadir}/java/pycharm-community/plugins/python-ce/helpers/pycodestyle-2.10.0.py
+sed -i '1 i #!/usr/bin/env python3' %{buildroot}%{_datadir}/java/pycharm-community/plugins/python-ce/helpers/pycodestyle-2.10.0.py
+
+tail -n +2 %{buildroot}%{_datadir}/java/pycharm-community/plugins/python-ce/helpers/pycodestyle.py
+sed -i '1 i #!/usr/bin/env python3' %{buildroot}%{_datadir}/java/pycharm-community/plugins/python-ce/helpers/pycodestyle.py
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
