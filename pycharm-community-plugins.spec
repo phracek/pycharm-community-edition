@@ -78,7 +78,7 @@
 
 Name:          %{appname}-plugins
 Version:       2023.3.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -152,7 +152,10 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
-* Mon Feb 26 2024 Petr Hracek <phracek@redhat.com - 2023.3.3-1
+* Mon Feb 26 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-2
+- Fix typo in changelog
+
+* Mon Feb 26 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-1
 - Updated plugins to latest supported releases.
 
 * Thu Jul 13 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 2023.1.4-1
