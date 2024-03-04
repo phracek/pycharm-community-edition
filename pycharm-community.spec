@@ -20,13 +20,13 @@
 
 Name:          %{appname}-community
 Version:       2023.3.3
-Release:       3%{?dist}
+Release:       4%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
 
-%ifarch x86_64
+%ifarch x86_64 ppc64le
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 %else
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}-%{_arch}.tar.gz
@@ -142,6 +142,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-4
+- Fix import sources for ppc64le
+
 * Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-3
 - Add support for ppc64le
 
