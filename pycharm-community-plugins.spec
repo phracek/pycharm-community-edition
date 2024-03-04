@@ -78,7 +78,7 @@
 
 Name:          %{appname}-plugins
 Version:       2023.3.3
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-3
+- Add support for ppc64le
+
 * Mon Feb 26 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-2
 - Fix typo in changelog
 
