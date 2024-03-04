@@ -152,6 +152,9 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-4
+- Fix import sources for ppc64le
+
 * Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-3
 - Add support for ppc64le
 
