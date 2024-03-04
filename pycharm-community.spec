@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2023.3.3
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -51,7 +51,7 @@ BuildRequires: javapackages-filesystem
 Requires:      javapackages-filesystem
 %endif
 
-ExclusiveArch: x86_64 aarch64
+ExclusiveArch: x86_64 aarch64 ppc64le
 
 Obsoletes:     %{name}-jre < %{?epoch:%{epoch}:}%{version}-%{release}
 
@@ -142,6 +142,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-3
+- Add support for ppc64le
+
 * Mon Feb 26 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-2
 - Fix typo in changelog
 
