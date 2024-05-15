@@ -19,8 +19,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2023.3.3
-Release:       4%{?dist}
+Version:       2024.1.1
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -142,6 +142,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Wed May 15 2024 Elkhan Mammadli <elkhan@almalinux.org> - 2024.1.1-1
+- Updated to version 2024.1.1.
+
 * Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-4
 - Fix import sources for ppc64le
 
