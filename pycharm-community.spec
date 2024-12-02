@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2024.3
-Release:       3%{?dist}
+Release:       4%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -138,8 +138,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-4
+- Fix changelog
+
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-3
-- add %global debug_package directive
+- add global debug_package directive
 
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-2
 - Fix plugins

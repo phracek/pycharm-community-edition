@@ -69,7 +69,7 @@
 
 Name:          %{appname}-plugins
 Version:       2024.3
-Release:       3%{?dist}
+Release:       4%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -136,8 +136,11 @@ cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir
 %{_javadir}/%{appname}/%{plugins_dir}/%{ignore_plugin_name}
 
 %changelog
+* Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-4
+- Fix changelog
+
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-3
-- add %global debug_package directive
+- add global debug_package directive
 
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-2
 - Fix plugins
