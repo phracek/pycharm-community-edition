@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2024.3
-Release:       4%{?dist}
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
