@@ -67,7 +67,7 @@
 
 Name:          %{appname}-plugins
 Version:       2024.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
