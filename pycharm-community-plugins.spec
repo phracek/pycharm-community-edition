@@ -22,17 +22,11 @@
 %global repmapper_name GitLink
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
-# https://plugins.jetbrains.com/plugin/1800-database-navigator/versions #The latest Support version 2024.2.5
-#%global dbnavigator_version 3.4.4425.0
-#%global dbnavigator_id 590300
-#%global dbnavigator_name DBNavigator
-#%global dbnavigator_archive DBN-20.0
-
 # https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions # The latest support 2022.1.4
-# %global ansible_version 0.11.2
-#%global ansible_id 100135
-#%global ansible_name intellij-ansible
-#%global ansible_archive %{ansible_name}-%{ansible_version}
+%global ansible_version 0.11.2
+%global ansible_id 100135
+%global ansible_name intellij-ansible
+%global ansible_archive %{ansible_name}-%{ansible_version}
 
 # https://plugins.jetbrains.com/plugin/12552-rpm-spec-file/versions
 %global rpm_spec_file_version 2.2.0
@@ -67,7 +61,7 @@
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
 %global ignore_plugin_version 4.5.4
 %global ignore_plugin_id 619859
-%global ignore_plugin_name .ignore
+%global ignore_plugin_name ignore
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 
@@ -121,7 +115,6 @@ mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./%{repmapper_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-#cp -arf ./%{dbnavigator_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ansible_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{rpm_spec_file_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{docker_integration_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
@@ -132,7 +125,6 @@ cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir
 
 %files
 %{_javadir}/%{appname}/%{plugins_dir}/%{repmapper_name}
-#%{_javadir}/%{appname}/%{plugins_dir}/%{dbnavigator_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ansible_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{rpm_spec_file_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{docker_integration_name}
@@ -142,6 +134,9 @@ cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir
 %{_javadir}/%{appname}/%{plugins_dir}/%{ignore_plugin_name}
 
 %changelog
+* Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-2
+- Fix plugins
+
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-1
 - Update plugins to latest supported release
 - Rust is deprecated
