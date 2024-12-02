@@ -49,8 +49,8 @@
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
 %global ideavim_version 2.17.0
 %global ideavim_id 635855
-%global ideavim_name IdeaVim
-%global ideavim_archive %{ideavim_name}-%{ideavim_version}-signed
+%global ideavim_name IdeaVIM
+%global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
 %global ini_version 243.22562.74
