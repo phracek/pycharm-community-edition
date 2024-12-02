@@ -2,6 +2,9 @@
 %global appname pycharm-community
 %global plugins_dir plugins
 
+# disable debuginfo subpackage
+%global debug_package %{nil}
+
 # Disable build-id symlinks to avoid conflicts
 %global _build_id_links none
 # don't strip bundled binaries
@@ -64,10 +67,9 @@
 %global ignore_plugin_name ignore
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
-
 Name:          %{appname}-plugins
 Version:       2024.3
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -134,6 +136,9 @@ cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir
 %{_javadir}/%{appname}/%{plugins_dir}/%{ignore_plugin_name}
 
 %changelog
+* Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-3
+- add %global debug_package directive
+
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-2
 - Fix plugins
 
