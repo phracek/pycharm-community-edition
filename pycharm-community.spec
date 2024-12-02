@@ -138,6 +138,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-2
+- Fix plugins
+
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-1
 - Updated to version 2024.3
 
