@@ -17,22 +17,22 @@
 %global __requires_exclude_from %{_javadir}/%{appname}/%{plugins_dir}/.*
 
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
-%global repmapper_version 4.4.0
-%global repmapper_id 447511
+%global repmapper_version 4.5.2
+%global repmapper_id 599893
 %global repmapper_name GitLink
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
-# https://plugins.jetbrains.com/plugin/1800-database-navigator/versions
-%global dbnavigator_version 3.4.3073.0
-%global dbnavigator_id 492320
-%global dbnavigator_name DBNavigator
-%global dbnavigator_archive DBN-20.0
+# https://plugins.jetbrains.com/plugin/1800-database-navigator/versions #The latest Support version 2024.2.5
+#%global dbnavigator_version 3.4.4425.0
+#%global dbnavigator_id 590300
+#%global dbnavigator_name DBNavigator
+#%global dbnavigator_archive DBN-20.0
 
-# https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions
-%global ansible_version 0.11.2
-%global ansible_id 100135
-%global ansible_name intellij-ansible
-%global ansible_archive %{ansible_name}-%{ansible_version}
+# https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions # The latest support 2022.1.4
+# %global ansible_version 0.11.2
+#%global ansible_id 100135
+#%global ansible_name intellij-ansible
+#%global ansible_archive %{ansible_name}-%{ansible_version}
 
 # https://plugins.jetbrains.com/plugin/12552-rpm-spec-file/versions
 %global rpm_spec_file_version 2.2.0
@@ -41,44 +41,39 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 231.9225.18
-%global docker_integration_id 360762
+%global docker_integration_version 243.22562.74
+%global docker_integration_id 640921
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 2.9.1
-%global ideavim_id 491097
+%global ideavim_version 2.17.0
+%global ideavim_id 635855
 %global ideavim_name IdeaVim
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}-signed
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 233.14015.113
-%global ini_id 474956
+%global ini_version 243.22562.74
+%global ini_id 640935
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7566-settings-repository/versions
-%global settings_repository_version 233.13135.65
-%global settings_repository_id 454475
+%global settings_repository_version 243.21565.122
+%global settings_repository_id 630048
 %global settings_repository_name settingsRepository
 %global settings_repository_archive %{settings_repository_name}-%{settings_repository_version}
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 4.5.2
-%global ignore_plugin_id 411646
+%global ignore_plugin_version 4.5.4
+%global ignore_plugin_id 619859
 %global ignore_plugin_name .ignore
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
-# https://plugins.jetbrains.com/plugin/8182-rust/versions
-%global rust_version 233.15445
-%global rust_id 466854
-%global rust_name intellij-rust
-%global rust_archive %{rust_name}-%{rust_version}
 
 Name:          %{appname}-plugins
-Version:       2023.3.3
-Release:       3%{?dist}
+Version:       2024.3
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -86,15 +81,14 @@ URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://github.com/phracek/pycharm-community-edition/raw/master/copr-workaround.tar.xz
 Source1:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/%{repmapper_archive}.zip#/%{repmapper_name}-%{repmapper_version}.zip
-Source2:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/%{dbnavigator_archive}.zip#/%{dbnavigator_name}-%{dbnavigator_version}.zip
-Source3:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/%{ansible_archive}.zip#/%{ansible_name}-%{ansible_version}.zip
-Source4:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/%{rpm_spec_file_archive}.zip#/%{rpm_spec_file_name}-%{rpm_spec_file_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/%{docker_integration_archive}.zip#/%{docker_integration_name}-%{docker_integration_version}.zip
-Source6:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
-Source7:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7566/%{settings_repository_id}/%{settings_repository_archive}.zip#/%{settings_repository_name}-%{settings_repository_version}.zip
-Source9:       https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
-Source10:      https://plugins.jetbrains.com/files/8182/%{rust_id}/%{rust_archive}.zip#/%{rust_name}-%{rust_version}.zip
+Source2:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/%{ansible_archive}.zip#/%{ansible_name}-%{ansible_version}.zip
+Source3:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/%{rpm_spec_file_archive}.zip#/%{rpm_spec_file_name}-%{rpm_spec_file_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/%{docker_integration_archive}.zip#/%{docker_integration_name}-%{docker_integration_version}.zip
+Source5:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
+Source6:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7566/%{settings_repository_id}/%{settings_repository_archive}.zip#/%{settings_repository_name}-%{settings_repository_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
+#Source9:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/%{dbnavigator_archive}.zip#/%{dbnavigator_name}-%{dbnavigator_version}.zip
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
 BuildRequires: javapackages-tools
@@ -121,15 +115,13 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 %setup -q -n %{appname}-%{version} -D -T -a 6
 %setup -q -n %{appname}-%{version} -D -T -a 7
 %setup -q -n %{appname}-%{version} -D -T -a 8
-%setup -q -n %{appname}-%{version} -D -T -a 9
-%setup -q -n %{appname}-%{version} -D -T -a 10
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./%{repmapper_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./%{dbnavigator_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+#cp -arf ./%{dbnavigator_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ansible_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{rpm_spec_file_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{docker_integration_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
@@ -137,11 +129,10 @@ cp -arf ./%{ideavim_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ini_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{settings_repository_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 
 %files
 %{_javadir}/%{appname}/%{plugins_dir}/%{repmapper_name}
-%{_javadir}/%{appname}/%{plugins_dir}/%{dbnavigator_name}
+#%{_javadir}/%{appname}/%{plugins_dir}/%{dbnavigator_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ansible_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{rpm_spec_file_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{docker_integration_name}
@@ -149,9 +140,12 @@ cp -arf ./%{rust_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 %{_javadir}/%{appname}/%{plugins_dir}/%{ini_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{settings_repository_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ignore_plugin_name}
-%{_javadir}/%{appname}/%{plugins_dir}/%{rust_name}
 
 %changelog
+* Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-1
+- Update plugins to latest supported release
+- Rust is deprecated
+
 * Mon Mar 04 2024 Petr Hracek <phracek@redhat.com> - 2023.3.3-4
 - Fix import sources for ppc64le
 
