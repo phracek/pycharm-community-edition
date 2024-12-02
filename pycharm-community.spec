@@ -26,11 +26,7 @@ Summary:       Intelligent Python IDE
 License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
 
-%ifarch x86_64 ppc64le
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-%else
-Source0:       https://download.jetbrains.com/python/%{name}-%{version}-%{_arch}.tar.gz
-%endif
 
 Source101:     %{name}.xml
 Source102:     %{name}.desktop
