@@ -56,7 +56,7 @@
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7566-settings-repository/versions
-%global settings_repository_v#ersion 251.23774.318
+%global settings_repository_version 251.23774.318
 %global settings_repository_id 711171
 %global settings_repository_name settingsRepository
 %global settings_repository_archive %{settings_repository_name}-%{settings_repository_version}
@@ -81,7 +81,7 @@
 
 Name:          %{appname}-plugins
 Version:       2025.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -155,7 +155,7 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
-* Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-1
+* Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-2
 - Added plugin env-files
 - Added plugin JetBrains AI Assistant
 
