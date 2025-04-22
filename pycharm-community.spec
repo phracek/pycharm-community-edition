@@ -19,8 +19,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2024.3
-Release:       4%{?dist}
+Version:       2025.1
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -102,7 +102,7 @@ install -m 0644 -p %{SOURCE103} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
+ln -s %{_javadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
@@ -138,6 +138,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Fri Apr 18 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1-1
+- Fix warning about using native launcher.
+- Update to 2025.1.
+
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-4
 - Fix changelog
 
