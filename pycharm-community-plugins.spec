@@ -71,7 +71,7 @@
 %global env_files_version 251.23774.318
 %global env_files_id 711041
 %global env_files_name env-files
-%global env_files_archive env_files-%{env_plugin_version}
+%global env_files_archive env_files-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
 %global ai_assistant_version 251.23774.318
@@ -81,7 +81,7 @@
 
 Name:          %{appname}-plugins
 Version:       2025.1
-Release:       2%{?dist}
+Release:       3%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -155,6 +155,9 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-3
+- Fix typo in env-files definition
+
 * Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-2
 - Added plugin env-files
 - Added plugin JetBrains AI Assistant
