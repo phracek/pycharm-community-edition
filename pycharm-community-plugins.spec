@@ -38,38 +38,50 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 243.22562.74
-%global docker_integration_id 640921
+%global docker_integration_version 251.23774.426
+%global docker_integration_id 715275
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 2.17.0
-%global ideavim_id 635855
+%global ideavim_version 2.22.0
+%global ideavim_id 718030
 %global ideavim_name IdeaVIM
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 243.22562.74
-%global ini_id 640935
+%global ini_version 251.23774.318
+%global ini_id 711004
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7566-settings-repository/versions
-%global settings_repository_version 243.21565.122
-%global settings_repository_id 630048
+%global settings_repository_v#ersion 251.23774.318
+%global settings_repository_id 711171
 %global settings_repository_name settingsRepository
 %global settings_repository_archive %{settings_repository_name}-%{settings_repository_version}
 
 # https://plugins.jetbrains.com/plugin/7495--ignore/versions
-%global ignore_plugin_version 4.5.4
-%global ignore_plugin_id 619859
+%global ignore_plugin_version 4.5.6
+%global ignore_plugin_id 678216
 %global ignore_plugin_name ignore
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
+# https://plugins.jetbrains.com/plugin/9525--env-files/versions
+%global env_files_version 251.23774.318
+%global env_files_id 711041
+%global env_files_name env-files
+%global env_files_archive env_files-%{env_plugin_version}
+
+# https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
+%global ai_assistant_version 251.23774.318
+%global ai_assistant_id 711041
+%global ai_assistant_name jetbrains-ai-assistant
+%global ai_assistant_archive ai_assistant-%{at_assistant_version}
+
 Name:          %{appname}-plugins
-Version:       2024.3
-Release:       4%{?dist}
+Version:       2025.1
+Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -84,7 +96,8 @@ Source5:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_a
 Source6:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7566/%{settings_repository_id}/%{settings_repository_archive}.zip#/%{settings_repository_name}-%{settings_repository_version}.zip
 Source8:       https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
-#Source9:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/%{dbnavigator_archive}.zip#/%{dbnavigator_name}-%{dbnavigator_version}.zip
+Source9:       https://plugins.jetbrains.com/files/9525/%{env_files_id}/%{env_files_archive}.zip#/%{env_files_name}-%{env_files_version}.zip
+Source10:       https://plugins.jetbrains.com/files/22282/%{ai_assistant_id}/%{ai_assistant_archive}.zip#/%{ai_assistant_name}-%{ai_assistant_version}.zip
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
 BuildRequires: javapackages-tools
@@ -111,6 +124,8 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 %setup -q -n %{appname}-%{version} -D -T -a 6
 %setup -q -n %{appname}-%{version} -D -T -a 7
 %setup -q -n %{appname}-%{version} -D -T -a 8
+%setup -q -n %{appname}-%{version} -D -T -a 9
+%setup -q -n %{appname}-%{version} -D -T -a 10
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
@@ -124,6 +139,8 @@ cp -arf ./%{ideavim_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ini_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{settings_repository_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{env_files_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
+cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 
 %files
 %{_javadir}/%{appname}/%{plugins_dir}/%{repmapper_name}
@@ -134,8 +151,14 @@ cp -arf ./%{ignore_plugin_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir
 %{_javadir}/%{appname}/%{plugins_dir}/%{ini_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{settings_repository_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ignore_plugin_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{env_files_name}
+%{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-1
+- Added plugin env-files
+- Added plugin JetBrains AI Assistant
+
 * Mon Dec 02 2024 Petr Hracek <phracek@redhat.com> - 2024.3-4
 - Fix changelog
 
