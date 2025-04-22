@@ -70,18 +70,18 @@
 # https://plugins.jetbrains.com/plugin/9525--env-files/versions
 %global env_files_version 251.23774.318
 %global env_files_id 711041
-%global env_files_name env-files
-%global env_files_archive env_files-%{env_files_version}
+%global env_files_name dotenv
+%global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 251.23774.318
-%global ai_assistant_id 711041
-%global ai_assistant_name jetbrains-ai-assistant
-%global ai_assistant_archive ai_assistant-%{at_assistant_version}
+%global ai_assistant_version 251.23774.42.28.2
+%global ai_assistant_id 719604
+%global ai_assistant_name ml-llm
+%global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
 Version:       2025.1
-Release:       3%{?dist}
+Release:       4%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
 License:       Apache-2.0
@@ -155,6 +155,9 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-4
+- Fix the archive typo in env-files and JetBrains AI Assistant
+
 * Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-3
 - Fix typo in env-files definition
 
