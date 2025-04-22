@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2025.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -138,6 +138,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Tue Apr 22 2025 Petr Hracek <phracek@redhat.com>  - 2025.1-2
+- Add plugin env-files
+- Add plugin JetBrains AI Assistant
+- Fix plugins
+
 * Fri Apr 18 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1-1
 - Fix warning about using native launcher.
 - Update to 2025.1.
