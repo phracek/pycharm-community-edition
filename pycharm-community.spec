@@ -20,7 +20,7 @@
 
 Name:          %{appname}-community
 Version:       2025.1
-Release:       4%{?dist}
+Release:       5%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -138,6 +138,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Thu Apr 24 2025 Petr Hracek <phracek@redhat.com> - 2025.1-5
+- Testing PR
+
 * Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-4
 - Fix the archive typo in env-files and JetBrains AI Assistant
 
