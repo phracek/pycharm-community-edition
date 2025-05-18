@@ -19,8 +19,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2025.1
-Release:       4%{?dist}
+Version:       2025.1.1.1
+Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
@@ -138,6 +138,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Mon May 19 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1.1.1-1
+- Update to 2025.1.1.1
+
 * Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-4
 - Fix the archive typo in env-files and JetBrains AI Assistant
 
