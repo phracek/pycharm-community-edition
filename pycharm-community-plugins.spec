@@ -155,7 +155,7 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
-* Mon May 19 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1.1.1-1
+* Mon May 19 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1.1-1
 - Docker from 251.23774.426 to 251.25410.67.
 - IdeaVim from 2.22.0 to 2.24.0.
 - Ini from 251.23774.318 to 251.25410.24.
