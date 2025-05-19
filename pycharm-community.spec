@@ -139,7 +139,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %changelog
 * Mon May 19 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1.1-1
-- Update to 2025.1.1.1
+- Update to 2025.1.1
 
 * Tue Apr 22 2025 Petr Hracek <phracek@redhat.com> - 2025.1-4
 - Fix the archive typo in env-files and JetBrains AI Assistant
