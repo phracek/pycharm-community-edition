@@ -80,7 +80,7 @@
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2025.1.1.1
+Version:       2025.1.1
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
