@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2025.1.1.1
+Version:       2025.1.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
