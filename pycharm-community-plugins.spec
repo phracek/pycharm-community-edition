@@ -38,20 +38,20 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 251.25410.67
-%global docker_integration_id 731335
+%global docker_integration_version 251.26927.70
+%global docker_integration_id 782341
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 2.24.0
-%global ideavim_id 736911
+%global ideavim_version 2.26.0
+%global ideavim_id 789514
 %global ideavim_name IdeaVIM
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 251.25410.24
-%global ini_id 724294
+%global ini_version 251.26927.70
+%global ini_id 782326
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
@@ -74,13 +74,13 @@
 %global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 251.23774.42.28.7
-%global ai_assistant_id 735936
+%global ai_assistant_version 251.26094.80.26
+%global ai_assistant_id 790367
 %global ai_assistant_name ml-llm
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2025.1.1
+Version:       2025.1.3.1
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -155,6 +155,12 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Tue Jul 22 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1.3.1-1
+- Docker from 251.25410.67 to 251.26927.70.
+- IdeaVim from 2.24.0 to 2.26.0.
+- Ini from 251.25410.24 to 251.26927.70.
+- JetBrains AI Assistant from 251.23774.42.28.7 to 251.26094.80.26.
+
 * Mon May 19 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1.1-1
 - Docker from 251.23774.426 to 251.25410.67.
 - IdeaVim from 2.22.0 to 2.24.0.
