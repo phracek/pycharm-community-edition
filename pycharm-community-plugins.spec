@@ -32,14 +32,14 @@
 %global ansible_archive %{ansible_name}-%{ansible_version}
 
 # https://plugins.jetbrains.com/plugin/12552-rpm-spec-file/versions
-%global rpm_spec_file_version 2.2.0
-%global rpm_spec_file_id 373650
+%global rpm_spec_file_version 2.3.0
+%global rpm_spec_file_id 810018
 %global rpm_spec_file_name intellij-rpmspec
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 251.26927.70
-%global docker_integration_id 782341
+%global docker_integration_version 252.23892.419
+%global docker_integration_id 817741
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -50,14 +50,14 @@
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 251.26927.70
-%global ini_id 782326
+%global ini_version 252.23892.419
+%global ini_id 817734
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
 # https://plugins.jetbrains.com/plugin/7566-settings-repository/versions
-%global settings_repository_version 251.25410.28
-%global settings_repository_id 723996
+%global settings_repository_version 252.23892.201
+%global settings_repository_id 796427
 %global settings_repository_name settingsRepository
 %global settings_repository_archive %{settings_repository_name}-%{settings_repository_version}
 
@@ -68,19 +68,19 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/9525--env-files/versions
-%global env_files_version 251.23774.318
-%global env_files_id 711041
+%global env_files_version 252.23892.201
+%global env_files_id 796325
 %global env_files_name dotenv
 %global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 251.26094.80.26
-%global ai_assistant_id 790367
+%global ai_assistant_version 252.23892.419
+%global ai_assistant_id 817742
 %global ai_assistant_name ml-llm
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2025.1.3.1
+Version:       2025.2
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -155,6 +155,14 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Tue Aug 05 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2-1
+- RPM SPEC File from 2.2.0 to 2.3.0.
+- Docker from 251.26927.70 to 252.23892.419.
+- Ini from 251.26927.70 to 252.23892.419.
+- Settings Repository from 251.25410.28 to 252.23892.201.
+- .env files from 251.23774.318 to 252.23892.201.
+- JetBrains AI Assistant from 251.26094.80.26 to 252.23892.419.
+
 * Tue Jul 22 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.1.3.1-1
 - Docker from 251.25410.67 to 251.26927.70.
 - IdeaVim from 2.24.0 to 2.26.0.
