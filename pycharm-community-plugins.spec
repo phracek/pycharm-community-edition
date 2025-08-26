@@ -25,12 +25,6 @@
 %global repmapper_name GitLink
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
-# https://plugins.jetbrains.com/plugin/7792-yaml-ansible-support/versions # The latest support 2022.1.4
-%global ansible_version 0.11.2
-%global ansible_id 100135
-%global ansible_name intellij-ansible
-%global ansible_archive %{ansible_name}-%{ansible_version}
-
 # https://plugins.jetbrains.com/plugin/12552-rpm-spec-file/versions
 %global rpm_spec_file_version 2.3.0
 %global rpm_spec_file_id 810018
@@ -38,20 +32,20 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 252.23892.419
-%global docker_integration_id 817741
+%global docker_integration_version 252.23892.515
+%global docker_integration_id 826726
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 2.26.0
-%global ideavim_id 789514
+%global ideavim_version 2.27.2
+%global ideavim_id 835262
 %global ideavim_name IdeaVIM
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 252.23892.419
-%global ini_id 817734
+%global ini_version 252.23892.449
+%global ini_id 818238
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
@@ -74,13 +68,13 @@
 %global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 252.23892.419
-%global ai_assistant_id 817742
+%global ai_assistant_version 252.23892.530
+%global ai_assistant_id 828516
 %global ai_assistant_name ml-llm
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2025.2
+Version:       2025.2.0.1
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -155,6 +149,13 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Mon Aug 25 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2.0.1-1
+- Docker from 252.23892.419 to 252.23892.515.
+- IdeaVim from 2.26.0 to 2.27.2.
+- Ini from 252.23892.419 to 252.23892.449.
+- JetBrains AI Assistant from 252.23892.419 to 252.23892.530.
+- Remove YAML/Ansible support. Since the last supported PyCharm version is 2022.1.4.
+
 * Tue Aug 05 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2-1
 - RPM SPEC File from 2.2.0 to 2.3.0.
 - Docker from 251.26927.70 to 252.23892.419.
