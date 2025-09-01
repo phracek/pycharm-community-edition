@@ -83,15 +83,14 @@ URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       https://github.com/phracek/pycharm-community-edition/raw/master/copr-workaround.tar.xz
 Source1:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/%{repmapper_archive}.zip#/%{repmapper_name}-%{repmapper_version}.zip
-Source2:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/%{ansible_archive}.zip#/%{ansible_name}-%{ansible_version}.zip
-Source3:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/%{rpm_spec_file_archive}.zip#/%{rpm_spec_file_name}-%{rpm_spec_file_version}.zip
-Source4:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/%{docker_integration_archive}.zip#/%{docker_integration_name}-%{docker_integration_version}.zip
-Source5:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
-Source6:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7566/%{settings_repository_id}/%{settings_repository_archive}.zip#/%{settings_repository_name}-%{settings_repository_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
-Source9:       https://plugins.jetbrains.com/files/9525/%{env_files_id}/%{env_files_archive}.zip#/%{env_files_name}-%{env_files_version}.zip
-Source10:       https://plugins.jetbrains.com/files/22282/%{ai_assistant_id}/%{ai_assistant_archive}.zip#/%{ai_assistant_name}-%{ai_assistant_version}.zip
+Source2:       https://plugins.jetbrains.com/files/12552/%{rpm_spec_file_id}/%{rpm_spec_file_archive}.zip#/%{rpm_spec_file_name}-%{rpm_spec_file_version}.zip
+Source3:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/%{docker_integration_archive}.zip#/%{docker_integration_name}-%{docker_integration_version}.zip
+Source4:       https://plugins.jetbrains.com/files/164/%{ideavim_id}/%{ideavim_archive}.zip#/%{ideavim_name}-%{ideavim_version}.zip
+Source5:       https://plugins.jetbrains.com/files/6981/%{ini_id}/%{ini_archive}.zip#/%{ini_name}-%{ini_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7566/%{settings_repository_id}/%{settings_repository_archive}.zip#/%{settings_repository_name}-%{settings_repository_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/%{ignore_plugin_archive}.zip#/%{ignore_plugin_name}-%{ignore_plugin_version}.zip
+Source8:       https://plugins.jetbrains.com/files/9525/%{env_files_id}/%{env_files_archive}.zip#/%{env_files_name}-%{env_files_version}.zip
+Source9:       https://plugins.jetbrains.com/files/22282/%{ai_assistant_id}/%{ai_assistant_archive}.zip#/%{ai_assistant_name}-%{ai_assistant_version}.zip
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
 BuildRequires: javapackages-tools
@@ -119,14 +118,12 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 %setup -q -n %{appname}-%{version} -D -T -a 7
 %setup -q -n %{appname}-%{version} -D -T -a 8
 %setup -q -n %{appname}-%{version} -D -T -a 9
-%setup -q -n %{appname}-%{version} -D -T -a 10
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./%{repmapper_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
-cp -arf ./%{ansible_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{rpm_spec_file_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{docker_integration_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
 cp -arf ./%{ideavim_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}/
@@ -138,7 +135,6 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 
 %files
 %{_javadir}/%{appname}/%{plugins_dir}/%{repmapper_name}
-%{_javadir}/%{appname}/%{plugins_dir}/%{ansible_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{rpm_spec_file_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{docker_integration_name}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ideavim_name}
