@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_javadir}/%{appname}/%{plugins_dir}/.*
 
 # https://plugins.jetbrains.com/plugin/8183-gitlink/versions
-%global repmapper_version 4.5.2
-%global repmapper_id 599893
+%global repmapper_version 4.5.3
+%global repmapper_id 839423
 %global repmapper_name GitLink
 %global repmapper_archive %{repmapper_name}-%{repmapper_version}
 
@@ -32,8 +32,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 252.23892.515
-%global docker_integration_id 826726
+%global docker_integration_version 252.26830.99
+%global docker_integration_id 871939
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -44,8 +44,8 @@
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 252.23892.449
-%global ini_id 818238
+%global ini_version 252.26830.99
+%global ini_id 871946
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
@@ -68,8 +68,8 @@
 %global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 252.23892.530
-%global ai_assistant_id 828516
+%global ai_assistant_version 252.26830.99
+%global ai_assistant_id 871937
 %global ai_assistant_name ml-llm
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
@@ -145,6 +145,12 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Fri Oct 03 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2.3-1
+- GitLink from 4.5.2 to 4.5.3.
+- Docker from 252.23892.515 to 252.26830.99.
+- Ini from 252.23892.449 to 252.26830.99.
+- JetBrains AI Assistant from 252.23892.530 to 252.26830.99.
+
 * Mon Aug 25 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2.0.1-1
 - Docker from 252.23892.419 to 252.23892.515.
 - IdeaVim from 2.26.0 to 2.27.2.
