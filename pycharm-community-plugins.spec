@@ -74,7 +74,7 @@
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2025.2.0.1
+Version:       2025.2.3
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
