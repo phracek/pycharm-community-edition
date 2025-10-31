@@ -32,8 +32,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 252.26830.99
-%global docker_integration_id 871939
+%global docker_integration_version 252.27397.129
+%global docker_integration_id 884806
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -44,8 +44,8 @@
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
 # https://plugins.jetbrains.com/plugin/6981-ini/versions
-%global ini_version 252.26830.99
-%global ini_id 871946
+%global ini_version 252.27397.129
+%global ini_id 884814
 %global ini_name ini
 %global ini_archive %{ini_name}-%{ini_version}
 
@@ -68,13 +68,13 @@
 %global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 252.26830.99
-%global ai_assistant_id 871937
+%global ai_assistant_version 252.27397.130
+%global ai_assistant_id 884745
 %global ai_assistant_name ml-llm
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2025.2.3
+Version:       2025.2.4
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -145,6 +145,11 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Fri Oct 31 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2.4-1
+- Docker from 252.26830.99 to 252.27397.129.
+- Ini from 252.26830.99 to 252.27397.129.
+- JetBrains AI Assistant from 252.26830.99 to 252.27397.130.
+
 * Fri Oct 03 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2.3-1
 - GitLink from 4.5.2 to 4.5.3.
 - Docker from 252.23892.515 to 252.26830.99.
