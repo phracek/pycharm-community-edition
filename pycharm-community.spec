@@ -19,14 +19,15 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          %{appname}-community
-Version:       2025.2.4
+Version:       2025.3.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
 
-Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
+Source0:       https://github.com/JetBrains/intellij-community/releases/download/%{appname}%2F%{version}/%{appname}-%{version}.tar.gz
+Source1:       https://github.com/JetBrains/intellij-community/releases/download/%{appname}%2F%{version}/%{appname}-%{version}-aarch64.tar.gz
 
 Source101:     %{name}.xml
 Source102:     %{name}.desktop
@@ -64,7 +65,11 @@ Requires:      %{name} = %{?epoch:%{epoch}:}%{version}-%{release}
 This package contains documentation for the Intelligent Python IDE.
 
 %prep
-%autosetup
+%ifarch aarch64
+%setup -q -T -b 1 -n %{name}-%{version}
+%else
+%setup -q -T -b 0 -n %{name}-%{version}
+%endif
 
 # Removing trialware plugins...
 rm -rf plugins/{cwm-plugin,cwm-plugin-projector,marketplace,space}
@@ -138,6 +143,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc Install-Linux-tar.txt
 
 %changelog
+* Sat Dec 20 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.3.1-1
+- Update to 2025.3.1
+- Update URL of source tarball
+- Add native source tarball for aarch64
+
 * Fri Oct 31 2025 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2025.2.4-1
 - Update to 2025.2.4
 
