@@ -32,8 +32,8 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 262.10315.77
-%global docker_integration_id 1153862
+%global docker_integration_version 262.10968.76
+%global docker_integration_id 1173342
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
@@ -62,19 +62,19 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/9525--env-files/versions
-%global env_files_version 262.10315.174
-%global env_files_id 1163892
+%global env_files_version 262.10968.117
+%global env_files_id 1176999
 %global env_files_name dotenv
 %global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 262.10315.174
-%global ai_assistant_id 1163886
+%global ai_assistant_version 262.10968.97
+%global ai_assistant_id 1174802
 %global ai_assistant_name ml-llm
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2026.2.2
+Version:       2026.2.3
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -145,6 +145,11 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Tue Sep 22 2026 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2026.2.3-1
+- Docker from 262.10315.77 to 262.10968.76.
+- .env files from 262.10315.174 to 262.10968.117.
+- JetBrains AI Assistant from 262.10315.174 to 262.10968.97.
+
 * Tue Sep 08 2026 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2026.2.2-1
 - GitLink from 4.5.4 to 5.0.1.
 - Docker from 262.8665.185 to 262.10315.77.
