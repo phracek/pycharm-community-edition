@@ -32,14 +32,14 @@
 %global rpm_spec_file_archive %{rpm_spec_file_name}-%{rpm_spec_file_version}
 
 # https://plugins.jetbrains.com/plugin/7724-docker/versions
-%global docker_integration_version 263.7307.117
-%global docker_integration_id 1207597
+%global docker_integration_version 263.7307.215
+%global docker_integration_id 1212990
 %global docker_integration_name clouds-docker-impl
 %global docker_integration_archive %{docker_integration_name}-%{docker_integration_version}
 
 # https://plugins.jetbrains.com/plugin/164-ideavim/versions
-%global ideavim_version 2.48.1
-%global ideavim_id 1207489
+%global ideavim_version 2.49.0
+%global ideavim_id 1223422
 %global ideavim_name IdeaVIM
 %global ideavim_archive %{ideavim_name}-%{ideavim_version}
 
@@ -62,19 +62,19 @@
 %global ignore_plugin_archive ignore-%{ignore_plugin_version}
 
 # https://plugins.jetbrains.com/plugin/9525--env-files/versions
-%global env_files_version 263.7307.209
-%global env_files_id 1212895
+%global env_files_version 263.7307.329
+%global env_files_id 1224217
 %global env_files_name dotenv
 %global env_files_archive %{env_files_name}-%{env_files_version}
 
 # https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant/versions
-%global ai_assistant_version 263.7307.206
-%global ai_assistant_id 1212883
+%global ai_assistant_version 263.7307.328
+%global ai_assistant_id 1223801
 %global ai_assistant_name ml-llm
 %global ai_assistant_archive %{ai_assistant_name}-%{ai_assistant_version}
 
 Name:          %{appname}-plugins
-Version:       2026.3
+Version:       2026.3.0.1
 Release:       1%{?dist}
 
 Summary:       Plugins for intelligent Python IDE
@@ -145,6 +145,12 @@ cp -arf ./%{ai_assistant_name} %{buildroot}%{_javadir}/%{appname}/%{plugins_dir}
 %{_javadir}/%{appname}/%{plugins_dir}/%{ai_assistant_name}
 
 %changelog
+* Thu Nov 19 2026 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2026.3.0.1-1
+- Docker from 263.7307.117 to 263.7307.215.
+- IdeaVim from 2.48.1 to 2.49.0.
+- .env files from 263.7307.209 to 263.7307.329.
+- JetBrains AI Assistant from 263.7307.206 to 263.7307.328.
+
 * Thu Nov 5 2026 Elkhan Mammadli <elkhan.mammadli@protonmail.com> - 2026.3-1
 - GitLink from 5.0.1 to 5.0.2.
 - Docker from 262.10968.76 to 263.7307.117.
